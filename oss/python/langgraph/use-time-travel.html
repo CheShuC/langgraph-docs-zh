@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>使用时间旅行 · LangGraph 中文文档镜像</title>
+<meta name="description" content="使用时间旅行">
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    <a class="brand" href="../../../index.html">LangGraph 文档 <span class="chip">中文翻译</span></a>
+    <input class="search" id="searchInput" type="search" placeholder="搜索文档…" autocomplete="off">
+    <a class="original" href="https://docs.langchain.com/oss/python/langgraph/use-time-travel" target="_blank" rel="noopener">查看原文 ↗</a>
+  </header>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner"><div class="nav-section"><h2 class="nav-section-title">文档</h2><nav class="nav-items"><details class="nav-group" open><summary>LangGraph 文档</summary><nav class="nav-items"><a class="nav-link" href="add-memory.html" data-title="记忆">记忆</a><a class="nav-link" href="agentic-rag.html" data-title="使用 LangGraph 构建自定义 RAG 智能体">使用 LangGraph 构建自定义 RAG 智能体</a><a class="nav-link" href="application-structure.html" data-title="应用结构">应用结构</a><a class="nav-link" href="backward-compatibility.html" data-title="向后兼容性">向后兼容性</a><a class="nav-link" href="case-studies.html" data-title="案例研究">案例研究</a><a class="nav-link" href="checkpointers.html" data-title="检查点存储">检查点存储</a><a class="nav-link" href="choosing-apis.html" data-title="选择 Graph API 还是 Functional API">选择 Graph API 还是 Functional API</a><a class="nav-link" href="deploy.html" data-title="部署">部署</a><a class="nav-link" href="errors/GRAPH_RECURSION_LIMIT.html" data-title="GRAPH_RECURSION_LIMIT">GRAPH_RECURSION_LIMIT</a><a class="nav-link" href="errors/INVALID_CHAT_HISTORY.html" data-title="INVALID_CHAT_HISTORY">INVALID_CHAT_HISTORY</a><a class="nav-link" href="errors/INVALID_CONCURRENT_GRAPH_UPDATE.html" data-title="INVALID_CONCURRENT_GRAPH_UPDATE">INVALID_CONCURRENT_GRAPH_UPDATE</a><a class="nav-link" href="errors/INVALID_GRAPH_NODE_RETURN_VALUE.html" data-title="INVALID_GRAPH_NODE_RETURN_VALUE">INVALID_GRAPH_NODE_RETURN_VALUE</a><a class="nav-link" href="errors/MISSING_CHECKPOINTER.html" data-title="MISSING_CHECKPOINTER">MISSING_CHECKPOINTER</a><a class="nav-link" href="errors/MULTIPLE_SUBGRAPHS.html" data-title="MULTIPLE_SUBGRAPHS">MULTIPLE_SUBGRAPHS</a><a class="nav-link" href="event-streaming.html" data-title="事件流式处理">事件流式处理</a><a class="nav-link" href="fault-tolerance.html" data-title="容错">容错</a><a class="nav-link" href="frontend/custom-stream-channels.html" data-title="自定义流通道">自定义流通道</a><a class="nav-link" href="frontend/graph-execution.html" data-title="图执行">图执行</a><a class="nav-link" href="frontend/overview.html" data-title="概述">概述</a><a class="nav-link" href="functional-api.html" data-title="Functional API 概览">Functional API 概览</a><a class="nav-link" href="graph-api.html" data-title="Graph API 概览">Graph API 概览</a><a class="nav-link" href="install.html" data-title="安装 LangGraph">安装 LangGraph</a><a class="nav-link" href="interrupts.html" data-title="中断">中断</a><a class="nav-link" href="local-server.html" data-title="运行本地服务器">运行本地服务器</a><a class="nav-link" href="observability.html" data-title="LangSmith 可观测性">LangSmith 可观测性</a><a class="nav-link" href="overview.html" data-title="LangGraph 概述">LangGraph 概述</a><a class="nav-link" href="persistence.html" data-title="持久化">持久化</a><a class="nav-link" href="pregel.html" data-title="LangGraph 运行时">LangGraph 运行时</a><a class="nav-link" href="quickstart.html" data-title="快速入门">快速入门</a><a class="nav-link" href="sql-agent.html" data-title="构建自定义 SQL 智能体">构建自定义 SQL 智能体</a><a class="nav-link" href="stores.html" data-title="存储">存储</a><a class="nav-link" href="streaming.html" data-title="流式处理">流式处理</a><a class="nav-link" href="studio.html" data-title="LangSmith Studio">LangSmith Studio</a><a class="nav-link" href="test.html" data-title="测试">测试</a><a class="nav-link" href="thinking-in-langgraph.html" data-title="LangGraph 思维方式">LangGraph 思维方式</a><a class="nav-link" href="ui.html" data-title="Agent Chat UI">Agent Chat UI</a><a class="nav-link" href="use-functional-api.html" data-title="使用函数式 API">使用函数式 API</a><a class="nav-link" href="use-graph-api.html" data-title="使用图 API">使用图 API</a><a class="nav-link" href="use-subgraphs.html" data-title="子图">子图</a><a class="nav-link active" href="use-time-travel.html" data-title="使用时间旅行">使用时间旅行</a><a class="nav-link" href="workflows-agents.html" data-title="工作流和智能体">工作流和智能体</a></nav></details></nav></div><div class="nav-section"><h2 class="nav-section-title">发布日志</h2><nav class="nav-items"><details class="nav-group"><summary>发布日志</summary><nav class="nav-items"><a class="nav-link" href="changelog-js.html" data-title="变更日志">变更日志</a><a class="nav-link" href="changelog-py.html" data-title="变更日志">变更日志</a></nav></details></nav></div></div>
+  </aside>
+  <div class="content">
+    <main class="doc"><h1 id="使用时间旅行">使用时间旅行</h1>
+
+<blockquote>
+<p>重放过去的执行并分叉，以探索 LangGraph 中的替代路径</p>
+</blockquote>
+<h2 id="概述">概述</h2>
+
+<p>LangGraph 通过<a href="checkpointers.html#checkpoints">检查点</a>支持时间旅行：</p>
+<ul>
+<li><strong><a href="#replay">重放</a></strong>：从先前的检查点重试。</li>
+<li><strong><a href="#fork">分叉</a></strong>：从先前的检查点以修改后的状态分支，以探索替代路径。</li>
+</ul>
+<p>两者都是通过从先前检查点恢复来实现的。检查点之前的节点不会重新执行（结果已经保存）。检查点之后的节点会重新执行，包括任何 LLM 调用、API 请求和<a href="interrupts.html">中断</a>（这些可能会产生不同的结果）。</p>
+<h2 id="重放">重放</h2>
+
+<p>使用先前检查点的 config 调用图，即可从该点开始重放。</p>
+<div class="callout warning">
+<p>重放会重新执行节点——它不只是从缓存中读取。LLM 调用、API 请求和<a href="interrupts.html">中断</a>会再次触发，并可能返回不同的结果。从最终检查点（没有 <code>next</code> 节点）重放是一个空操作。</p>
+</div>
+<p><img src="https://mintcdn.com/langchain-5e9cc07a/dL5Sn6Cmy9pwtY0V/oss/images/re_play.png?fit=max&auto=format&n=dL5Sn6Cmy9pwtY0V&q=85&s=d7b34b85c106e55d181ae1f4afb50251" alt="Replay" width="2276" height="986" data-path="oss/images/re_play.png" /></p>
+<p>使用 <a href="https://reference.langchain.com/python/langgraph/graphs/#langgraph.graph.state.CompiledStateGraph.get_state_history"><code>get_state_history</code></a> 找到您想要重放的检查点，然后使用该检查点的 config 调用 <a href="https://reference.langchain.com/python/langgraph/graphs/#langgraph.graph.state.CompiledStateGraph.invoke"><code>invoke</code></a>：</p>
+<pre class="code"><code class="language-python">from langgraph.graph import StateGraph, START
+from langgraph.checkpoint.memory import InMemorySaver
+from typing_extensions import TypedDict, NotRequired
+from langchain_core.utils.uuid import uuid7
+
+class State(TypedDict):
+    topic: NotRequired[str]
+    joke: NotRequired[str]
+
+
+def generate_topic(state: State):
+    return {"topic": "socks in the dryer"}
+
+
+def write_joke(state: State):
+    return {"joke": f"Why do {state['topic']} disappear? They elope!"}
+
+
+checkpointer = InMemorySaver()
+graph = (
+    StateGraph(State)
+    .add_node("generate_topic", generate_topic)
+    .add_node("write_joke", write_joke)
+    .add_edge(START, "generate_topic")
+    .add_edge("generate_topic", "write_joke")
+    .compile(checkpointer=checkpointer)
+)
+
+# Step 1: Run the graph
+config = {"configurable": {"thread_id": str(uuid7())}}
+result = graph.invoke({}, config)
+
+# Step 2: Find a checkpoint to replay from
+history = list(graph.get_state_history(config))
+# History is in reverse chronological order
+for state in history:
+    print(f"next={state.next}, checkpoint_id={state.config['configurable']['checkpoint_id']}")
+
+# Step 3: Replay from a specific checkpoint
+# Find the checkpoint before write_joke
+before_joke = next(s for s in history if s.next == ("write_joke",))
+replay_result = graph.invoke(None, before_joke.config)
+# write_joke re-executes (runs again), generate_topic does not</code></pre>
+<h2 id="分叉">分叉</h2>
+
+<p>分叉（Fork）从过去某个检查点创建带有修改后状态的新分支。在先前检查点上调用 <a href="https://reference.langchain.com/python/langgraph/graphs/#langgraph.graph.state.CompiledStateGraph.update_state"><code>update_state</code></a> 来创建分叉，然后使用 <code>None</code> 调用 <a href="https://reference.langchain.com/python/langgraph/graphs/#langgraph.graph.state.CompiledStateGraph.invoke"><code>invoke</code></a> 以继续执行。</p>
+<p><img src="https://mintcdn.com/langchain-5e9cc07a/-_xGPoyjhyiDWTPJ/oss/images/checkpoints_full_story.jpg?fit=max&auto=format&n=-_xGPoyjhyiDWTPJ&q=85&s=a52016b2c44b57bd395d6e1eac47aa36" alt="Fork" width="3705" height="2598" data-path="oss/images/checkpoints_full_story.jpg" /></p>
+<div class="callout warning">
+<p><code>update_state</code> <strong>不会</strong>回滚线程。它会创建一个从指定点分支的新检查点。原始执行历史保持不变。</p>
+</div>
+<pre class="code"><code class="language-python"># Find checkpoint before write_joke
+history = list(graph.get_state_history(config))
+before_joke = next(s for s in history if s.next == ("write_joke",))
+
+# Fork: update state to change the topic
+fork_config = graph.update_state(
+    before_joke.config,
+    values={"topic": "chickens"},
+)
+
+# Resume from the fork — write_joke re-executes with the new topic
+fork_result = graph.invoke(None, fork_config)
+print(fork_result["joke"])  # A joke about chickens, not socks</code></pre>
+<h3 id="从特定节点开始">从特定节点开始</h3>
+
+<p>当您调用 <a href="https://reference.langchain.com/python/langgraph/graphs/#langgraph.graph.state.CompiledStateGraph.update_state"><code>update_state</code></a> 时，值会使用指定节点的写入器（包括<a href="graph-api.html#reducers">规约器</a>）来应用。检查点会记录该节点产生了这次更新，执行将从该节点的后继节点继续。</p>
+<p>默认情况下，LangGraph 会从检查点的版本历史中推断 <code>as_node</code>。当从特定检查点分叉时，这种推断几乎总是正确的。</p>
+<p>在以下情况下请显式指定 <code>as_node</code>：</p>
+<ul>
+<li><strong>并行分支</strong>：多个节点在同一步骤中更新了状态，LangGraph 无法确定哪个是最后一个（<code>InvalidUpdateError</code>）。</li>
+<li><strong>没有执行历史</strong>：在全新线程上设置状态（在<a href="test.html">测试</a>中很常见）。</li>
+<li><strong>跳过节点</strong>：将 <code>as_node</code> 设置为一个更靠后的节点，使图认为该节点已经运行过。</li>
+</ul>
+<pre class="code"><code class="language-python"># graph: generate_topic -&gt; write_joke
+
+# Treat this update as if generate_topic produced it.
+# Execution resumes at write_joke (the successor of generate_topic).
+fork_config = graph.update_state(
+    before_joke.config,
+    values={"topic": "chickens"},
+    as_node="generate_topic",
+)</code></pre>
+<h2 id="中断">中断</h2>
+
+<p>如果您的图使用 <a href="https://reference.langchain.com/python/langgraph/types/interrupt"><code>interrupt</code></a> 进行<a href="interrupts.html">人机协同</a>工作流，那么在时间旅行期间中断总是会重新触发。包含中断的节点会重新执行，<code>interrupt()</code> 会暂停并等待新的 <code>Command(resume=...)</code>。</p>
+<pre class="code"><code class="language-python">from langgraph.types import interrupt, Command
+
+class State(TypedDict):
+    value: list[str]
+
+def ask_human(state: State):
+    answer = interrupt("What is your name?")
+    return {"value": [f"Hello, {answer}!"]}
+
+def final_step(state: State):
+    return {"value": ["Done"]}
+
+graph = (
+    StateGraph(State)
+    .add_node("ask_human", ask_human)
+    .add_node("final_step", final_step)
+    .add_edge(START, "ask_human")
+    .add_edge("ask_human", "final_step")
+    .compile(checkpointer=InMemorySaver())
+)
+
+config = {"configurable": {"thread_id": "1"}}
+
+# First run: hits interrupt
+graph.invoke({"value": []}, config)
+# Resume with answer
+graph.invoke(Command(resume="Alice"), config)
+
+# Replay from before ask_human
+history = list(graph.get_state_history(config))
+before_ask = [s for s in history if s.next == ("ask_human",)][-1]
+
+replay_result = graph.invoke(None, before_ask.config)
+# Pauses at interrupt — waiting for new Command(resume=...)
+
+# Fork from before ask_human
+fork_config = graph.update_state(before_ask.config, {"value": ["forked"]})
+fork_result = graph.invoke(None, fork_config)
+# Pauses at interrupt — waiting for new Command(resume=...)
+
+# Resume the forked interrupt with a different answer
+graph.invoke(Command(resume="Bob"), fork_config)
+# Result: {"value": ["forked", "Hello, Bob!", "Done"]}</code></pre>
+<h3 id="多个中断">多个中断</h3>
+
+<p>如果您的图在多个位置收集输入（例如，多步骤表单），您可以从两次中断之间分叉，以更改后面的答案，而无需重新回答之前的问题。</p>
+<pre class="code"><code class="language-python">def ask_name(state):
+    name = interrupt("What is your name?")
+    return {"value": [f"name:{name}"]}
+
+def ask_age(state):
+    age = interrupt("How old are you?")
+    return {"value": [f"age:{age}"]}
+
+# Graph: ask_name -&gt; ask_age -&gt; final
+# After completing both interrupts:
+
+# Fork from BETWEEN the two interrupts (after ask_name, before ask_age)
+history = list(graph.get_state_history(config))
+between = [s for s in history if s.next == ("ask_age",)][-1]
+
+fork_config = graph.update_state(between.config, {"value": ["modified"]})
+result = graph.invoke(None, fork_config)
+# ask_name result preserved ("name:Alice")
+# ask_age pauses at interrupt — waiting for new answer</code></pre>
+<h2 id="子图">子图</h2>
+
+<p>使用<a href="use-subgraphs.html">子图</a>进行时间旅行取决于子图是否拥有自己的检查点器。这决定了您可以进行时间旅行的检查点粒度。</p>
+<div class="tabs">
+<section class="tab-item"><h3 class="tab-title">继承的检查点器（默认）</h3><p>默认情况下，子图继承父图的检查点器。父图将整个子图视为一个<strong>单一的超级步骤</strong>——整个子图执行只有一个父级检查点。从子图之前进行时间旅行会从头重新执行它。</p>
+<p>您无法在默认子图的<em>节点之间</em>进行时间旅行——您只能从父级进行时间旅行。</p>
+<pre class="code"><code class="language-python"># Subgraph without its own checkpointer (default)
+subgraph = (
+    StateGraph(State)
+    .add_node("step_a", step_a)       # Has interrupt()
+    .add_node("step_b", step_b)       # Has interrupt()
+    .add_edge(START, "step_a")
+    .add_edge("step_a", "step_b")
+    .compile()  # No checkpointer — inherits from parent
+)
+
+graph = (
+    StateGraph(State)
+    .add_node("subgraph_node", subgraph)
+    .add_edge(START, "subgraph_node")
+    .compile(checkpointer=InMemorySaver())
+)
+
+config = {"configurable": {"thread_id": "1"}}
+
+# Complete both interrupts
+graph.invoke({"value": []}, config)            # Hits step_a interrupt
+graph.invoke(Command(resume="Alice"), config)  # Hits step_b interrupt
+graph.invoke(Command(resume="30"), config)     # Completes
+
+# Time travel from before the subgraph
+history = list(graph.get_state_history(config))
+before_sub = [s for s in history if s.next == ("subgraph_node",)][-1]
+
+fork_config = graph.update_state(before_sub.config, {"value": ["forked"]})
+result = graph.invoke(None, fork_config)
+# The entire subgraph re-executes from scratch
+# You cannot time travel to a point between step_a and step_b</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">子图检查点器</h3><p>在子图上设置 <code>checkpointer=True</code>，为其提供自己的检查点历史。这会在子图<strong>内部</strong>的每个步骤创建检查点，使您可以从其中的特定点（例如，两次中断之间）进行时间旅行。</p>
+<p>使用带有 <code>subgraphs=True</code> 的 <a href="https://reference.langchain.com/python/langgraph/graphs/#langgraph.graph.state.CompiledStateGraph.get_state"><code>get_state</code></a> 访问子图自己的检查点 config，然后从中分叉：</p>
+<pre class="code"><code class="language-python"># Subgraph with its own checkpointer
+subgraph = (
+    StateGraph(State)
+    .add_node("step_a", step_a)       # Has interrupt()
+    .add_node("step_b", step_b)       # Has interrupt()
+    .add_edge(START, "step_a")
+    .add_edge("step_a", "step_b")
+    .compile(checkpointer=True)  # Own checkpoint history
+)
+
+graph = (
+    StateGraph(State)
+    .add_node("subgraph_node", subgraph)
+    .add_edge(START, "subgraph_node")
+    .compile(checkpointer=InMemorySaver())
+)
+
+config = {"configurable": {"thread_id": "1"}}
+
+# Run until step_a interrupt
+graph.invoke({"value": []}, config)
+
+# Resume step_a -&gt; hits step_b interrupt
+graph.invoke(Command(resume="Alice"), config)
+
+# Get the subgraph's own checkpoint (between step_a and step_b)
+parent_state = graph.get_state(config, subgraphs=True)
+sub_config = parent_state.tasks[0].state.config
+
+# Fork from the subgraph checkpoint
+fork_config = graph.update_state(sub_config, {"value": ["forked"]})
+result = graph.invoke(None, fork_config)
+# step_b re-executes, step_a's result is preserved</code></pre></section>
+</div>
+
+<p>有关配置子图检查点器的更多信息，请参阅<a href="use-subgraphs.html#subgraph-persistence">子图持久化</a>。</p>
+<hr />
+<div classname="source-links">
+<div class="callout note">
+<p><a href="https://docs.langchain.com/use-these-docs">Connect these docs</a> to Claude, VSCode, and more via MCP for real-time answers.</p>
+</div>
+<div class="callout note">
+<p><a href="https://github.com/langchain-ai/docs/edit/main/src/oss/langgraph/use-time-travel.mdx">Edit this page on GitHub</a> or <a href="https://github.com/langchain-ai/docs/issues/new/choose">file an issue</a>.</p>
+</div>
+</div></main>
+    <nav class="pager"><a class="pager-btn prev" href="oss/python/langgraph/use-subgraphs.html">← 子图</a><a class="pager-btn next" href="oss/python/langgraph/workflows-agents.html">工作流和智能体 →</a></nav>
+    <footer class="footer">
+      <span>LangGraph 中文文档镜像——按 <a href="https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture" target="_blank" rel="noopener">官方站点（docs.langchain.com）</a></span>
+      <span class="pages">全部页面： <a href="../../../index.html">首页</a> · <a href="../../../all-in-one.html">单页版</a></span>
+    </footer>
+  </div>
+</div>
+<script src="../../../assets/site.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/common.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
+</body>
+</html>
