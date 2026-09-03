@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>选择 Graph API 还是 Functional API · LangGraph 中文文档镜像</title>
+<meta name="description" content="选择 Graph API 还是 Functional API">
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    <a class="brand" href="../../../index.html">LangGraph 文档 <span class="chip">中文翻译</span></a>
+    <input class="search" id="searchInput" type="search" placeholder="搜索文档…" autocomplete="off">
+    <a class="original" href="https://docs.langchain.com/oss/python/langgraph/choosing-apis" target="_blank" rel="noopener">查看原文 ↗</a>
+  </header>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner"><div class="nav-section"><h2 class="nav-section-title">文档</h2><nav class="nav-items"><details class="nav-group" open><summary>LangGraph 文档</summary><nav class="nav-items"><a class="nav-link" href="add-memory.html" data-title="记忆">记忆</a><a class="nav-link" href="agentic-rag.html" data-title="使用 LangGraph 构建自定义 RAG 智能体">使用 LangGraph 构建自定义 RAG 智能体</a><a class="nav-link" href="application-structure.html" data-title="应用结构">应用结构</a><a class="nav-link" href="backward-compatibility.html" data-title="向后兼容性">向后兼容性</a><a class="nav-link" href="case-studies.html" data-title="案例研究">案例研究</a><a class="nav-link" href="checkpointers.html" data-title="检查点存储">检查点存储</a><a class="nav-link active" href="choosing-apis.html" data-title="选择 Graph API 还是 Functional API">选择 Graph API 还是 Functional API</a><a class="nav-link" href="deploy.html" data-title="部署">部署</a><a class="nav-link" href="errors/GRAPH_RECURSION_LIMIT.html" data-title="GRAPH_RECURSION_LIMIT">GRAPH_RECURSION_LIMIT</a><a class="nav-link" href="errors/INVALID_CHAT_HISTORY.html" data-title="INVALID_CHAT_HISTORY">INVALID_CHAT_HISTORY</a><a class="nav-link" href="errors/INVALID_CONCURRENT_GRAPH_UPDATE.html" data-title="INVALID_CONCURRENT_GRAPH_UPDATE">INVALID_CONCURRENT_GRAPH_UPDATE</a><a class="nav-link" href="errors/INVALID_GRAPH_NODE_RETURN_VALUE.html" data-title="INVALID_GRAPH_NODE_RETURN_VALUE">INVALID_GRAPH_NODE_RETURN_VALUE</a><a class="nav-link" href="errors/MISSING_CHECKPOINTER.html" data-title="MISSING_CHECKPOINTER">MISSING_CHECKPOINTER</a><a class="nav-link" href="errors/MULTIPLE_SUBGRAPHS.html" data-title="MULTIPLE_SUBGRAPHS">MULTIPLE_SUBGRAPHS</a><a class="nav-link" href="event-streaming.html" data-title="事件流式处理">事件流式处理</a><a class="nav-link" href="fault-tolerance.html" data-title="容错">容错</a><a class="nav-link" href="frontend/custom-stream-channels.html" data-title="自定义流通道">自定义流通道</a><a class="nav-link" href="frontend/graph-execution.html" data-title="图执行">图执行</a><a class="nav-link" href="frontend/overview.html" data-title="概述">概述</a><a class="nav-link" href="functional-api.html" data-title="Functional API 概览">Functional API 概览</a><a class="nav-link" href="graph-api.html" data-title="Graph API 概览">Graph API 概览</a><a class="nav-link" href="install.html" data-title="安装 LangGraph">安装 LangGraph</a><a class="nav-link" href="interrupts.html" data-title="中断">中断</a><a class="nav-link" href="local-server.html" data-title="运行本地服务器">运行本地服务器</a><a class="nav-link" href="observability.html" data-title="LangSmith 可观测性">LangSmith 可观测性</a><a class="nav-link" href="overview.html" data-title="LangGraph 概述">LangGraph 概述</a><a class="nav-link" href="persistence.html" data-title="持久化">持久化</a><a class="nav-link" href="pregel.html" data-title="LangGraph 运行时">LangGraph 运行时</a><a class="nav-link" href="quickstart.html" data-title="快速入门">快速入门</a><a class="nav-link" href="sql-agent.html" data-title="构建自定义 SQL 智能体">构建自定义 SQL 智能体</a><a class="nav-link" href="stores.html" data-title="存储">存储</a><a class="nav-link" href="streaming.html" data-title="流式处理">流式处理</a><a class="nav-link" href="studio.html" data-title="LangSmith Studio">LangSmith Studio</a><a class="nav-link" href="test.html" data-title="测试">测试</a><a class="nav-link" href="thinking-in-langgraph.html" data-title="LangGraph 思维方式">LangGraph 思维方式</a><a class="nav-link" href="ui.html" data-title="Agent Chat UI">Agent Chat UI</a><a class="nav-link" href="use-functional-api.html" data-title="使用函数式 API">使用函数式 API</a><a class="nav-link" href="use-graph-api.html" data-title="使用图 API">使用图 API</a><a class="nav-link" href="use-subgraphs.html" data-title="子图">子图</a><a class="nav-link" href="use-time-travel.html" data-title="使用时间旅行">使用时间旅行</a><a class="nav-link" href="workflows-agents.html" data-title="工作流和智能体">工作流和智能体</a></nav></details></nav></div><div class="nav-section"><h2 class="nav-section-title">发布日志</h2><nav class="nav-items"><details class="nav-group"><summary>发布日志</summary><nav class="nav-items"><a class="nav-link" href="changelog-js.html" data-title="变更日志">变更日志</a><a class="nav-link" href="changelog-py.html" data-title="变更日志">变更日志</a></nav></details></nav></div></div>
+  </aside>
+  <div class="content">
+    <main class="doc"><h1 id="选择-graph-api-还是-functional-api">选择 Graph API 还是 Functional API</h1>
+
+<p>LangGraph 提供两种不同的 API 来构建智能体工作流：<strong>Graph API</strong> 和 <strong>Functional API</strong>。这两种 API 共享相同的底层运行时，可以在同一个应用程序中一起使用，但它们是为不同的使用场景和开发偏好而设计的。</p>
+<p>本指南将帮助你根据具体需求了解何时使用每种 API。</p>
+<h2 id="快速决策指南">快速决策指南</h2>
+
+<p>当你需要以下能力时，使用 <strong>Graph API</strong>：</p>
+<ul>
+<li><strong>复杂工作流可视化</strong>，用于调试和文档</li>
+<li><strong>显式状态管理</strong>，在多个节点之间共享数据</li>
+<li><strong>条件分支</strong>，包含多个决策点</li>
+<li><strong>并行执行路径</strong>，之后需要合并</li>
+<li><strong>团队协作</strong>，可视化表示有助于理解</li>
+</ul>
+<p>当你想要以下特性时，使用 <strong>Functional API</strong>：</p>
+<ul>
+<li><strong>对现有过程式代码改动最小</strong></li>
+<li><strong>标准控制流</strong>（if/else、循环、函数调用）</li>
+<li><strong>函数作用域状态</strong>，不需要显式状态管理</li>
+<li><strong>快速原型开发</strong>，样板代码更少</li>
+<li><strong>线性工作流</strong>，分支逻辑简单</li>
+</ul>
+<h2 id="详细比较">详细比较</h2>
+
+<h3 id="何时使用-graph-api">何时使用 Graph API</h3>
+
+<p><a href="graph-api.html">Graph API</a> 采用声明式方法，由你定义节点、边和共享状态，从而创建可视化的图结构。</p>
+<p><strong>1. 复杂的决策树和分支逻辑</strong></p>
+<p>当你的工作流有多个依赖各种条件的决策点时，Graph API 会让这些分支显式化且易于可视化。</p>
+<pre class="code"><code class="language-python"># Graph API: Clear visualization of decision paths
+from langgraph.graph import StateGraph
+from typing import TypedDict
+
+class AgentState(TypedDict):
+    messages: list
+    current_tool: str
+    retry_count: int
+
+def should_continue(state):
+    if state["retry_count"] &gt; 3:
+        return "end"
+    elif state["current_tool"] == "search":
+        return "process_search"
+    else:
+        return "call_llm"
+
+workflow = StateGraph(AgentState)
+workflow.add_node("call_llm", call_llm_node)
+workflow.add_node("process_search", search_node)
+workflow.add_conditional_edges("call_llm", should_continue)</code></pre>
+<p><strong>2. 跨多个组件的状态管理</strong></p>
+<p>当你需要在工作流的不同部分之间共享和协调状态时，Graph API 的显式状态管理会很有帮助。</p>
+<pre class="code"><code class="language-python"># Multiple nodes can access and modify shared state
+class WorkflowState(TypedDict):
+    user_input: str
+    search_results: list
+    generated_response: str
+    validation_status: str
+
+def search_node(state):
+    # Access shared state
+    results = search(state["user_input"])
+    return {"search_results": results}
+
+def validation_node(state):
+    # Access results from previous node
+    is_valid = validate(state["generated_response"])
+    return {"validation_status": "valid" if is_valid else "invalid"}</code></pre>
+<p><strong>3. 带同步的并行处理</strong></p>
+<p>当你需要并行运行多个操作然后合并其结果时，Graph API 可以自然地处理。</p>
+<pre class="code"><code class="language-python"># Parallel processing of multiple data sources
+workflow.add_node("fetch_news", fetch_news)
+workflow.add_node("fetch_weather", fetch_weather)
+workflow.add_node("fetch_stocks", fetch_stocks)
+workflow.add_node("combine_data", combine_all_data)
+
+# All fetch operations run in parallel
+workflow.add_edge(START, "fetch_news")
+workflow.add_edge(START, "fetch_weather")
+workflow.add_edge(START, "fetch_stocks")
+
+# Combine waits for all parallel operations to complete
+workflow.add_edge("fetch_news", "combine_data")
+workflow.add_edge("fetch_weather", "combine_data")
+workflow.add_edge("fetch_stocks", "combine_data")</code></pre>
+<p><strong>4. 团队开发与文档</strong></p>
+<p>Graph API 的可视化特性使团队更容易理解、记录和维护复杂工作流。</p>
+<pre class="code"><code class="language-python"># Clear separation of concerns - each team member can work on different nodes
+workflow.add_node("data_ingestion", data_team_function)
+workflow.add_node("ml_processing", ml_team_function)
+workflow.add_node("business_logic", product_team_function)
+workflow.add_node("output_formatting", frontend_team_function)</code></pre>
+<h3 id="何时使用-functional-api">何时使用 Functional API</h3>
+
+<p><a href="functional-api.html">Functional API</a> 采用命令式方法，将 LangGraph 功能集成到标准的过程式代码中。</p>
+<p><strong>1. 现有的过程式代码</strong></p>
+<p>当你已有使用标准控制流的代码，并希望以最小的重构来添加 LangGraph 功能时。</p>
+<pre class="code"><code class="language-python"># Functional API: Minimal changes to existing code
+from langgraph.func import entrypoint, task
+
+@task
+def process_user_input(user_input: str) -&gt; dict:
+    # Existing function with minimal changes
+    return {"processed": user_input.lower().strip()}
+
+@entrypoint(checkpointer=checkpointer)
+def workflow(user_input: str) -&gt; str:
+    # Standard Python control flow
+    processed = process_user_input(user_input).result()
+
+    if "urgent" in processed["processed"]:
+        response = handle_urgent_request(processed).result()
+    else:
+        response = handle_normal_request(processed).result()
+
+    return response</code></pre>
+<p><strong>2. 逻辑简单的线性工作流</strong></p>
+<p>当你的工作流主要是顺序执行，带有简单直接的条件逻辑时。</p>
+<pre class="code"><code class="language-python">@entrypoint(checkpointer=checkpointer)
+def essay_workflow(topic: str) -&gt; dict:
+    # Linear flow with simple branching
+    outline = create_outline(topic).result()
+
+    if len(outline["points"]) &lt; 3:
+        outline = expand_outline(outline).result()
+
+    draft = write_draft(outline).result()
+
+    # Human review checkpoint
+    feedback = interrupt({"draft": draft, "action": "Please review"})
+
+    if feedback == "approve":
+        final_essay = draft
+    else:
+        final_essay = revise_essay(draft, feedback).result()
+
+    return {"essay": final_essay}</code></pre>
+<p><strong>3. 快速原型开发</strong></p>
+<p>当你希望快速测试想法，而不必先定义状态模式和图结构时。</p>
+<pre class="code"><code class="language-python">@entrypoint(checkpointer=checkpointer)
+def quick_prototype(data: dict) -&gt; dict:
+    # Fast iteration - no state schema needed
+    step1_result = process_step1(data).result()
+    step2_result = process_step2(step1_result).result()
+
+    return {"final_result": step2_result}</code></pre>
+<p><strong>4. 函数作用域的状态管理</strong></p>
+<p>当你的状态天然局限于单个函数，不需要广泛共享时。</p>
+<pre class="code"><code class="language-python">@task
+def analyze_document(document: str) -&gt; dict:
+    # Local state management within function
+    sections = extract_sections(document)
+    summaries = [summarize(section) for section in sections]
+    key_points = extract_key_points(summaries)
+
+    return {
+        "sections": len(sections),
+        "summaries": summaries,
+        "key_points": key_points
+    }
+
+@entrypoint(checkpointer=checkpointer)
+def document_processor(document: str) -&gt; dict:
+    analysis = analyze_document(document).result()
+    # State is passed between functions as needed
+    return generate_report(analysis).result()</code></pre>
+<h2 id="组合使用两种-api">组合使用两种 API</h2>
+
+<p>你可以在同一个应用程序中同时使用这两种 API。当系统的不同部分有不同的需求时，这很有用。</p>
+<pre class="code"><code class="language-python">from langgraph.graph import StateGraph
+from langgraph.func import entrypoint
+
+# Complex multi-agent coordination using Graph API
+coordination_graph = StateGraph(CoordinationState)
+coordination_graph.add_node("orchestrator", orchestrator_node)
+coordination_graph.add_node("agent_a", agent_a_node)
+coordination_graph.add_node("agent_b", agent_b_node)
+
+# Simple data processing using Functional API
+@entrypoint()
+def data_processor(raw_data: dict) -&gt; dict:
+    cleaned = clean_data(raw_data).result()
+    transformed = transform_data(cleaned).result()
+    return transformed
+
+# Use the functional API result in the graph
+def orchestrator_node(state):
+    processed_data = data_processor.invoke(state["raw_data"])
+    return {"processed_data": processed_data}</code></pre>
+<h2 id="在-api-之间迁移">在 API 之间迁移</h2>
+
+<h3 id="从-functional-迁移到-graph-api">从 Functional 迁移到 Graph API</h3>
+
+<p>当你的函数式工作流变得复杂时，你可以迁移到 Graph API：</p>
+<pre class="code"><code class="language-python"># Before: Functional API
+@entrypoint(checkpointer=checkpointer)
+def complex_workflow(input_data: dict) -&gt; dict:
+    step1 = process_step1(input_data).result()
+
+    if step1["needs_analysis"]:
+        analysis = analyze_data(step1).result()
+        if analysis["confidence"] &gt; 0.8:
+            result = high_confidence_path(analysis).result()
+        else:
+            result = low_confidence_path(analysis).result()
+    else:
+        result = simple_path(step1).result()
+
+    return result
+
+# After: Graph API
+class WorkflowState(TypedDict):
+    input_data: dict
+    step1_result: dict
+    analysis: dict
+    final_result: dict
+
+def should_analyze(state):
+    return "analyze" if state["step1_result"]["needs_analysis"] else "simple_path"
+
+def confidence_check(state):
+    return "high_confidence" if state["analysis"]["confidence"] &gt; 0.8 else "low_confidence"
+
+workflow = StateGraph(WorkflowState)
+workflow.add_node("step1", process_step1_node)
+workflow.add_conditional_edges("step1", should_analyze)
+workflow.add_node("analyze", analyze_data_node)
+workflow.add_conditional_edges("analyze", confidence_check)
+# ... add remaining nodes and edges</code></pre>
+<h3 id="从-graph-迁移到-functional-api">从 Graph 迁移到 Functional API</h3>
+
+<p>当你的图对于简单的线性流程而言过于复杂时：</p>
+<pre class="code"><code class="language-python"># Before: Over-engineered Graph API
+class SimpleState(TypedDict):
+    input: str
+    step1: str
+    step2: str
+    result: str
+
+# After: Simplified Functional API
+@entrypoint(checkpointer=checkpointer)
+def simple_workflow(input_data: str) -&gt; str:
+    step1 = process_step1(input_data).result()
+    step2 = process_step2(step1).result()
+    return finalize_result(step2).result()</code></pre>
+<h2 id="总结">总结</h2>
+
+<p>当你需要对工作流结构进行显式控制、复杂分支、并行处理或团队协作优势时，请选择 <strong>Graph API</strong>。</p>
+<p>当你希望以最小的改动为现有代码添加 LangGraph 功能、拥有简单的线性工作流或需要快速原型开发能力时，请选择 <strong>Functional API</strong>。</p>
+<p>两种 API 都提供相同的核心 LangGraph 功能（持久化、流式处理、人在回路、记忆），但以不同的编程范式打包，以适应不同的开发风格和使用场景。</p>
+<hr />
+<div classname="source-links">
+<div class="callout note">
+<p><a href="https://docs.langchain.com/use-these-docs">通过 MCP 将这些文档连接到 Claude、VSCode 等</a>，获取实时解答。</p>
+</div>
+<div class="callout note">
+<p><a href="https://github.com/langchain-ai/docs/edit/main/src/oss/langgraph/choosing-apis.mdx">在 GitHub 上编辑此页面</a> 或<a href="https://github.com/langchain-ai/docs/issues/new/choose">提交问题</a>。</p>
+</div>
+</div></main>
+    <nav class="pager"><a class="pager-btn prev" href="oss/python/langgraph/checkpointers.html">← 检查点存储</a><a class="pager-btn next" href="oss/python/langgraph/deploy.html">部署 →</a></nav>
+    <footer class="footer">
+      <span>LangGraph 中文文档镜像——按 <a href="https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture" target="_blank" rel="noopener">官方站点（docs.langchain.com）</a></span>
+      <span class="pages">全部页面： <a href="../../../index.html">首页</a> · <a href="../../../all-in-one.html">单页版</a></span>
+    </footer>
+  </div>
+</div>
+<script src="../../../assets/site.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/common.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
+</body>
+</html>
