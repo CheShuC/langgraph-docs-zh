@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>应用结构 · LangGraph 中文文档镜像</title>
+<meta name="description" content="应用结构">
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    <a class="brand" href="../../../index.html">LangGraph 文档 <span class="chip">中文翻译</span></a>
+    <input class="search" id="searchInput" type="search" placeholder="搜索文档…" autocomplete="off">
+    <a class="original" href="https://docs.langchain.com/oss/python/langgraph/application-structure" target="_blank" rel="noopener">查看原文 ↗</a>
+  </header>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner"><div class="nav-section"><h2 class="nav-section-title">文档</h2><nav class="nav-items"><details class="nav-group" open><summary>LangGraph 文档</summary><nav class="nav-items"><a class="nav-link" href="add-memory.html" data-title="记忆">记忆</a><a class="nav-link" href="agentic-rag.html" data-title="使用 LangGraph 构建自定义 RAG 智能体">使用 LangGraph 构建自定义 RAG 智能体</a><a class="nav-link active" href="application-structure.html" data-title="应用结构">应用结构</a><a class="nav-link" href="backward-compatibility.html" data-title="向后兼容性">向后兼容性</a><a class="nav-link" href="case-studies.html" data-title="案例研究">案例研究</a><a class="nav-link" href="checkpointers.html" data-title="检查点存储">检查点存储</a><a class="nav-link" href="choosing-apis.html" data-title="选择 Graph API 还是 Functional API">选择 Graph API 还是 Functional API</a><a class="nav-link" href="deploy.html" data-title="部署">部署</a><a class="nav-link" href="errors/GRAPH_RECURSION_LIMIT.html" data-title="GRAPH_RECURSION_LIMIT">GRAPH_RECURSION_LIMIT</a><a class="nav-link" href="errors/INVALID_CHAT_HISTORY.html" data-title="INVALID_CHAT_HISTORY">INVALID_CHAT_HISTORY</a><a class="nav-link" href="errors/INVALID_CONCURRENT_GRAPH_UPDATE.html" data-title="INVALID_CONCURRENT_GRAPH_UPDATE">INVALID_CONCURRENT_GRAPH_UPDATE</a><a class="nav-link" href="errors/INVALID_GRAPH_NODE_RETURN_VALUE.html" data-title="INVALID_GRAPH_NODE_RETURN_VALUE">INVALID_GRAPH_NODE_RETURN_VALUE</a><a class="nav-link" href="errors/MISSING_CHECKPOINTER.html" data-title="MISSING_CHECKPOINTER">MISSING_CHECKPOINTER</a><a class="nav-link" href="errors/MULTIPLE_SUBGRAPHS.html" data-title="MULTIPLE_SUBGRAPHS">MULTIPLE_SUBGRAPHS</a><a class="nav-link" href="event-streaming.html" data-title="事件流式处理">事件流式处理</a><a class="nav-link" href="fault-tolerance.html" data-title="容错">容错</a><a class="nav-link" href="frontend/custom-stream-channels.html" data-title="自定义流通道">自定义流通道</a><a class="nav-link" href="frontend/graph-execution.html" data-title="图执行">图执行</a><a class="nav-link" href="frontend/overview.html" data-title="概述">概述</a><a class="nav-link" href="functional-api.html" data-title="Functional API 概览">Functional API 概览</a><a class="nav-link" href="graph-api.html" data-title="Graph API 概览">Graph API 概览</a><a class="nav-link" href="install.html" data-title="安装 LangGraph">安装 LangGraph</a><a class="nav-link" href="interrupts.html" data-title="中断">中断</a><a class="nav-link" href="local-server.html" data-title="运行本地服务器">运行本地服务器</a><a class="nav-link" href="observability.html" data-title="LangSmith 可观测性">LangSmith 可观测性</a><a class="nav-link" href="overview.html" data-title="LangGraph 概述">LangGraph 概述</a><a class="nav-link" href="persistence.html" data-title="持久化">持久化</a><a class="nav-link" href="pregel.html" data-title="LangGraph 运行时">LangGraph 运行时</a><a class="nav-link" href="quickstart.html" data-title="快速入门">快速入门</a><a class="nav-link" href="sql-agent.html" data-title="构建自定义 SQL 智能体">构建自定义 SQL 智能体</a><a class="nav-link" href="stores.html" data-title="存储">存储</a><a class="nav-link" href="streaming.html" data-title="流式处理">流式处理</a><a class="nav-link" href="studio.html" data-title="LangSmith Studio">LangSmith Studio</a><a class="nav-link" href="test.html" data-title="测试">测试</a><a class="nav-link" href="thinking-in-langgraph.html" data-title="LangGraph 思维方式">LangGraph 思维方式</a><a class="nav-link" href="ui.html" data-title="Agent Chat UI">Agent Chat UI</a><a class="nav-link" href="use-functional-api.html" data-title="使用函数式 API">使用函数式 API</a><a class="nav-link" href="use-graph-api.html" data-title="使用图 API">使用图 API</a><a class="nav-link" href="use-subgraphs.html" data-title="子图">子图</a><a class="nav-link" href="use-time-travel.html" data-title="使用时间旅行">使用时间旅行</a><a class="nav-link" href="workflows-agents.html" data-title="工作流和智能体">工作流和智能体</a></nav></details></nav></div><div class="nav-section"><h2 class="nav-section-title">发布日志</h2><nav class="nav-items"><details class="nav-group"><summary>发布日志</summary><nav class="nav-items"><a class="nav-link" href="changelog-js.html" data-title="变更日志">变更日志</a><a class="nav-link" href="changelog-py.html" data-title="变更日志">变更日志</a></nav></details></nav></div></div>
+  </aside>
+  <div class="content">
+    <main class="doc"><h1 id="应用结构">应用结构</h1>
+
+<p>一个 LangGraph 应用由一个或多个图、一个配置文件（<code>langgraph.json</code>）、一个指定依赖的文件，以及一个可选的用于指定环境变量的 <code>.env</code> 文件组成。</p>
+<p>本指南展示了应用的典型结构，并说明如何提供必要的配置，以便使用 <a href="https://docs.langchain.com/langsmith/deployment">LangSmith Deployment</a> 部署应用。</p>
+<div class="callout info">
+<p>LangSmith Deployment 是一个用于部署和扩展 LangGraph 智能体的托管平台。它负责处理基础设施、扩展和运维问题，使你能够直接从仓库部署有状态、长期运行的智能体。更多信息请参阅<a href="https://docs.langchain.com/langsmith/deployment">部署文档</a>。</p>
+</div>
+<h2 id="关键概念">关键概念</h2>
+
+<p>要使用 LangSmith 进行部署，应提供以下信息：</p>
+<ol>
+<li>一个指定应用所需依赖、图和环境变量的 <a href="#configuration-file-concepts">LangGraph 配置文件</a>（<code>langgraph.json</code>）。</li>
+<li>实现应用逻辑的<a href="#graphs">图</a>。</li>
+<li>一个指定运行应用所需<a href="#dependencies">依赖</a>的文件。</li>
+<li>应用运行所需的<a href="#environment-variables">环境变量</a>。</li>
+</ol>
+<h2 id="文件结构">文件结构</h2>
+
+<p>以下是应用目录结构的示例：</p>
+<div class="tabs">
+<section class="tab-item"><h3 class="tab-title">Python (requirements.txt)</h3><pre class="code"><code class="language-plaintext">my-app/
+├── my_agent # all project code lies within here
+│   ├── utils # utilities for your graph
+│   │   ├── __init__.py
+│   │   ├── tools.py # tools for your graph
+│   │   ├── nodes.py # node functions for your graph
+│   │   └── state.py # state definition of your graph
+│   ├── __init__.py
+│   └── agent.py # code for constructing your graph
+├── .env # environment variables
+├── requirements.txt # package dependencies
+└── langgraph.json # configuration file for LangGraph</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">Python (pyproject.toml)</h3><pre class="code"><code class="language-plaintext">my-app/
+├── my_agent # all project code lies within here
+│   ├── utils # utilities for your graph
+│   │   ├── __init__.py
+│   │   ├── tools.py # tools for your graph
+│   │   ├── nodes.py # node functions for your graph
+│   │   └── state.py # state definition of your graph
+│   ├── __init__.py
+│   └── agent.py # code for constructing your graph
+├── .env # environment variables
+├── langgraph.json  # configuration file for LangGraph
+└── pyproject.toml # dependencies for your project</code></pre></section>
+</div>
+
+<div class="callout note">
+<p>LangGraph 应用的目录结构可能因编程语言和使用的包管理器而异。</p>
+</div>
+<p><a id="configuration-file-concepts" /></p>
+<h2 id="配置文件">配置文件</h2>
+
+<p><code>langgraph.json</code> 是一个 JSON 文件，用于指定部署 LangGraph 应用所需的依赖、图、环境变量和其他设置。</p>
+<p>有关 JSON 文件中所有支持的键的详细信息，请参阅 <a href="https://docs.langchain.com/langsmith/cli#configuration-file">LangGraph 配置文件参考</a>。</p>
+<div class="callout tip">
+<p><a href="https://docs.langchain.com/langsmith/cli">LangGraph CLI</a> 默认使用当前目录中的配置文件 <code>langgraph.json</code>。</p>
+</div>
+<h3 id="示例">示例</h3>
+
+<ul>
+<li>依赖涉及一个自定义本地包和 <code>langchain_openai</code> 包。</li>
+<li>将从文件 <code>./your_package/your_file.py</code> 中加载单个图，变量名为 <code>variable</code>。</li>
+<li>环境变量从 <code>.env</code> 文件加载。</li>
+</ul>
+<pre class="code"><code class="language-json">{
+  "dependencies": ["langchain_openai", "./your_package"],
+  "graphs": {
+    "my_agent": "./your_package/your_file.py:agent"
+  },
+  "env": "./.env"
+}</code></pre>
+<h2 id="依赖">依赖</h2>
+
+<p>一个 LangGraph 应用可能依赖其他 Python 包。</p>
+<p>要正确设置依赖，你通常需要指定以下信息：</p>
+<ol>
+<li>
+<p>目录中一个指定依赖的文件（例如 <code>requirements.txt</code>、<code>pyproject.toml</code> 或 <code>package.json</code>）。</p>
+</li>
+<li>
+<p><a href="#configuration-file-concepts">LangGraph 配置文件</a>中的 <code>dependencies</code> 键，用于指定运行 LangGraph 应用所需的依赖。</p>
+</li>
+<li>
+<p>任何额外的二进制文件或系统库都可以通过 <a href="#configuration-file-concepts">LangGraph 配置文件</a>中的 <code>dockerfile_lines</code> 键指定。</p>
+</li>
+</ol>
+<h2 id="图">图</h2>
+
+<p>使用 <a href="#configuration-file-concepts">LangGraph 配置文件</a>中的 <code>graphs</code> 键来指定已部署的 LangGraph 应用中可用的图。</p>
+<p>你可以在配置文件中指定一个或多个图。每个图由一个名称（应为唯一）和一个路径标识，该路径指向：(1) 编译后的图，或 (2) 定义图的函数。</p>
+<h2 id="环境变量">环境变量</h2>
+
+<p>如果你在本地使用已部署的 LangGraph 应用，可以在 <a href="#configuration-file-concepts">LangGraph 配置文件</a>的 <code>env</code> 键中配置环境变量。</p>
+<p>对于生产环境部署，你通常需要在部署环境中配置环境变量。</p>
+<hr />
+<div classname="source-links">
+<div class="callout note">
+<p><a href="https://docs.langchain.com/use-these-docs">通过 MCP 将这些文档连接到 Claude、VSCode 等</a>，获取实时解答。</p>
+</div>
+<div class="callout note">
+<p><a href="https://github.com/langchain-ai/docs/edit/main/src/oss/langgraph/application-structure.mdx">在 GitHub 上编辑此页面</a> 或<a href="https://github.com/langchain-ai/docs/issues/new/choose">提交问题</a>。</p>
+</div>
+</div></main>
+    <nav class="pager"><a class="pager-btn prev" href="oss/python/langgraph/agentic-rag.html">← 使用 LangGraph 构建自定义 RAG 智能体</a><a class="pager-btn next" href="oss/python/langgraph/backward-compatibility.html">向后兼容性 →</a></nav>
+    <footer class="footer">
+      <span>LangGraph 中文文档镜像——按 <a href="https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture" target="_blank" rel="noopener">官方站点（docs.langchain.com）</a></span>
+      <span class="pages">全部页面： <a href="../../../index.html">首页</a> · <a href="../../../all-in-one.html">单页版</a></span>
+    </footer>
+  </div>
+</div>
+<script src="../../../assets/site.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/common.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
+</body>
+</html>
