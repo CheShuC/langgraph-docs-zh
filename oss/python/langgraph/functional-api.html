@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Functional API 概览 · LangGraph 中文文档镜像</title>
+<meta name="description" content="Functional API 概览">
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    <a class="brand" href="../../../index.html">LangGraph 文档 <span class="chip">中文翻译</span></a>
+    <input class="search" id="searchInput" type="search" placeholder="搜索文档…" autocomplete="off">
+    <a class="original" href="https://docs.langchain.com/oss/python/langgraph/functional-api" target="_blank" rel="noopener">查看原文 ↗</a>
+  </header>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner"><div class="nav-section"><h2 class="nav-section-title">文档</h2><nav class="nav-items"><details class="nav-group" open><summary>LangGraph 文档</summary><nav class="nav-items"><a class="nav-link" href="add-memory.html" data-title="记忆">记忆</a><a class="nav-link" href="agentic-rag.html" data-title="使用 LangGraph 构建自定义 RAG 智能体">使用 LangGraph 构建自定义 RAG 智能体</a><a class="nav-link" href="application-structure.html" data-title="应用结构">应用结构</a><a class="nav-link" href="backward-compatibility.html" data-title="向后兼容性">向后兼容性</a><a class="nav-link" href="case-studies.html" data-title="案例研究">案例研究</a><a class="nav-link" href="checkpointers.html" data-title="检查点存储">检查点存储</a><a class="nav-link" href="choosing-apis.html" data-title="选择 Graph API 还是 Functional API">选择 Graph API 还是 Functional API</a><a class="nav-link" href="deploy.html" data-title="部署">部署</a><a class="nav-link" href="errors/GRAPH_RECURSION_LIMIT.html" data-title="GRAPH_RECURSION_LIMIT">GRAPH_RECURSION_LIMIT</a><a class="nav-link" href="errors/INVALID_CHAT_HISTORY.html" data-title="INVALID_CHAT_HISTORY">INVALID_CHAT_HISTORY</a><a class="nav-link" href="errors/INVALID_CONCURRENT_GRAPH_UPDATE.html" data-title="INVALID_CONCURRENT_GRAPH_UPDATE">INVALID_CONCURRENT_GRAPH_UPDATE</a><a class="nav-link" href="errors/INVALID_GRAPH_NODE_RETURN_VALUE.html" data-title="INVALID_GRAPH_NODE_RETURN_VALUE">INVALID_GRAPH_NODE_RETURN_VALUE</a><a class="nav-link" href="errors/MISSING_CHECKPOINTER.html" data-title="MISSING_CHECKPOINTER">MISSING_CHECKPOINTER</a><a class="nav-link" href="errors/MULTIPLE_SUBGRAPHS.html" data-title="MULTIPLE_SUBGRAPHS">MULTIPLE_SUBGRAPHS</a><a class="nav-link" href="event-streaming.html" data-title="事件流式处理">事件流式处理</a><a class="nav-link" href="fault-tolerance.html" data-title="容错">容错</a><a class="nav-link" href="frontend/custom-stream-channels.html" data-title="自定义流通道">自定义流通道</a><a class="nav-link" href="frontend/graph-execution.html" data-title="图执行">图执行</a><a class="nav-link" href="frontend/overview.html" data-title="概述">概述</a><a class="nav-link active" href="functional-api.html" data-title="Functional API 概览">Functional API 概览</a><a class="nav-link" href="graph-api.html" data-title="Graph API 概览">Graph API 概览</a><a class="nav-link" href="install.html" data-title="安装 LangGraph">安装 LangGraph</a><a class="nav-link" href="interrupts.html" data-title="中断">中断</a><a class="nav-link" href="local-server.html" data-title="运行本地服务器">运行本地服务器</a><a class="nav-link" href="observability.html" data-title="LangSmith 可观测性">LangSmith 可观测性</a><a class="nav-link" href="overview.html" data-title="LangGraph 概述">LangGraph 概述</a><a class="nav-link" href="persistence.html" data-title="持久化">持久化</a><a class="nav-link" href="pregel.html" data-title="LangGraph 运行时">LangGraph 运行时</a><a class="nav-link" href="quickstart.html" data-title="快速入门">快速入门</a><a class="nav-link" href="sql-agent.html" data-title="构建自定义 SQL 智能体">构建自定义 SQL 智能体</a><a class="nav-link" href="stores.html" data-title="存储">存储</a><a class="nav-link" href="streaming.html" data-title="流式处理">流式处理</a><a class="nav-link" href="studio.html" data-title="LangSmith Studio">LangSmith Studio</a><a class="nav-link" href="test.html" data-title="测试">测试</a><a class="nav-link" href="thinking-in-langgraph.html" data-title="LangGraph 思维方式">LangGraph 思维方式</a><a class="nav-link" href="ui.html" data-title="Agent Chat UI">Agent Chat UI</a><a class="nav-link" href="use-functional-api.html" data-title="使用函数式 API">使用函数式 API</a><a class="nav-link" href="use-graph-api.html" data-title="使用图 API">使用图 API</a><a class="nav-link" href="use-subgraphs.html" data-title="子图">子图</a><a class="nav-link" href="use-time-travel.html" data-title="使用时间旅行">使用时间旅行</a><a class="nav-link" href="workflows-agents.html" data-title="工作流和智能体">工作流和智能体</a></nav></details></nav></div><div class="nav-section"><h2 class="nav-section-title">发布日志</h2><nav class="nav-items"><details class="nav-group"><summary>发布日志</summary><nav class="nav-items"><a class="nav-link" href="changelog-js.html" data-title="变更日志">变更日志</a><a class="nav-link" href="changelog-py.html" data-title="变更日志">变更日志</a></nav></details></nav></div></div>
+  </aside>
+  <div class="content">
+    <main class="doc"><h1 id="functional-api-概览">Functional API 概览</h1>
+
+<p><strong>Functional API</strong> 允许你在对现有代码进行最小改动的情况下，为你的应用添加 LangGraph 的关键特性（<a href="persistence.html">持久化</a>、<a href="add-memory.html">记忆</a>、<a href="interrupts.html">人在回路</a>和<a href="streaming.html">流式处理</a>）。</p>
+<p>它旨在将这些特性集成到可能使用标准语言原语（如 <code>if</code> 语句、<code>for</code> 循环和函数调用）进行分支和控制流的现有代码中。与许多要求将代码重构为显式管道或 DAG 的数据编排框架不同，Functional API 允许你在不强制使用严格执行模型的情况下纳入这些能力。</p>
+<p>Functional API 使用两个关键构建块：</p>
+<ul>
+<li><strong><code>@entrypoint</code></strong>：将函数标记为工作流的起点，封装逻辑并管理执行流程，包括处理长时间运行的任务和中断。</li>
+<li><strong><a href="https://reference.langchain.com/python/langgraph/func/task"><code>@task</code></a></strong>：表示一个独立的工作单元，例如 API 调用或数据处理步骤，可以在 entrypoint 内异步执行。Task 返回一个类似 future 的对象，可以通过 <code>await</code> 等待或同步解析。</li>
+</ul>
+<p>这为构建带有状态管理和流式处理的工作流提供了一种最小抽象。</p>
+<div class="callout tip">
+<p>有关如何使用 Functional API 的信息，请参阅<a href="use-functional-api.html">使用 Functional API</a>。</p>
+</div>
+<h2 id="functional-api-与-graph-api">Functional API 与 Graph API</h2>
+
+<p>对于偏好更声明式方法的用户，LangGraph 的 <a href="graph-api.html">Graph API</a> 允许你使用图范式定义工作流。这两个 API 共享相同的底层运行时，因此你可以在同一个应用中将它们一起使用。</p>
+<p>以下是一些关键区别：</p>
+<ul>
+<li><strong>控制流</strong>：Functional API 不需要考虑图结构。你可以使用标准的 Python 结构来定义工作流。这通常会减少你需要编写的代码量。</li>
+<li><strong>短期记忆</strong>：<strong>GraphAPI</strong> 需要声明 <a href="graph-api.html#state"><strong>State</strong></a>，并且可能需要定义 <a href="graph-api.html#reducers"><strong>reducers</strong></a> 来管理图状态的更新。<code>@entrypoint</code> 和 <code>@tasks</code> 不需要显式状态管理，因为它们的状态限定在函数内部，不会在函数之间共享。</li>
+<li><strong>检查点</strong>：两个 API 都会生成和使用检查点。在 <strong>Graph API</strong> 中，每次 <a href="graph-api.html">superstep</a> 之后都会生成一个新的检查点。在 <strong>Functional API</strong> 中，当任务执行时，它们的结果会保存到与给定 entrypoint 关联的现有检查点中，而不是创建新的检查点。</li>
+<li><strong>可视化</strong>：Graph API 可以轻松地将工作流可视化为图，这对于调试、理解工作流以及与他人分享非常有用。Functional API 不支持可视化，因为图是在运行时动态生成的。</li>
+</ul>
+<h2 id="示例">示例</h2>
+
+<p>下面我们演示一个简单的应用程序，它撰写一篇文章并<a href="interrupts.html">中断</a>以请求人工审核。</p>
+<pre class="code"><code class="language-python">from langgraph.checkpoint.memory import InMemorySaver
+from langgraph.func import entrypoint, task
+from langgraph.types import interrupt
+
+@task
+def write_essay(topic: str) -&gt; str:
+    """Write an essay about the given topic."""
+    time.sleep(1) # A placeholder for a long-running task.
+    return f"An essay about topic: {topic}"
+
+@entrypoint(checkpointer=InMemorySaver())
+def workflow(topic: str) -&gt; dict:
+    """A simple workflow that writes an essay and asks for a review."""
+    essay = write_essay("cat").result()
+    is_approved = interrupt({
+        # Any json-serializable payload provided to interrupt as argument.
+        # It will be surfaced on the client side as an Interrupt when streaming data
+        # from the workflow.
+        "essay": essay, # The essay we want reviewed.
+        # We can add any additional information that we need.
+        # For example, introduce a key called "action" with some instructions.
+        "action": "Please approve/reject the essay",
+    })
+
+    return {
+        "essay": essay, # The essay that was generated
+        "is_approved": is_approved, # Response from HIL
+    }</code></pre>
+<details class="accordion" id="详细说明"><summary>详细说明</summary>
+<p>该工作流将撰写一篇关于主题“cat”的文章，然后暂停以获取人工审核。工作流可以被无限期中断，直到提供审核为止。</p>
+<p>当工作流恢复时，它会从头开始执行，但由于 <code>writeEssay</code> 任务的结果已经保存，任务结果将从检查点加载，而不是重新计算。</p>
+<pre class="code"><code class="language-python">import time
+
+from langchain_core.utils.uuid import uuid7
+from langgraph.checkpoint.memory import InMemorySaver
+from langgraph.func import entrypoint, task
+from langgraph.types import Command, interrupt
+
+
+@task
+def write_essay(topic: str) -&gt; str:
+    """Write an essay about the given topic."""
+    time.sleep(1)  # This is a placeholder for a long-running task.
+    return f"An essay about topic: {topic}"
+
+
+@entrypoint(checkpointer=InMemorySaver())
+def workflow(topic: str) -&gt; dict:
+    """A simple workflow that writes an essay and asks for a review."""
+    essay = write_essay("cat").result()
+    is_approved = interrupt(
+        {
+            # Any json-serializable payload provided to interrupt as argument.
+            # It will be surfaced on the client side as an Interrupt when streaming data
+            # from the workflow.
+            "essay": essay,  # The essay we want reviewed.
+            # We can add any additional information that we need.
+            # For example, introduce a key called "action" with some instructions.
+            "action": "Please approve/reject the essay",
+        }
+    )
+    return {
+        "essay": essay,  # The essay that was generated
+        "is_approved": is_approved,  # Response from HIL
+    }
+
+
+thread_id = str(uuid7())
+config = {"configurable": {"thread_id": thread_id}}
+stream = workflow.stream_events("cat", config, version="v3")
+_ = stream.output
+print({"write_essay": stream.interrupts[0].value["essay"]})
+print({"__interrupt__": stream.interrupts})
+# {'write_essay': 'An essay about topic: cat'}
+# {
+#   '__interrupt__': [
+#     Interrupt(
+#       value={
+#           'essay': 'An essay about topic: cat',
+#           'action': 'Please approve/reject the essay'
+#       },
+#       id='369d44b3d93d4a631ae583367ac6b5cc'
+#     )
+#   ]
+# }</code></pre>
+<p>文章已撰写完毕，可以提交审核。一旦提供了审核意见，我们就可以恢复工作流：</p>
+<pre class="code"><code class="language-python"># Get review from a user (e.g., via a UI)
+# In this case, we're using a bool, but this can be any json-serializable value.
+human_review = True
+
+resumed_stream = workflow.stream_events(Command(resume=human_review), config, version="v3")
+print(resumed_stream.output)
+# {'essay': 'An essay about topic: cat', 'is_approved': True}</code></pre>
+<p>工作流已完成，审核意见已添加到文章中。</p>
+</details>
+
+<h2 id="entrypoint">Entrypoint</h2>
+
+<p>可以使用 <a href="https://reference.langchain.com/python/langgraph/func/entrypoint"><code>@entrypoint</code></a> 装饰器从函数创建工作流。它封装工作流逻辑并管理执行流程，包括处理<em>长时间运行的任务</em>和<a href="interrupts.html">中断</a>。</p>
+<h3 id="定义">定义</h3>
+
+<p><strong>entrypoint</strong> 通过使用 <code>@entrypoint</code> 装饰器装饰函数来定义。</p>
+<p>函数<strong>必须接受单个位置参数</strong>，该参数作为工作流的输入。如果需要传递多份数据，请使用字典作为第一个参数的输入类型。</p>
+<p>使用 <code>entrypoint</code> 装饰函数会产生一个 <a href="https://reference.langchain.com/python/langgraph/pregel/#langgraph.pregel.Pregel.stream"><code>Pregel</code></a> 实例，它有助于管理工作流的执行（例如，处理流式输出、恢复和检查点）。</p>
+<p>通常你需要向 <code>@entrypoint</code> 装饰器传递一个 <strong>checkpointer</strong> 以启用持久化，并使用诸如<strong>人在回路</strong>之类的特性。</p>
+<div class="tabs">
+<section class="tab-item"><h3 class="tab-title">Sync</h3><pre class="code"><code class="language-python">from langgraph.func import entrypoint
+
+@entrypoint(checkpointer=checkpointer)
+def my_workflow(some_input: dict) -&gt; int:
+    # some logic that may involve long-running tasks like API calls,
+    # and may be interrupted for human-in-the-loop.
+    ...
+    return result</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">Async</h3><pre class="code"><code class="language-python">from langgraph.func import entrypoint
+
+@entrypoint(checkpointer=checkpointer)
+async def my_workflow(some_input: dict) -&gt; int:
+    # some logic that may involve long-running tasks like API calls,
+    # and may be interrupted for human-in-the-loop
+    ...
+    return result</code></pre></section>
+</div>
+
+<div class="callout warning">
+<p><strong>序列化</strong>
+  entrypoint 的<strong>输入</strong>和<strong>输出</strong>必须是 JSON 可序列化的，以支持检查点。更多详情请参阅<a href="#serialization">序列化</a>一节。</p>
+</div>
+<h3 id="可注入参数">可注入参数</h3>
+
+<p>在声明 <code>entrypoint</code> 时，你可以请求访问将在运行时自动注入的额外参数。这些参数包括：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>previous</strong></td>
+<td>访问与给定线程的上一个 <code>checkpoint</code> 关联的状态。参阅<a href="#short-term-memory">短期记忆</a>。</td>
+</tr>
+<tr>
+<td><strong>store</strong></td>
+<td>一个 [BaseStore][langgraph.store.base.BaseStore] 实例。可用于<a href="use-functional-api.html#long-term-memory">长期记忆</a>。</td>
+</tr>
+<tr>
+<td><strong>writer</strong></td>
+<td>在处理 Async Python \&lt; 3.11 时用于访问 StreamWriter。详见<a href="use-functional-api.html#streaming">Functional API 流式处理</a>。</td>
+</tr>
+<tr>
+<td><strong>config</strong></td>
+<td>用于访问运行时配置。有关信息请参阅 <a href="https://python.langchain.com/docs/concepts/runnables/#runnableconfig">RunnableConfig</a>。</td>
+</tr>
+</tbody>
+</table>
+<div class="callout warning">
+<p>请使用适当的名称和类型注解来声明参数。</p>
+</div>
+<details class="accordion" id="请求可注入参数"><summary>请求可注入参数</summary>
+<pre class="code"><code class="language-python">from langchain_core.runnables import RunnableConfig
+from langgraph.func import entrypoint
+from langgraph.store.base import BaseStore
+from langgraph.store.memory import InMemoryStore
+from langgraph.checkpoint.memory import InMemorySaver
+from langgraph.types import StreamWriter
+
+in_memory_checkpointer = InMemorySaver(...)
+in_memory_store = InMemoryStore(...)  # An instance of InMemoryStore for long-term memory
+
+@entrypoint(
+    checkpointer=in_memory_checkpointer,  # Specify the checkpointer
+    store=in_memory_store  # Specify the store
+)
+def my_workflow(
+    some_input: dict,  # The input (e.g., passed via `invoke`)
+    *,
+    previous: Any = None, # For short-term memory
+    store: BaseStore,  # For long-term memory
+    writer: StreamWriter,  # For streaming custom data
+    config: RunnableConfig  # For accessing the configuration passed to the entrypoint
+) -&gt; ...:</code></pre>
+</details>
+
+<h3 id="执行">执行</h3>
+
+<p>使用 <a href="#entrypoint"><code>@entrypoint</code></a> 会产生一个 <a href="https://reference.langchain.com/python/langgraph/pregel/#langgraph.pregel.Pregel.stream"><code>Pregel</code></a> 对象，可以使用 <code>invoke</code>、<code>ainvoke</code>、<code>stream</code> 和 <code>astream</code> 方法执行。</p>
+<div class="tabs">
+<section class="tab-item"><h3 class="tab-title">Invoke</h3><pre class="code"><code class="language-python">config = {
+    "configurable": {
+        "thread_id": "some_thread_id"
+    }
+}
+my_workflow.invoke(some_input, config)  # Wait for the result synchronously</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">Async Invoke</h3><pre class="code"><code class="language-python">config = {
+    "configurable": {
+        "thread_id": "some_thread_id"
+    }
+}
+await my_workflow.ainvoke(some_input, config)  # Await result asynchronously</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">Stream</h3><pre class="code"><code class="language-python">config = {
+    "configurable": {
+        "thread_id": "some_thread_id"
+    }
+}
+
+stream = my_workflow.stream_events(some_input, config, version="v3")
+for message in stream.messages:
+    for token in message.text:
+        print(token, end="", flush=True)</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">Async Stream</h3><pre class="code"><code class="language-python">config = {
+    "configurable": {
+        "thread_id": "some_thread_id"
+    }
+}
+
+stream = await my_workflow.astream_events(some_input, config, version="v3")
+async for message in stream.messages:
+    async for token in message.text:
+        print(token, end="", flush=True)</code></pre></section>
+</div>
+
+<h3 id="恢复">恢复</h3>
+
+<p>在<a href="https://reference.langchain.com/python/langgraph/types/interrupt">中断</a>后恢复执行，可以通过向 <a href="https://reference.langchain.com/python/langgraph/types/Command"><code>Command</code></a> 原语传递 <strong>resume</strong> 值来完成。</p>
+<div class="tabs">
+<section class="tab-item"><h3 class="tab-title">Invoke</h3><pre class="code"><code class="language-python">from langgraph.types import Command
+
+config = {
+    "configurable": {
+        "thread_id": "some_thread_id"
+    }
+}
+
+my_workflow.invoke(Command(resume=some_resume_value), config)</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">Async Invoke</h3><pre class="code"><code class="language-python">from langgraph.types import Command
+
+config = {
+    "configurable": {
+        "thread_id": "some_thread_id"
+    }
+}
+
+await my_workflow.ainvoke(Command(resume=some_resume_value), config)</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">Stream</h3><pre class="code"><code class="language-python">from langgraph.types import Command
+
+config = {
+    "configurable": {
+        "thread_id": "some_thread_id"
+    }
+}
+
+stream = my_workflow.stream_events(Command(resume=some_resume_value), config, version="v3")
+for message in stream.messages:
+    for token in message.text:
+        print(token, end="", flush=True)</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">Async Stream</h3><pre class="code"><code class="language-python">from langgraph.types import Command
+
+config = {
+    "configurable": {
+        "thread_id": "some_thread_id"
+    }
+}
+
+stream = await my_workflow.astream_events(Command(resume=some_resume_value), config, version="v3")
+async for message in stream.messages:
+    async for token in message.text:
+        print(token, end="", flush=True)</code></pre></section>
+</div>
+
+<p><strong>出错后恢复</strong></p>
+<p>要在出错后恢复，请使用 <code>None</code> 和相同的 <strong>thread id</strong>（config）运行 <code>entrypoint</code>。</p>
+<p>这假设底层的<strong>错误</strong>已被解决，执行可以顺利进行。</p>
+<div class="tabs">
+<section class="tab-item"><h3 class="tab-title">Invoke</h3><pre class="code"><code class="language-python">
+config = {
+    "configurable": {
+        "thread_id": "some_thread_id"
+    }
+}
+
+my_workflow.invoke(None, config)</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">Async Invoke</h3><pre class="code"><code class="language-python">
+config = {
+    "configurable": {
+        "thread_id": "some_thread_id"
+    }
+}
+
+await my_workflow.ainvoke(None, config)</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">Stream</h3><pre class="code"><code class="language-python">
+config = {
+    "configurable": {
+        "thread_id": "some_thread_id"
+    }
+}
+
+stream = my_workflow.stream_events(None, config, version="v3")
+for message in stream.messages:
+    for token in message.text:
+        print(token, end="", flush=True)</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">Async Stream</h3><pre class="code"><code class="language-python">
+config = {
+    "configurable": {
+        "thread_id": "some_thread_id"
+    }
+}
+
+stream = await my_workflow.astream_events(None, config, version="v3")
+async for message in stream.messages:
+    async for token in message.text:
+        print(token, end="", flush=True)</code></pre></section>
+</div>
+
+<h3 id="短期记忆">短期记忆</h3>
+
+<p>当使用 <code>checkpointer</code> 定义 <code>entrypoint</code> 时，它会在相同 <strong>thread id</strong> 的连续调用之间将信息存储在<a href="checkpointers.html#checkpoints">检查点</a>中。</p>
+<p>这允许使用 <code>previous</code> 参数访问上一次调用的状态。</p>
+<p>默认情况下，<code>previous</code> 参数是上一次调用的返回值。</p>
+<pre class="code"><code class="language-python">@entrypoint(checkpointer=checkpointer)
+def my_workflow(number: int, *, previous: Any = None) -&gt; int:
+    previous = previous or 0
+    return number + previous
+
+config = {
+    "configurable": {
+        "thread_id": "some_thread_id"
+    }
+}
+
+my_workflow.invoke(1, config)  # 1 (previous was None)
+my_workflow.invoke(2, config)  # 3 (previous was 1 from the previous invocation)</code></pre>
+<h4 id="entrypointfinal"><code>entrypoint.final</code></h4>
+
+<p><a href="https://reference.langchain.com/python/langgraph/func/entrypoint/final"><code>entrypoint.final</code></a> 是一种可以从 entrypoint 返回的特殊原语，允许将<strong>保存在检查点中的值</strong>与<strong>entrypoint 的返回值</strong>进行<strong>解耦</strong>。</p>
+<p>第一个值是 entrypoint 的返回值，第二个值是保存在检查点中的值。类型注解为 <code>entrypoint.final[return_type, save_type]</code>。</p>
+<pre class="code"><code class="language-python">@entrypoint(checkpointer=checkpointer)
+def my_workflow(number: int, *, previous: Any = None) -&gt; entrypoint.final[int, int]:
+    previous = previous or 0
+    # This will return the previous value to the caller, saving
+    # 2 * number to the checkpoint, which will be used in the next invocation
+    # for the `previous` parameter.
+    return entrypoint.final(value=previous, save=2 * number)
+
+config = {
+    "configurable": {
+        "thread_id": "1"
+    }
+}
+
+my_workflow.invoke(3, config)  # 0 (previous was None)
+my_workflow.invoke(1, config)  # 6 (previous was 3 * 2 from the previous invocation)</code></pre>
+<h2 id="task">Task</h2>
+
+<p><strong>task</strong> 表示一个独立的工作单元，例如 API 调用或数据处理步骤。它有两个关键特征：</p>
+<ul>
+<li><strong>异步执行</strong>：Task 被设计为异步执行，允许多个操作并发运行而不会阻塞。</li>
+<li><strong>检查点</strong>：Task 的结果会保存到检查点中，使工作流能够从最后保存的状态恢复。（更多详情请参阅<a href="persistence.html">持久化</a>）。</li>
+</ul>
+<h3 id="定义_1">定义</h3>
+
+<p>Task 使用 <code>@task</code> 装饰器定义，该装饰器包装一个普通的 Python 函数。</p>
+<pre class="code"><code class="language-python">from langgraph.func import task
+
+@task()
+def slow_computation(input_value):
+    # Simulate a long-running operation
+    ...
+    return result</code></pre>
+<div class="callout warning">
+<p><strong>序列化</strong>
+  task 的<strong>输出</strong>必须是 JSON 可序列化的，以支持检查点。</p>
+</div>
+<h3 id="执行_1">执行</h3>
+
+<p><strong>Task</strong> 只能在 <strong>entrypoint</strong>、另一个 <strong>task</strong> 或<a href="graph-api.html#nodes">状态图节点</a>内调用。</p>
+<p>Task <em>不能</em>直接从主应用程序代码中调用。</p>
+<p>当你调用 <strong>task</strong> 时，它会<em>立即</em>返回一个 future 对象。future 是稍后可用结果的占位符。</p>
+<p>要获取 <strong>task</strong> 的结果，你可以同步等待（使用 <code>result()</code>）或异步等待（使用 <code>await</code>）。</p>
+<div class="tabs">
+<section class="tab-item"><h3 class="tab-title">Synchronous Invocation</h3><pre class="code"><code class="language-python">@entrypoint(checkpointer=checkpointer)
+def my_workflow(some_input: int) -&gt; int:
+    future = slow_computation(some_input)
+    return future.result()  # Wait for the result synchronously</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">Asynchronous Invocation</h3><pre class="code"><code class="language-python">@entrypoint(checkpointer=checkpointer)
+async def my_workflow(some_input: int) -&gt; int:
+    return await slow_computation(some_input)  # Await result asynchronously</code></pre></section>
+</div>
+
+<h2 id="何时使用-task">何时使用 task</h2>
+
+<p>在以下场景中，<strong>Task</strong> 非常有用：</p>
+<ul>
+<li><strong>检查点</strong>：当你需要将长时间运行操作的结果保存到检查点，这样在恢复工作流时就不需要重新计算。</li>
+<li><strong>人在回路</strong>：如果你正在构建一个需要人工干预的工作流，你必须使用 <strong>task</strong> 来封装任何随机性（例如 API 调用），以确保工作流可以被正确恢复。更多详情请参阅<a href="#determinism">确定性</a>一节。</li>
+<li><strong>并行执行</strong>：对于 I/O 密集型任务，<strong>task</strong> 支持并行执行，允许多个操作并发运行而不会阻塞（例如，调用多个 API）。</li>
+<li><strong>可观测性</strong>：将操作包装在 <strong>task</strong> 中提供了一种使用 <a href="https://docs.langchain.com/langsmith/observability">LangSmith</a> 跟踪工作流进度并监控单个操作执行的方法。</li>
+<li><strong>可重试的工作</strong>：当工作需要重试以处理失败或不一致时，<strong>task</strong> 提供了一种封装和管理重试逻辑的方法。</li>
+</ul>
+<h2 id="序列化">序列化</h2>
+
+<p>LangGraph 中的序列化有两个关键方面：</p>
+<ol>
+<li><code>entrypoint</code> 的输入和输出必须是 JSON 可序列化的。</li>
+<li><code>task</code> 的输出必须是 JSON 可序列化的。</li>
+</ol>
+<p>这些要求对于启用检查点和工作流恢复是必要的。使用字典、列表、字符串、数字和布尔值等 Python 原语，以确保你的输入和输出是可序列化的。</p>
+<p>序列化确保工作流状态（如 task 结果和中间值）可以被可靠地保存和恢复。这对于实现人在回路交互、容错和并行执行至关重要。</p>
+<p>当工作流配置了 checkpointer 时，提供不可序列化的输入或输出将导致运行时错误。</p>
+<h2 id="确定性">确定性</h2>
+
+<p>当你恢复工作流运行时，代码<strong>不会</strong>从执行停止的<strong>同一行代码</strong>处恢复。执行会回到检查点边界，工作流会向前<strong>重放</strong>，直到再次到达暂停点。</p>
+<p>对于 Functional API，重放从 <strong>entrypoint</strong> 的开头开始，而 LangGraph 从 checkpointer 恢复已完成的 <a href="functional-api.html#task"><strong>task</strong></a> 和 <a href="use-subgraphs.html"><strong>subgraph</strong></a> 结果，而不是重新计算它们。这保留了跨暂停记录的步骤顺序，包括长时间运行或非确定性的 <strong>task</strong> 输出。</p>
+<p>要使用<strong>人在回路</strong>等特性，你必须将非确定性工作（例如随机值）和副作用（例如文件写入或 API 调用）放在 <a href="functional-api.html#task"><strong>task</strong></a> 中。</p>
+<p>工作流的不同运行可能产生不同的结果，但恢复<strong>特定</strong>线程应该重放相同的已持久化的 <strong>task</strong> 和 <strong>subgraph</strong> 结果。</p>
+<p>为确保工作流具有确定性并且可以一致地重放，请遵循以下准则：</p>
+<ul>
+<li><strong>避免重复工作</strong>：在 <strong>entrypoint</strong> 中，如果你串联了多个副作用（例如日志记录、文件写入或网络调用），请为每个副作用分配自己的 <strong>task</strong>，这样恢复时会从 checkpointer 恢复它们的输出，而不是再次运行它们。</li>
+<li><strong>封装非确定性操作</strong>：将尝试之间可能变化的值（例如随机数或墙钟时间读取）保留在 <strong>task</strong> 内部，以便重放与已检查点的内容一致。</li>
+<li><strong>使用幂等操作</strong>：关于部分 task 失败和重试，请参阅<a href="#idempotency">幂等性</a>。</li>
+</ul>
+<h2 id="幂等性">幂等性</h2>
+
+<p>幂等性确保多次运行同一操作会产生相同的结果。这有助于防止在某个步骤因失败而重新运行时出现重复的 API 调用和冗余处理。始终将 API 调用放在 <strong>task</strong> 函数中以便检查点，并将它们设计为在重新执行时具有幂等性。
+这对于导致数据写入的操作尤为重要。
+当工作流恢复时，LangGraph 会从检查点重放已完成的 <strong>task</strong> 结果。已开始但未完成的 <strong>task</strong> 可能会在该次恢复时再次运行，因此请将副作用设计为幂等的。使用幂等键或验证现有结果，以避免意外重复。</p>
+<h2 id="常见陷阱">常见陷阱</h2>
+
+<h3 id="处理副作用">处理副作用</h3>
+
+<p>将副作用（例如，写入文件、发送电子邮件）封装在 task 中，以确保它们在恢复工作流时不会被执行多次。</p>
+<div class="tabs">
+<section class="tab-item"><h3 class="tab-title">Incorrect</h3><p>在此示例中，副作用（写入文件）直接包含在工作流中，因此在恢复工作流时会第二次执行。</p>
+<pre class="code"><code class="language-python">@entrypoint(checkpointer=checkpointer)
+def my_workflow(inputs: dict) -&gt; int:
+    # This code will be executed a second time when resuming the workflow.
+    # Which is likely not what you want.
+    with open("output.txt", "w") as f:  # [!code highlight]
+        f.write("Side effect executed")  # [!code highlight]
+    value = interrupt("question")
+    return value</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">Correct</h3><p>在此示例中，副作用被封装在 task 中，确保恢复时执行的一致性。</p>
+<pre class="code"><code class="language-python">from langgraph.func import task
+
+@task  # [!code highlight]
+def write_to_file():  # [!code highlight]
+    with open("output.txt", "w") as f:
+        f.write("Side effect executed")
+
+@entrypoint(checkpointer=checkpointer)
+def my_workflow(inputs: dict) -&gt; int:
+    # The side effect is now encapsulated in a task.
+    write_to_file().result()
+    value = interrupt("question")
+    return value</code></pre></section>
+</div>
+
+<h3 id="非确定性控制流">非确定性控制流</h3>
+
+<p>每次可能产生不同结果的操作（例如获取当前时间或随机数）应封装在 task 中，以确保恢复时返回相同的结果。</p>
+<ul>
+<li>在 task 中：获取随机数 (5) → 中断 → 恢复 → （再次返回 5） → ...</li>
+<li>不在 task 中：获取随机数 (5) → 中断 → 恢复 → 获取新的随机数 (7) → ...</li>
+</ul>
+<p>当使用带有多个 interrupt 调用的<strong>人在回路</strong>工作流时，这一点尤为重要。LangGraph 会为每个 task/entrypoint 维护一份 resume 值列表。当遇到 interrupt 时，它会与对应的 resume 值匹配。这种匹配严格基于<strong>索引</strong>，因此 resume 值的顺序应与 interrupt 的顺序一致。</p>
+<p>如果在恢复时未能保持执行顺序，一个 <a href="https://reference.langchain.com/python/langgraph/types/interrupt"><code>interrupt</code></a> 调用可能会与错误的 <code>resume</code> 值匹配，从而导致错误的结果。</p>
+<p>更多详情请阅读<a href="#determinism">确定性</a>一节。</p>
+<div class="tabs">
+<section class="tab-item"><h3 class="tab-title">Incorrect</h3><p>在此示例中，工作流使用当前时间来决定执行哪个 task。这是非确定性的，因为工作流的结果取决于执行它的时间。</p>
+<pre class="code"><code class="language-python">from langgraph.func import entrypoint
+
+@entrypoint(checkpointer=checkpointer)
+def my_workflow(inputs: dict) -&gt; int:
+    t0 = inputs["t0"]
+    t1 = time.time()  # [!code highlight]
+
+    delta_t = t1 - t0
+
+    if delta_t &gt; 1:
+        result = slow_task(1).result()
+        value = interrupt("question")
+    else:
+        result = slow_task(2).result()
+        value = interrupt("question")
+
+    return {
+        "result": result,
+        "value": value
+    }</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">Correct</h3><p>在此示例中，工作流使用输入 <code>t0</code> 来决定执行哪个 task。这是确定性的，因为工作流的结果仅取决于输入。</p>
+<pre class="code"><code class="language-python">import time
+
+from langgraph.func import task
+
+@task  # [!code highlight]
+def get_time() -&gt; float:  # [!code highlight]
+    return time.time()
+
+@entrypoint(checkpointer=checkpointer)
+def my_workflow(inputs: dict) -&gt; int:
+    t0 = inputs["t0"]
+    t1 = get_time().result()  # [!code highlight]
+
+    delta_t = t1 - t0
+
+    if delta_t &gt; 1:
+        result = slow_task(1).result()
+        value = interrupt("question")
+    else:
+        result = slow_task(2).result()
+        value = interrupt("question")
+
+    return {
+        "result": result,
+        "value": value
+    }</code></pre></section>
+</div>
+
+<h2 id="了解更多">了解更多</h2>
+
+<ul>
+<li><a href="use-functional-api.html">如何使用 Functional API</a></li>
+<li><a href="graph-api.html">Graph API 概念概览</a></li>
+<li><a href="choosing-apis.html">在 Graph API 和 Functional API 之间选择</a></li>
+</ul>
+<hr />
+<div classname="source-links">
+<div class="callout note">
+<p>通过 MCP 将<a href="https://docs.langchain.com/use-these-docs">这些文档</a>连接到 Claude、VSCode 等工具，获取实时答案。</p>
+</div>
+<div class="callout note">
+<p>在 GitHub 上<a href="https://github.com/langchain-ai/docs/edit/main/src/oss/langgraph/functional-api.mdx">编辑此页面</a>或<a href="https://github.com/langchain-ai/docs/issues/new/choose">提交问题</a>。</p>
+</div>
+</div></main>
+    <nav class="pager"><a class="pager-btn prev" href="oss/python/langgraph/frontend/overview.html">← 概述</a><a class="pager-btn next" href="oss/python/langgraph/graph-api.html">Graph API 概览 →</a></nav>
+    <footer class="footer">
+      <span>LangGraph 中文文档镜像——按 <a href="https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture" target="_blank" rel="noopener">官方站点（docs.langchain.com）</a></span>
+      <span class="pages">全部页面： <a href="../../../index.html">首页</a> · <a href="../../../all-in-one.html">单页版</a></span>
+    </footer>
+  </div>
+</div>
+<script src="../../../assets/site.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/common.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
+</body>
+</html>
