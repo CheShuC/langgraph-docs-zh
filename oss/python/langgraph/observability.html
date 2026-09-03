@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LangSmith 可观测性 · LangGraph 中文文档镜像</title>
+<meta name="description" content="LangSmith 可观测性">
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    <a class="brand" href="../../../index.html">LangGraph 文档 <span class="chip">中文翻译</span></a>
+    <input class="search" id="searchInput" type="search" placeholder="搜索文档…" autocomplete="off">
+    <a class="original" href="https://docs.langchain.com/oss/python/langgraph/observability" target="_blank" rel="noopener">查看原文 ↗</a>
+  </header>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner"><div class="nav-section"><h2 class="nav-section-title">文档</h2><nav class="nav-items"><details class="nav-group" open><summary>LangGraph 文档</summary><nav class="nav-items"><a class="nav-link" href="add-memory.html" data-title="记忆">记忆</a><a class="nav-link" href="agentic-rag.html" data-title="使用 LangGraph 构建自定义 RAG 智能体">使用 LangGraph 构建自定义 RAG 智能体</a><a class="nav-link" href="application-structure.html" data-title="应用结构">应用结构</a><a class="nav-link" href="backward-compatibility.html" data-title="向后兼容性">向后兼容性</a><a class="nav-link" href="case-studies.html" data-title="案例研究">案例研究</a><a class="nav-link" href="checkpointers.html" data-title="检查点存储">检查点存储</a><a class="nav-link" href="choosing-apis.html" data-title="选择 Graph API 还是 Functional API">选择 Graph API 还是 Functional API</a><a class="nav-link" href="deploy.html" data-title="部署">部署</a><a class="nav-link" href="errors/GRAPH_RECURSION_LIMIT.html" data-title="GRAPH_RECURSION_LIMIT">GRAPH_RECURSION_LIMIT</a><a class="nav-link" href="errors/INVALID_CHAT_HISTORY.html" data-title="INVALID_CHAT_HISTORY">INVALID_CHAT_HISTORY</a><a class="nav-link" href="errors/INVALID_CONCURRENT_GRAPH_UPDATE.html" data-title="INVALID_CONCURRENT_GRAPH_UPDATE">INVALID_CONCURRENT_GRAPH_UPDATE</a><a class="nav-link" href="errors/INVALID_GRAPH_NODE_RETURN_VALUE.html" data-title="INVALID_GRAPH_NODE_RETURN_VALUE">INVALID_GRAPH_NODE_RETURN_VALUE</a><a class="nav-link" href="errors/MISSING_CHECKPOINTER.html" data-title="MISSING_CHECKPOINTER">MISSING_CHECKPOINTER</a><a class="nav-link" href="errors/MULTIPLE_SUBGRAPHS.html" data-title="MULTIPLE_SUBGRAPHS">MULTIPLE_SUBGRAPHS</a><a class="nav-link" href="event-streaming.html" data-title="事件流式处理">事件流式处理</a><a class="nav-link" href="fault-tolerance.html" data-title="容错">容错</a><a class="nav-link" href="frontend/custom-stream-channels.html" data-title="自定义流通道">自定义流通道</a><a class="nav-link" href="frontend/graph-execution.html" data-title="图执行">图执行</a><a class="nav-link" href="frontend/overview.html" data-title="概述">概述</a><a class="nav-link" href="functional-api.html" data-title="Functional API 概览">Functional API 概览</a><a class="nav-link" href="graph-api.html" data-title="Graph API 概览">Graph API 概览</a><a class="nav-link" href="install.html" data-title="安装 LangGraph">安装 LangGraph</a><a class="nav-link" href="interrupts.html" data-title="中断">中断</a><a class="nav-link" href="local-server.html" data-title="运行本地服务器">运行本地服务器</a><a class="nav-link active" href="observability.html" data-title="LangSmith 可观测性">LangSmith 可观测性</a><a class="nav-link" href="overview.html" data-title="LangGraph 概述">LangGraph 概述</a><a class="nav-link" href="persistence.html" data-title="持久化">持久化</a><a class="nav-link" href="pregel.html" data-title="LangGraph 运行时">LangGraph 运行时</a><a class="nav-link" href="quickstart.html" data-title="快速入门">快速入门</a><a class="nav-link" href="sql-agent.html" data-title="构建自定义 SQL 智能体">构建自定义 SQL 智能体</a><a class="nav-link" href="stores.html" data-title="存储">存储</a><a class="nav-link" href="streaming.html" data-title="流式处理">流式处理</a><a class="nav-link" href="studio.html" data-title="LangSmith Studio">LangSmith Studio</a><a class="nav-link" href="test.html" data-title="测试">测试</a><a class="nav-link" href="thinking-in-langgraph.html" data-title="LangGraph 思维方式">LangGraph 思维方式</a><a class="nav-link" href="ui.html" data-title="Agent Chat UI">Agent Chat UI</a><a class="nav-link" href="use-functional-api.html" data-title="使用函数式 API">使用函数式 API</a><a class="nav-link" href="use-graph-api.html" data-title="使用图 API">使用图 API</a><a class="nav-link" href="use-subgraphs.html" data-title="子图">子图</a><a class="nav-link" href="use-time-travel.html" data-title="使用时间旅行">使用时间旅行</a><a class="nav-link" href="workflows-agents.html" data-title="工作流和智能体">工作流和智能体</a></nav></details></nav></div><div class="nav-section"><h2 class="nav-section-title">发布日志</h2><nav class="nav-items"><details class="nav-group"><summary>发布日志</summary><nav class="nav-items"><a class="nav-link" href="changelog-js.html" data-title="变更日志">变更日志</a><a class="nav-link" href="changelog-py.html" data-title="变更日志">变更日志</a></nav></details></nav></div></div>
+  </aside>
+  <div class="content">
+    <main class="doc"><h1 id="langsmith-可观测性">LangSmith 可观测性</h1>
+
+<p>Trace（追踪）是您的应用从输入到输出所经历的一系列步骤。其中每一个单独的步骤都由一个 run（运行）来表示。您可以使用 <a href="https://smith.langchain.com?utm_source=docs\&amp;utm_medium=cta\&amp;utm_campaign=langsmith-signup\&amp;utm_content=oss-langgraph-observability">LangSmith</a> 来可视化这些执行步骤。要使用它，请<a href="https://docs.langchain.com/langsmith/trace-with-langgraph">为您的应用启用追踪</a>。这使您可以执行以下操作：</p>
+<ul>
+<li><a href="https://docs.langchain.com/langsmith/observability-studio#debug-langsmith-traces">调试本地运行的应用</a>。</li>
+<li><a href="https://docs.langchain.com/oss/python/langchain/test/evals">评估应用的性能</a>。</li>
+<li><a href="https://docs.langchain.com/langsmith/dashboards">监控应用</a>。</li>
+</ul>
+<h2 id="前置条件">前置条件</h2>
+
+<p>在开始之前，请确保您具备以下条件：</p>
+<ul>
+<li><strong>一个 LangSmith 账号</strong>：在 <a href="https://smith.langchain.com?utm_source=docs\&amp;utm_medium=cta\&amp;utm_campaign=langsmith-signup\&amp;utm_content=oss-langgraph-observability">smith.langchain.com</a> 免费注册或登录。</li>
+<li><strong>一个 LangSmith API 密钥</strong>：按照<a href="https://docs.langchain.com/langsmith/create-account-api-key">创建 API 密钥</a>指南操作。</li>
+</ul>
+<h2 id="启用追踪">启用追踪</h2>
+
+<p>要为您的应用启用追踪，请设置以下环境变量：</p>
+<pre class="code"><code class="language-python">export LANGSMITH_TRACING=true
+export LANGSMITH_API_KEY=&lt;your-api-key&gt;</code></pre>
+<p>默认情况下，trace 将记录到名为 <code>default</code> 的项目中。要配置自定义项目名称，请参阅<a href="#log-to-a-project">记录到项目</a>。</p>
+<p>更多信息，请参阅<a href="https://docs.langchain.com/langsmith/trace-with-langgraph">使用 LangGraph 进行追踪</a>。</p>
+<h2 id="选择性追踪">选择性追踪</h2>
+
+<p>您可以使用 LangSmith 的 <code>tracing_context</code> 上下文管理器选择追踪特定的调用或应用的部分内容：</p>
+<pre class="code"><code class="language-python">import langsmith as ls
+
+# This WILL be traced
+with ls.tracing_context(enabled=True):
+    agent.invoke({"messages": [{"role": "user", "content": "Send a test email to alice@example.com"}]})
+
+# This will NOT be traced (if LANGSMITH_TRACING is not set)
+agent.invoke({"messages": [{"role": "user", "content": "Send another email"}]})</code></pre>
+<h2 id="记录到项目">记录到项目</h2>
+
+<details class="accordion" id="静态设置"><summary>静态设置</summary>
+<p>您可以通过设置 <code>LANGSMITH_PROJECT</code> 环境变量为整个应用设置自定义项目名称：</p>
+<pre class="code"><code class="language-bash">export LANGSMITH_PROJECT=my-agent-project</code></pre>
+</details>
+
+<details class="accordion" id="动态设置"><summary>动态设置</summary>
+<p>您可以通过编程方式为特定操作设置项目名称：</p>
+<pre class="code"><code class="language-python">import langsmith as ls
+
+with ls.tracing_context(project_name="email-agent-test", enabled=True):
+    response = agent.invoke({
+        "messages": [{"role": "user", "content": "Send a welcome email"}]
+    })</code></pre>
+</details>
+
+<h2 id="向-trace-添加元数据">向 trace 添加元数据</h2>
+
+<p>您可以使用自定义元数据和标签来标注您的 trace：</p>
+<pre class="code"><code class="language-python">response = agent.invoke(
+    {"messages": [{"role": "user", "content": "Send a welcome email"}]},
+    config={
+        "tags": ["production", "email-assistant", "v1.0"],
+        "metadata": {
+            "user_id": "user_123",
+            "session_id": "session_456",
+            "environment": "production"
+        }
+    }
+)</code></pre>
+<p><code>tracing_context</code> 也接受标签和元数据，以实现精细控制：</p>
+<pre class="code"><code class="language-python">with ls.tracing_context(
+    project_name="email-agent-test",
+    enabled=True,
+    tags=["production", "email-assistant", "v1.0"],
+    metadata={"user_id": "user_123", "session_id": "session_456", "environment": "production"}):
+    response = agent.invoke(
+        {"messages": [{"role": "user", "content": "Send a welcome email"}]}
+    )</code></pre>
+<p>这些自定义元数据和标签将会附加到 LangSmith 中的 trace 上。</p>
+<div class="callout tip">
+<p>要了解如何使用 trace 来调试、评估和监控您的智能体，请参阅 <a href="https://docs.langchain.com/langsmith/observability">LangSmith 文档</a>。</p>
+</div>
+<h2 id="使用匿名化器防止在-trace-中记录敏感数据">使用匿名化器防止在 trace 中记录敏感数据</h2>
+
+<p>您可能希望屏蔽敏感数据，以防止其被记录到 LangSmith。您可以创建<a href="https://docs.langchain.com/langsmith/mask-inputs-outputs#rule-based-masking-of-inputs-and-outputs">匿名化器</a>并通过配置将其应用到您的图上。以下示例将从发送到 LangSmith 的 trace 中遮蔽任何匹配美国社会安全号码格式 XXX-XX-XXXX 的内容。</p>
+<p class="code-caption">Python</p><pre class="code"><code class="language-python">from langchain_core.tracers.langchain import LangChainTracer
+from langgraph.graph import StateGraph, MessagesState
+from langsmith import Client
+from langsmith.anonymizer import create_anonymizer
+
+anonymizer = create_anonymizer([
+    # Matches SSNs
+    { "pattern": r"\b\d{3}-?\d{2}-?\d{4}\b", "replace": "&lt;ssn&gt;" }
+])
+
+tracer_client = Client(anonymizer=anonymizer)
+tracer = LangChainTracer(client=tracer_client)
+# Define the graph
+graph = (
+    StateGraph(MessagesState)
+    ...
+    .compile()
+    .with_config({'callbacks': [tracer]})
+)</code></pre>
+<hr />
+<div classname="source-links">
+<div class="callout note">
+<p><a href="https://docs.langchain.com/use-these-docs">Connect these docs</a> to Claude, VSCode, and more via MCP for real-time answers.</p>
+</div>
+<div class="callout note">
+<p><a href="https://github.com/langchain-ai/docs/edit/main/src/oss/langgraph/observability.mdx">Edit this page on GitHub</a> or <a href="https://github.com/langchain-ai/docs/issues/new/choose">file an issue</a>.</p>
+</div>
+</div></main>
+    <nav class="pager"><a class="pager-btn prev" href="oss/python/langgraph/local-server.html">← 运行本地服务器</a><a class="pager-btn next" href="oss/python/langgraph/overview.html">LangGraph 概述 →</a></nav>
+    <footer class="footer">
+      <span>LangGraph 中文文档镜像——按 <a href="https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture" target="_blank" rel="noopener">官方站点（docs.langchain.com）</a></span>
+      <span class="pages">全部页面： <a href="../../../index.html">首页</a> · <a href="../../../all-in-one.html">单页版</a></span>
+    </footer>
+  </div>
+</div>
+<script src="../../../assets/site.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/common.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
+</body>
+</html>
