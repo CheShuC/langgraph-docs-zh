@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INVALID_GRAPH_NODE_RETURN_VALUE · LangGraph 中文文档镜像</title>
+<meta name="description" content="INVALID_GRAPH_NODE_RETURN_VALUE">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    <a class="brand" href="../../../../index.html">LangGraph 文档 <span class="chip">中文翻译</span></a>
+    <input class="search" id="searchInput" type="search" placeholder="搜索文档…" autocomplete="off">
+    <a class="original" href="https://docs.langchain.com/oss/python/langgraph/errors/INVALID_GRAPH_NODE_RETURN_VALUE" target="_blank" rel="noopener">查看原文 ↗</a>
+  </header>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner"><div class="nav-section"><h2 class="nav-section-title">文档</h2><nav class="nav-items"><details class="nav-group" open><summary>LangGraph 文档</summary><nav class="nav-items"><a class="nav-link" href="../add-memory.html" data-title="记忆">记忆</a><a class="nav-link" href="../agentic-rag.html" data-title="使用 LangGraph 构建自定义 RAG 智能体">使用 LangGraph 构建自定义 RAG 智能体</a><a class="nav-link" href="../application-structure.html" data-title="应用结构">应用结构</a><a class="nav-link" href="../backward-compatibility.html" data-title="向后兼容性">向后兼容性</a><a class="nav-link" href="../case-studies.html" data-title="案例研究">案例研究</a><a class="nav-link" href="../checkpointers.html" data-title="检查点存储">检查点存储</a><a class="nav-link" href="../choosing-apis.html" data-title="选择 Graph API 还是 Functional API">选择 Graph API 还是 Functional API</a><a class="nav-link" href="../deploy.html" data-title="部署">部署</a><a class="nav-link" href="GRAPH_RECURSION_LIMIT.html" data-title="GRAPH_RECURSION_LIMIT">GRAPH_RECURSION_LIMIT</a><a class="nav-link" href="INVALID_CHAT_HISTORY.html" data-title="INVALID_CHAT_HISTORY">INVALID_CHAT_HISTORY</a><a class="nav-link" href="INVALID_CONCURRENT_GRAPH_UPDATE.html" data-title="INVALID_CONCURRENT_GRAPH_UPDATE">INVALID_CONCURRENT_GRAPH_UPDATE</a><a class="nav-link active" href="INVALID_GRAPH_NODE_RETURN_VALUE.html" data-title="INVALID_GRAPH_NODE_RETURN_VALUE">INVALID_GRAPH_NODE_RETURN_VALUE</a><a class="nav-link" href="MISSING_CHECKPOINTER.html" data-title="MISSING_CHECKPOINTER">MISSING_CHECKPOINTER</a><a class="nav-link" href="MULTIPLE_SUBGRAPHS.html" data-title="MULTIPLE_SUBGRAPHS">MULTIPLE_SUBGRAPHS</a><a class="nav-link" href="../event-streaming.html" data-title="事件流式处理">事件流式处理</a><a class="nav-link" href="../fault-tolerance.html" data-title="容错">容错</a><a class="nav-link" href="../frontend/custom-stream-channels.html" data-title="自定义流通道">自定义流通道</a><a class="nav-link" href="../frontend/graph-execution.html" data-title="图执行">图执行</a><a class="nav-link" href="../frontend/overview.html" data-title="概述">概述</a><a class="nav-link" href="../functional-api.html" data-title="Functional API 概览">Functional API 概览</a><a class="nav-link" href="../graph-api.html" data-title="Graph API 概览">Graph API 概览</a><a class="nav-link" href="../install.html" data-title="安装 LangGraph">安装 LangGraph</a><a class="nav-link" href="../interrupts.html" data-title="中断">中断</a><a class="nav-link" href="../local-server.html" data-title="运行本地服务器">运行本地服务器</a><a class="nav-link" href="../observability.html" data-title="LangSmith 可观测性">LangSmith 可观测性</a><a class="nav-link" href="../overview.html" data-title="LangGraph 概述">LangGraph 概述</a><a class="nav-link" href="../persistence.html" data-title="持久化">持久化</a><a class="nav-link" href="../pregel.html" data-title="LangGraph 运行时">LangGraph 运行时</a><a class="nav-link" href="../quickstart.html" data-title="快速入门">快速入门</a><a class="nav-link" href="../sql-agent.html" data-title="构建自定义 SQL 智能体">构建自定义 SQL 智能体</a><a class="nav-link" href="../stores.html" data-title="存储">存储</a><a class="nav-link" href="../streaming.html" data-title="流式处理">流式处理</a><a class="nav-link" href="../studio.html" data-title="LangSmith Studio">LangSmith Studio</a><a class="nav-link" href="../test.html" data-title="测试">测试</a><a class="nav-link" href="../thinking-in-langgraph.html" data-title="LangGraph 思维方式">LangGraph 思维方式</a><a class="nav-link" href="../ui.html" data-title="Agent Chat UI">Agent Chat UI</a><a class="nav-link" href="../use-functional-api.html" data-title="使用函数式 API">使用函数式 API</a><a class="nav-link" href="../use-graph-api.html" data-title="使用图 API">使用图 API</a><a class="nav-link" href="../use-subgraphs.html" data-title="子图">子图</a><a class="nav-link" href="../use-time-travel.html" data-title="使用时间旅行">使用时间旅行</a><a class="nav-link" href="../workflows-agents.html" data-title="工作流和智能体">工作流和智能体</a></nav></details></nav></div><div class="nav-section"><h2 class="nav-section-title">发布日志</h2><nav class="nav-items"><details class="nav-group"><summary>发布日志</summary><nav class="nav-items"><a class="nav-link" href="../changelog-js.html" data-title="变更日志">变更日志</a><a class="nav-link" href="../changelog-py.html" data-title="变更日志">变更日志</a></nav></details></nav></div></div>
+  </aside>
+  <div class="content">
+    <main class="doc"><h1 id="invalid_graph_node_return_value">INVALID_GRAPH_NODE_RETURN_VALUE</h1>
+
+<p>一个 LangGraph <a href="https://reference.langchain.com/python/langgraph/graph/state/StateGraph"><code>StateGraph</code></a>
+从某个节点接收到了非 dict 的返回类型。以下是一个示例：</p>
+<pre class="code"><code class="language-python">class State(TypedDict):
+    some_key: str
+
+def bad_node(state: State):
+    # Should return a dict with a value for "some_key", not a list
+    return ["whoops"]
+
+builder = StateGraph(State)
+builder.add_node(bad_node)
+...
+
+graph = builder.compile()</code></pre>
+<p>调用上面的图将产生如下所示的错误：</p>
+<pre class="code"><code class="language-python">graph.invoke({ "some_key": "someval" });</code></pre>
+<pre class="code"><code class="language-plaintext">InvalidUpdateError: Expected dict, got ['whoops']
+For troubleshooting, visit: https://docs.langchain.com/oss/python/langgraph/errors/INVALID_GRAPH_NODE_RETURN_VALUE</code></pre>
+<p>图中的节点必须返回一个包含状态中定义的一个或多个键的 dict。</p>
+<h2 id="故障排查">故障排查</h2>
+
+<p>以下方法可能有助于解决此错误：</p>
+<ul>
+<li>如果您的节点中有复杂逻辑，请确保所有代码路径都为您的已定义状态返回合适的 dict。</li>
+</ul>
+<hr />
+<div classname="source-links">
+<div class="callout note">
+<p><a href="https://docs.langchain.com/use-these-docs">Connect these docs</a> to Claude, VSCode, and more via MCP for real-time answers.</p>
+</div>
+<div class="callout note">
+<p><a href="https://github.com/langchain-ai/docs/edit/main/src/oss/langgraph/errors/INVALID_GRAPH_NODE_RETURN_VALUE.mdx">Edit this page on GitHub</a> or <a href="https://github.com/langchain-ai/docs/issues/new/choose">file an issue</a>.</p>
+</div>
+</div></main>
+    <nav class="pager"><a class="pager-btn prev" href="oss/python/langgraph/errors/INVALID_CONCURRENT_GRAPH_UPDATE.html">← INVALID_CONCURRENT_GRAPH_UPDATE</a><a class="pager-btn next" href="oss/python/langgraph/errors/MISSING_CHECKPOINTER.html">MISSING_CHECKPOINTER →</a></nav>
+    <footer class="footer">
+      <span>LangGraph 中文文档镜像——按 <a href="https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture" target="_blank" rel="noopener">官方站点（docs.langchain.com）</a></span>
+      <span class="pages">全部页面： <a href="../../../../index.html">首页</a> · <a href="../../../../all-in-one.html">单页版</a></span>
+    </footer>
+  </div>
+</div>
+<script src="../../../../assets/site.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/common.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
+</body>
+</html>
