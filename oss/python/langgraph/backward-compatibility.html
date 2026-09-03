@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>向后兼容性 · LangGraph 中文文档镜像</title>
+<meta name="description" content="向后兼容性">
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    <a class="brand" href="../../../index.html">LangGraph 文档 <span class="chip">中文翻译</span></a>
+    <input class="search" id="searchInput" type="search" placeholder="搜索文档…" autocomplete="off">
+    <a class="original" href="https://docs.langchain.com/oss/python/langgraph/backward-compatibility" target="_blank" rel="noopener">查看原文 ↗</a>
+  </header>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner"><div class="nav-section"><h2 class="nav-section-title">文档</h2><nav class="nav-items"><details class="nav-group" open><summary>LangGraph 文档</summary><nav class="nav-items"><a class="nav-link" href="add-memory.html" data-title="记忆">记忆</a><a class="nav-link" href="agentic-rag.html" data-title="使用 LangGraph 构建自定义 RAG 智能体">使用 LangGraph 构建自定义 RAG 智能体</a><a class="nav-link" href="application-structure.html" data-title="应用结构">应用结构</a><a class="nav-link active" href="backward-compatibility.html" data-title="向后兼容性">向后兼容性</a><a class="nav-link" href="case-studies.html" data-title="案例研究">案例研究</a><a class="nav-link" href="checkpointers.html" data-title="检查点存储">检查点存储</a><a class="nav-link" href="choosing-apis.html" data-title="选择 Graph API 还是 Functional API">选择 Graph API 还是 Functional API</a><a class="nav-link" href="deploy.html" data-title="部署">部署</a><a class="nav-link" href="errors/GRAPH_RECURSION_LIMIT.html" data-title="GRAPH_RECURSION_LIMIT">GRAPH_RECURSION_LIMIT</a><a class="nav-link" href="errors/INVALID_CHAT_HISTORY.html" data-title="INVALID_CHAT_HISTORY">INVALID_CHAT_HISTORY</a><a class="nav-link" href="errors/INVALID_CONCURRENT_GRAPH_UPDATE.html" data-title="INVALID_CONCURRENT_GRAPH_UPDATE">INVALID_CONCURRENT_GRAPH_UPDATE</a><a class="nav-link" href="errors/INVALID_GRAPH_NODE_RETURN_VALUE.html" data-title="INVALID_GRAPH_NODE_RETURN_VALUE">INVALID_GRAPH_NODE_RETURN_VALUE</a><a class="nav-link" href="errors/MISSING_CHECKPOINTER.html" data-title="MISSING_CHECKPOINTER">MISSING_CHECKPOINTER</a><a class="nav-link" href="errors/MULTIPLE_SUBGRAPHS.html" data-title="MULTIPLE_SUBGRAPHS">MULTIPLE_SUBGRAPHS</a><a class="nav-link" href="event-streaming.html" data-title="事件流式处理">事件流式处理</a><a class="nav-link" href="fault-tolerance.html" data-title="容错">容错</a><a class="nav-link" href="frontend/custom-stream-channels.html" data-title="自定义流通道">自定义流通道</a><a class="nav-link" href="frontend/graph-execution.html" data-title="图执行">图执行</a><a class="nav-link" href="frontend/overview.html" data-title="概述">概述</a><a class="nav-link" href="functional-api.html" data-title="Functional API 概览">Functional API 概览</a><a class="nav-link" href="graph-api.html" data-title="Graph API 概览">Graph API 概览</a><a class="nav-link" href="install.html" data-title="安装 LangGraph">安装 LangGraph</a><a class="nav-link" href="interrupts.html" data-title="中断">中断</a><a class="nav-link" href="local-server.html" data-title="运行本地服务器">运行本地服务器</a><a class="nav-link" href="observability.html" data-title="LangSmith 可观测性">LangSmith 可观测性</a><a class="nav-link" href="overview.html" data-title="LangGraph 概述">LangGraph 概述</a><a class="nav-link" href="persistence.html" data-title="持久化">持久化</a><a class="nav-link" href="pregel.html" data-title="LangGraph 运行时">LangGraph 运行时</a><a class="nav-link" href="quickstart.html" data-title="快速入门">快速入门</a><a class="nav-link" href="sql-agent.html" data-title="构建自定义 SQL 智能体">构建自定义 SQL 智能体</a><a class="nav-link" href="stores.html" data-title="存储">存储</a><a class="nav-link" href="streaming.html" data-title="流式处理">流式处理</a><a class="nav-link" href="studio.html" data-title="LangSmith Studio">LangSmith Studio</a><a class="nav-link" href="test.html" data-title="测试">测试</a><a class="nav-link" href="thinking-in-langgraph.html" data-title="LangGraph 思维方式">LangGraph 思维方式</a><a class="nav-link" href="ui.html" data-title="Agent Chat UI">Agent Chat UI</a><a class="nav-link" href="use-functional-api.html" data-title="使用函数式 API">使用函数式 API</a><a class="nav-link" href="use-graph-api.html" data-title="使用图 API">使用图 API</a><a class="nav-link" href="use-subgraphs.html" data-title="子图">子图</a><a class="nav-link" href="use-time-travel.html" data-title="使用时间旅行">使用时间旅行</a><a class="nav-link" href="workflows-agents.html" data-title="工作流和智能体">工作流和智能体</a></nav></details></nav></div><div class="nav-section"><h2 class="nav-section-title">发布日志</h2><nav class="nav-items"><details class="nav-group"><summary>发布日志</summary><nav class="nav-items"><a class="nav-link" href="changelog-js.html" data-title="变更日志">变更日志</a><a class="nav-link" href="changelog-py.html" data-title="变更日志">变更日志</a></nav></details></nav></div></div>
+  </aside>
+  <div class="content">
+    <main class="doc"><h1 id="向后兼容性">向后兼容性</h1>
+
+<blockquote>
+<p>在生产环境中更新 LangGraph 图代码，而不破坏进行中的运行。</p>
+</blockquote>
+<p>软件在生产环境中需要不断变化。新需求、缺陷修复和重构最终都会落到你的图代码中。由于 LangGraph 会针对现有线程已<a href="persistence.html">持久化</a>的状态运行最新部署的图，因此你发布的每一次更改，相对于现有检查点而言，实际上都是一次向后兼容的 API 变更。</p>
+<p>与那些把运行固定在其启动时所使用代码版本上的工作流引擎不同，LangGraph 会立即将最新图应用于<em>每一个</em>线程，包括新线程以及从检查点恢复的线程。这很方便：缺陷修复可以无缝地传播到进行中的对话和代理上。但也意味着你必须仔细思考每一项更改会如何影响那些在旧版本代码下启动的运行。</p>
+<p>需要注意三类兼容性问题，大致按你遇到它们的顺序排列：</p>
+<ol>
+<li><a href="#technical-compatibility">技术兼容性</a>：最常见；新代码必须仍然能够针对现有 State 加载和执行。</li>
+<li><a href="#business-compatibility">业务兼容性</a>：较少见；即使代码已更改，现有运行也应继续遵循旧的业务逻辑。</li>
+<li><a href="#non-determinism">非确定性</a>：仅适用于<a href="functional-api.html">功能 API</a>。</li>
+</ol>
+<div class="callout tip">
+<p>有关运行时默认支持哪些图拓扑和状态更改的简要总结，请参阅<a href="graph-api.html#graph-migrations">图迁移</a>。本页其余部分涵盖当更改超出该支持范围时你可以应用的模式。</p>
+</div>
+<p><a id="technical-compatibility" /></p>
+<h2 id="技术兼容性">技术兼容性</h2>
+
+<p>技术兼容性相当于微服务中的 API 破坏性变更。这里的"API"是图代码与<a href="checkpointers.html#checkpointer-libraries">检查点器</a>为现有线程持久化的数据之间的契约。当线程恢复时，LangGraph 会反序列化已保存的状态，按名称将其分派给某个节点，并期望该节点返回符合状态模式的值。</p>
+<p>常见的技术性破坏：</p>
+<ul>
+<li><strong>重命名或删除节点</strong>，而线程正暂停在该节点处或即将进入该节点，例如位于 <a href="https://reference.langchain.com/python/langgraph/types/interrupt"><code>interrupt</code></a> 处，或经由仍路由到旧名称的已检查点条件边。恢复时，LangGraph 无法按保存的名称找到该节点，运行随即失败。恢复运行的起点是执行停止处节点的开头，因此节点缺失将导致无处可恢复。</li>
+<li><strong>重命名或删除 State 键</strong>，而旧检查点仍包含该键，或下游节点仍读取该键。</li>
+<li><strong>收紧迫 State 字段</strong>，例如将 <code>Optional</code> 字段改为必填、收窄类型，或添加没有默认值的新必填字段。现有检查点将无法满足新模式。</li>
+</ul>
+<p>边拓扑本身<em>不会</em>持久化在检查点中。在仍然存在的节点之间添加、移除或重路由边，对进行中的线程是安全的。根据<a href="graph-api.html#graph-migrations">图迁移</a>摘要，唯一可能破坏被中断线程的拓扑更改是重命名或删除节点。</p>
+<h3 id="推荐模式">推荐模式</h3>
+
+<ul>
+<li>添加新的状态字段时使用 <code>NotRequired</code>（或 <code>Optional[...] = None</code>），以便旧检查点仍然可以通过校验：</li>
+</ul>
+<pre class="code"><code class="language-python">from typing import NotRequired
+from typing_extensions import TypedDict
+
+class State(TypedDict):
+    messages: list
+    summary: NotRequired[str]  # [!code ++]</code></pre>
+<ul>
+<li>
+<p>将删除视为弃用。至少在一个耗用周期内保留字段在状态上的定义，即使没有节点读取它，以便现有检查点继续加载。</p>
+</li>
+<li>
+<p>通过<em>先加后删</em>的方式重命名。将新字段或节点与旧的一起添加，在弃用窗口期内双写或同时路由到两者，然后在确认没有进行中的线程依赖旧字段或节点后将其移除。</p>
+</li>
+<li>
+<p>使节点函数容忍未知键。<code>TypedDict</code> 在运行时忽略多余键，因此旧代码版本遗留的状态不会引发错误，除非节点显式读取缺失键。</p>
+</li>
+<li>
+<p>在推广之前，使用<a href="use-time-travel.html">时间旅行</a>和 <a href="https://reference.langchain.com/python/langgraph/graphs/#langgraph.graph.state.CompiledStateGraph.get_state"><code>graph.get_state</code></a> 在预发布环境中抽查现有线程与新代码的兼容性。</p>
+</li>
+</ul>
+<h3 id="检测进行中的线程">检测进行中的线程</h3>
+
+<p>在删除节点、重命名 State 键或以其他方式做出旧线程无法容忍的更改之前，你需要知道是否有任何线程当前停留在你即将放弃的代码版本上。LangGraph 自身不维护线程状态的搜索索引，因此答案取决于你的图在哪里运行。</p>
+<p><strong>如果你部署到 <a href="https://docs.langchain.com/langsmith/deployment">LangSmith</a>。</strong> 使用 Agent Server 的线程搜索按状态过滤。<code>status</code> 字段接受 <code>idle</code>、<code>busy</code>、<code>interrupted</code> 和 <code>error</code>，因此你可以批量查询 <code>interrupted</code> 或 <code>busy</code> 线程，并可选用元数据过滤器缩小范围。请参阅<a href="https://docs.langchain.com/langsmith/use-threads#filter-by-thread-status">按线程状态过滤</a>和<a href="https://docs.langchain.com/langsmith/use-threads#list-threads">列出线程</a>。</p>
+<p><strong>只要 LangGraph 在运行。</strong> 使用 <a href="observability.html">LangSmith 追踪</a>监控生产环境中哪些节点正在被进入和退出。这是判断某个节点或状态字段在任何活跃代码路径中不再可达的最可靠信号。</p>
+<p><strong>当你已经拥有 <code>thread_id</code> 时。</strong> 直接检查该单个线程：</p>
+<ul>
+<li><a href="https://reference.langchain.com/python/langgraph/graphs/#langgraph.graph.state.CompiledStateGraph.get_state"><code>graph.get_state(config)</code></a> 返回最新检查点，包括线程暂停在哪个节点以及任何挂起的 interrupt。</li>
+<li><a href="https://reference.langchain.com/python/langgraph/graphs/#langgraph.graph.state.CompiledStateGraph.get_state_history"><code>graph.get_state_history(config)</code></a> 返回该线程按时间顺序排列的完整检查点列表。</li>
+</ul>
+<p>如有疑问，请将已弃用的节点或字段保留在原处，直到 Agent Server 线程列表和追踪都显示其不再有任何活动。</p>
+<p><a id="business-compatibility" /></p>
+<h2 id="业务兼容性">业务兼容性</h2>
+
+<p>有时更改在技术上是有效的（每个现有检查点仍然可以加载，每个节点仍然可以解析），但新图的<em>含义</em>与旧图不同。新行为对新线程是正确的，但你不希望追溯性地将其应用于在旧逻辑下启动的线程。</p>
+<p>例如，假设你的图执行 <code>intake → triage → respond</code>，你决定在 <code>triage</code> 和 <code>respond</code> 之间插入一个新的 <code>policy_check</code> 步骤：</p>
+<ul>
+<li>已经通过 <code>triage</code> 的线程应直接继续到 <code>respond</code>（旧流程）。</li>
+<li>新线程应运行完整的新流程。</li>
+</ul>
+<p>推荐的模式是在线程启动时在状态上记录相关的<em>行为版本</em>，然后用<a href="graph-api.html#conditional-edges">条件边</a>对其进行分支：</p>
+<pre class="code"><code class="language-python">from typing import NotRequired
+from typing_extensions import TypedDict
+
+from langgraph.graph import END, START, StateGraph
+
+
+class State(TypedDict):
+    request: str
+    flow_version: NotRequired[int]
+    response: NotRequired[str]
+
+
+def intake(state: State) -&gt; dict:
+    # Stamp new threads with the current flow version. Existing threads
+    # that resume past `intake` keep whatever value was already saved.
+    return {"flow_version": state.get("flow_version", 2)}
+
+
+def triage(state: State) -&gt; dict: ...
+def policy_check(state: State) -&gt; dict: ...
+def respond(state: State) -&gt; dict: ...
+
+
+def after_triage(state: State) -&gt; str:
+    if state.get("flow_version", 1) &gt;= 2:
+        return "policy_check"
+    return "respond"
+
+
+builder = StateGraph(State)
+builder.add_node("intake", intake)
+builder.add_node("triage", triage)
+builder.add_node("policy_check", policy_check)
+builder.add_node("respond", respond)
+builder.add_edge(START, "intake")
+builder.add_edge("intake", "triage")
+builder.add_conditional_edges("triage", after_triage, ["policy_check", "respond"])
+builder.add_edge("policy_check", "respond")
+builder.add_edge("respond", END)
+
+graph = builder.compile()</code></pre>
+<p>在 <code>triage</code> 之后恢复的旧线程会从保存的状态中读取 <code>flow_version</code>（或回退到 v1 默认值）并跳过 <code>policy_check</code>。新线程从 <code>intake</code> 开始，被标记为 <code>flow_version=2</code>，并运行新路径。一旦所有 v1 线程完成，你就可以移除版本标志和条件边。</p>
+<p>此模式仅在<em>线程启动时</em>、任何需要版本化的分支之前设置版本时才有效。稍后设置意味着现有线程在需要该版本时不会有它。</p>
+<p><a id="non-determinism" /></p>
+<h2 id="非确定性">非确定性</h2>
+
+<p>此类别仅适用于<a href="functional-api.html">功能 API</a>，以及<a href="graph-api.html">图 API</a><strong>节点</strong>内的<a href="functional-api.html#task"><strong>任务</strong></a>或 <a href="https://reference.langchain.com/python/langgraph/types/interrupt"><code>interrupt</code></a> 调用。普通图 API <strong>节点</strong>在恢复时会<a href="graph-api.html#re-execution-and-idempotency">从节点函数开头重新执行</a>；设计副作用时应使其幂等，但除非你在该<strong>节点</strong>中使用<strong>任务</strong>或 <a href="https://reference.langchain.com/python/langgraph/types/interrupt"><code>interrupt</code></a>，否则无需保留任务调用顺序。</p>
+<p>功能 API <strong>入口点</strong>会编译为单个<strong>节点</strong>，当运行恢复时，该节点从开头重放入口点主体，使用缓存的 <a href="https://reference.langchain.com/python/langgraph/func/task"><code>@task</code></a> 结果跳过已完成的工作。有两类更改会破坏此模型：</p>
+<ul>
+<li><strong>添加、移除或重新排序位于<em>恢复点之前</em>的 <code>@task</code> 调用或 <a href="https://reference.langchain.com/python/langgraph/types/interrupt"><code>interrupt</code></a> 调用。</strong> LangGraph 会按调用在重放中的位置匹配缓存结果和恢复值，因此移动该位置可能导致错误的缓存值被重放到不同的调用上。</li>
+<li><strong>在 <code>@task</code> 之外引入非确定性操作</strong>，例如 <code>time.time()</code>、<code>random.random()</code>，或内联在入口点主体中的网络调用。在重放时，这些操作产生的值会与首次运行时不同，从而可能改变控制流。</li>
+</ul>
+<p>如需更深入的示例说明，请参阅功能 API 指南中的<a href="functional-api.html#determinism">确定性</a>和<a href="functional-api.html#common-pitfalls">常见陷阱</a>。</p>
+<p>如果你需要对有进行中运行的 <code>@entrypoint</code> 做非平凡的代码更改，最安全的选择是：</p>
+<ul>
+<li>在部署更改之前，让进行中的运行自然耗用完毕。</li>
+<li>将所有新逻辑包装在新的 <code>@task</code> 中，这样其结果会被独立检查点化。</li>
+<li>在 <code>langgraph.json</code> 中为新的行为用新的图名注册一个新入口点，并将新线程路由到它。</li>
+</ul>
+<hr />
+<div classname="source-links">
+<div class="callout note">
+<p><a href="https://docs.langchain.com/use-these-docs">连接这些文档</a> 到 Claude、VSCode 等，通过 MCP 获得实时答案。</p>
+</div>
+<div class="callout note">
+<p><a href="https://github.com/langchain-ai/docs/edit/main/src/oss/langgraph/backward-compatibility.mdx">在 GitHub 上编辑此页面</a>或<a href="https://github.com/langchain-ai/docs/issues/new/choose">提交 issue</a>。</p>
+</div>
+</div></main>
+    <nav class="pager"><a class="pager-btn prev" href="oss/python/langgraph/application-structure.html">← 应用结构</a><a class="pager-btn next" href="oss/python/langgraph/case-studies.html">案例研究 →</a></nav>
+    <footer class="footer">
+      <span>LangGraph 中文文档镜像——按 <a href="https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture" target="_blank" rel="noopener">官方站点（docs.langchain.com）</a></span>
+      <span class="pages">全部页面： <a href="../../../index.html">首页</a> · <a href="../../../all-in-one.html">单页版</a></span>
+    </footer>
+  </div>
+</div>
+<script src="../../../assets/site.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/common.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
+</body>
+</html>
