@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>变更日志 · LangGraph 中文文档镜像</title>
+<meta name="description" content="变更日志">
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    <a class="brand" href="../../../index.html">LangGraph 文档 <span class="chip">中文翻译</span></a>
+    <input class="search" id="searchInput" type="search" placeholder="搜索文档…" autocomplete="off">
+    <a class="original" href="https://docs.langchain.com/oss/python/langgraph/changelog-py" target="_blank" rel="noopener">查看原文 ↗</a>
+  </header>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner"><div class="nav-section"><h2 class="nav-section-title">文档</h2><nav class="nav-items"><details class="nav-group"><summary>LangGraph 文档</summary><nav class="nav-items"><a class="nav-link" href="add-memory.html" data-title="记忆">记忆</a><a class="nav-link" href="agentic-rag.html" data-title="使用 LangGraph 构建自定义 RAG 智能体">使用 LangGraph 构建自定义 RAG 智能体</a><a class="nav-link" href="application-structure.html" data-title="应用结构">应用结构</a><a class="nav-link" href="backward-compatibility.html" data-title="向后兼容性">向后兼容性</a><a class="nav-link" href="case-studies.html" data-title="案例研究">案例研究</a><a class="nav-link" href="checkpointers.html" data-title="检查点存储">检查点存储</a><a class="nav-link" href="choosing-apis.html" data-title="选择 Graph API 还是 Functional API">选择 Graph API 还是 Functional API</a><a class="nav-link" href="deploy.html" data-title="部署">部署</a><a class="nav-link" href="errors/GRAPH_RECURSION_LIMIT.html" data-title="GRAPH_RECURSION_LIMIT">GRAPH_RECURSION_LIMIT</a><a class="nav-link" href="errors/INVALID_CHAT_HISTORY.html" data-title="INVALID_CHAT_HISTORY">INVALID_CHAT_HISTORY</a><a class="nav-link" href="errors/INVALID_CONCURRENT_GRAPH_UPDATE.html" data-title="INVALID_CONCURRENT_GRAPH_UPDATE">INVALID_CONCURRENT_GRAPH_UPDATE</a><a class="nav-link" href="errors/INVALID_GRAPH_NODE_RETURN_VALUE.html" data-title="INVALID_GRAPH_NODE_RETURN_VALUE">INVALID_GRAPH_NODE_RETURN_VALUE</a><a class="nav-link" href="errors/MISSING_CHECKPOINTER.html" data-title="MISSING_CHECKPOINTER">MISSING_CHECKPOINTER</a><a class="nav-link" href="errors/MULTIPLE_SUBGRAPHS.html" data-title="MULTIPLE_SUBGRAPHS">MULTIPLE_SUBGRAPHS</a><a class="nav-link" href="event-streaming.html" data-title="事件流式处理">事件流式处理</a><a class="nav-link" href="fault-tolerance.html" data-title="容错">容错</a><a class="nav-link" href="frontend/custom-stream-channels.html" data-title="自定义流通道">自定义流通道</a><a class="nav-link" href="frontend/graph-execution.html" data-title="图执行">图执行</a><a class="nav-link" href="frontend/overview.html" data-title="概述">概述</a><a class="nav-link" href="functional-api.html" data-title="Functional API 概览">Functional API 概览</a><a class="nav-link" href="graph-api.html" data-title="Graph API 概览">Graph API 概览</a><a class="nav-link" href="install.html" data-title="安装 LangGraph">安装 LangGraph</a><a class="nav-link" href="interrupts.html" data-title="中断">中断</a><a class="nav-link" href="local-server.html" data-title="运行本地服务器">运行本地服务器</a><a class="nav-link" href="observability.html" data-title="LangSmith 可观测性">LangSmith 可观测性</a><a class="nav-link" href="overview.html" data-title="LangGraph 概述">LangGraph 概述</a><a class="nav-link" href="persistence.html" data-title="持久化">持久化</a><a class="nav-link" href="pregel.html" data-title="LangGraph 运行时">LangGraph 运行时</a><a class="nav-link" href="quickstart.html" data-title="快速入门">快速入门</a><a class="nav-link" href="sql-agent.html" data-title="构建自定义 SQL 智能体">构建自定义 SQL 智能体</a><a class="nav-link" href="stores.html" data-title="存储">存储</a><a class="nav-link" href="streaming.html" data-title="流式处理">流式处理</a><a class="nav-link" href="studio.html" data-title="LangSmith Studio">LangSmith Studio</a><a class="nav-link" href="test.html" data-title="测试">测试</a><a class="nav-link" href="thinking-in-langgraph.html" data-title="LangGraph 思维方式">LangGraph 思维方式</a><a class="nav-link" href="ui.html" data-title="Agent Chat UI">Agent Chat UI</a><a class="nav-link" href="use-functional-api.html" data-title="使用函数式 API">使用函数式 API</a><a class="nav-link" href="use-graph-api.html" data-title="使用图 API">使用图 API</a><a class="nav-link" href="use-subgraphs.html" data-title="子图">子图</a><a class="nav-link" href="use-time-travel.html" data-title="使用时间旅行">使用时间旅行</a><a class="nav-link" href="workflows-agents.html" data-title="工作流和智能体">工作流和智能体</a></nav></details></nav></div><div class="nav-section"><h2 class="nav-section-title">发布日志</h2><nav class="nav-items"><details class="nav-group" open><summary>发布日志</summary><nav class="nav-items"><a class="nav-link" href="changelog-js.html" data-title="变更日志">变更日志</a><a class="nav-link active" href="changelog-py.html" data-title="变更日志">变更日志</a></nav></details></nav></div></div>
+  </aside>
+  <div class="content">
+    <main class="doc"><h1 id="变更日志">变更日志</h1>
+
+<blockquote>
+<p>我们 Python 包更新与改进的日志</p>
+</blockquote>
+<div class="callout note">
+<p><strong>订阅</strong>：我们的变更日志包含一个 <a href="https://docs.langchain.com/oss/python/releases/changelog/rss.xml">RSS feed</a>，可以集成到 <a href="https://slack.com/help/articles/218688467-Add-RSS-feeds-to-Slack">Slack</a>、<a href="https://zapier.com/apps/email/integrations/rss/1441/send-new-rss-feed-entries-via-email">电子邮件</a>、类似 <a href="https://readybot.io/">Readybot</a> 或 <a href="https://rss.app/en/bots/rssfeeds-discord-bot">RSS Feeds to Discord Bot</a> 的 Discord 机器人以及其他订阅工具中。</p>
+</div>
+<details class="update"><summary>Jul 24, 2026</summary>
+<h2 id="deepagents-v070"><code>deepagents</code> v0.7.0</h2>
+
+<p>默认情况下，更精简、更可配置的 harness。在默认代理的一个回合中，输入令牌减少 <strong>65%</strong>（5,395 → 1,895），并针对我们<a href="https://www.langchain.com/blog/how-we-benchmark-deep-agents">改进后的评估套件</a>进行验证，且没有任何质量回退。</p>
+<h3 id="优化">优化</h3>
+
+<ul>
+<li><strong>默认精简提示词</strong>：编写的基座提示词从空开始，重复工具模式的工具使用说明文本已被精简。仅就默认代理的工具模式而言，总描述令牌减少 <strong>43%</strong>（4,005 → 2,302）；结合空基座提示词和可选启用的 todos，默认代理一个回合的输入令牌减少 <strong>65%</strong>（5,395 → 1,895）。工具行为不变。（<a href="https://github.com/langchain-ai/deepagents/pull/4859">#4859</a>, <a href="https://github.com/langchain-ai/deepagents/pull/4979">#4979</a>, <a href="https://github.com/langchain-ai/deepagents/pull/5009">#5009</a>）</li>
+</ul>
+<h3 id="功能">功能</h3>
+
+<ul>
+<li><strong><a href="https://docs.langchain.com/oss/python/deepagents/customization#middleware">覆盖默认中间件实例</a></strong>：<code>.name</code> 与内置中间件匹配的 <code>middleware=</code>（或子代理 <code>middleware</code>）实例现在会就地替换该默认实例，而不会因重名而报错。例如，传入你自己的 <code>SummarizationMiddleware(...)</code> 来更改令牌触发条件或摘要模型，而无需禁用内置默认项。（<a href="https://github.com/langchain-ai/deepagents/pull/4251">#4251</a>）</li>
+<li><strong>文件系统工具</strong>：新的 <a href="https://docs.langchain.com/oss/python/deepagents/tools#built-in-harness-tools"><code>delete</code></a> 工具可删除文件或递归删除目录（<a href="https://github.com/langchain-ai/deepagents/pull/3659">#3659</a>, <a href="https://github.com/langchain-ai/deepagents/pull/3851">#3851</a>）；<code>write_file</code> 现在会覆盖现有文件而不是报错（<a href="https://github.com/langchain-ai/deepagents/pull/4109">#4109</a>）；<code>FilesystemMiddleware</code> 接受一个<a href="https://docs.langchain.com/oss/python/deepagents/overview#virtual-filesystem-access">工具允许列表</a>以仅暴露选定的内置工具（<a href="https://github.com/langchain-ai/deepagents/pull/4325">#4325</a>, <a href="https://github.com/langchain-ai/deepagents/pull/4698">#4698</a>）；读取和搜索针对开放模型进行了调优——分页的 <code>read_file</code> 报告总行数、剩余行数以及下一个 <code>offset</code>（<a href="https://github.com/langchain-ai/deepagents/pull/4540">#4540</a>），<code>grep</code>/<code>glob</code> 返回带 <code>truncated</code> 标志的部分结果，而不是在大型目录树上挂起（<a href="https://github.com/langchain-ai/deepagents/pull/4063">#4063</a>），<code>grep</code> 增加了 1,000 条匹配上限，并支持流式输出和可选的上下文行（<a href="https://github.com/langchain-ai/deepagents/pull/4570">#4570</a>, <a href="https://github.com/langchain-ai/deepagents/pull/4706">#4706</a>）。</li>
+<li><strong>更多提示缓存支持</strong>：通过 <code>deepagents[aws]</code> 附加依赖实现 Bedrock 提示缓存（<a href="https://github.com/langchain-ai/deepagents/issues/4108">#4108</a>），以及自动的 Fireworks 提示缓存会话亲和性（<a href="https://github.com/langchain-ai/deepagents/pull/4598">#4598</a>）。</li>
+<li><strong>NVIDIA 支持</strong>：内置的 Nemotron 3 Ultra harness 配置以及 NIM 应用来源归属。（<a href="https://github.com/langchain-ai/deepagents/pull/4192">#4192</a>, <a href="https://github.com/langchain-ai/deepagents/pull/4455">#4455</a>）</li>
+</ul>
+<h3 id="破坏性变更">破坏性变更</h3>
+
+<ul>
+<li><strong>规划 todos 改为可选启用</strong>：<code>create_deep_agent</code> 默认不再包含 <code>TodoListMiddleware</code>，因此 <code>write_todos</code> 工具、<code>todos</code> 状态通道和 todo 规划提示词都将不存在，除非使用 <code>middleware=[TodoListMiddleware()]</code> 恢复。（OpenAI Codex harness 配置仍会自动启用。）（<a href="https://github.com/langchain-ai/deepagents/pull/4929">#4929</a>）</li>
+<li><strong>移除后端兼容性填充层（shim）</strong>：传递具体的 <code>BackendProtocol</code> 实例而不是工厂，使用显式 <code>namespace</code> 配置 <code>StoreBackend</code>，并使用当前的 <code>ls</code> / <code>glob</code> / <code>grep</code> / <code>ReadResult</code> API。被移除的符号包括 <code>BackendFactory</code>、<code>BACKEND_TYPES</code>、<code>FileFormat</code> 和 <code>Unset</code>。新文件存储字符串类型的 <code>FileData.content</code>；旧的 <code>list[str]</code> 内容仍可读取，并在下次写入时转换。（<a href="https://github.com/langchain-ai/deepagents/pull/4541">#4541</a>）</li>
+<li><strong>输出格式更改</strong>：空的 <code>ls</code> / <code>glob</code> 输出现在是 <code>No files found</code> 而不是 <code>[]</code>，且 <code>read_file</code> 不再渲染固定宽度的 <code>cat -n</code> 风格侧栏——请更新任何解析原始工具输出的解析器。（<a href="https://github.com/langchain-ai/deepagents/pull/4561">#4561</a>）</li>
+</ul>
+<p>将以下提示词复制到你的 AI 编码助手中，以针对这些破坏性变更迁移代码库：</p>
+<div class="callout prompt" markdown="block">&lt;strong&gt;★ 迁移提示&lt;/strong&gt;
+
+<p>迁移此代码库，从 <code>deepagents</code> v0.6.x 迁移到 v0.7，以应对以下破坏性变更：</p>
+
+<ol>
+<li><code>create_deep_agent</code> 默认不再包含 <code>TodoListMiddleware</code>。如果此代码库依赖 <code>write_todos</code> 工具、<code>todos</code> 状态通道或 todo 规划提示词，请从 <code>langchain.agents.middleware</code>（而非 <code>deepagents</code>）导入 <code>TodoListMiddleware</code> 并将其传递给 <code>create_deep_agent</code> 来恢复：</li>
+</ol>
+
+<pre class="code"><code class="language-python">from langchain.agents.middleware import TodoListMiddleware
+from deepagents import create_deep_agent
+
+agent = create_deep_agent(middleware=[TodoListMiddleware()])</code></pre>
+
+<ol>
+<li>后端兼容性填充层已被移除：<code>BackendFactory</code>、<code>BACKEND_TYPES</code>、<code>FileFormat</code> 和 <code>Unset</code> 不再存在。将所有后端工厂替换为具体的 <code>BackendProtocol</code> 实例，并为每个 <code>StoreBackend</code> 配置添加显式 <code>namespace</code>：</li>
+</ol>
+
+<pre class="code"><code class="language-python">from deepagents import create_deep_agent
+from deepagents.backends import StoreBackend
+
+# Before (v0.6.x): factory callable, and StoreBackend with no explicit namespace
+agent = create_deep_agent(backend=lambda rt: StoreBackend())  # [!code --]
+
+# After (v0.7): concrete backend instance with an explicit namespace
+agent = create_deep_agent(backend=StoreBackend(namespace=lambda rt: (rt.server_info.user.identity,)))  # [!code ++]</code></pre>
+
+<p>同时更新调用，使用当前的 <code>ls</code>、<code>glob</code>、<code>grep</code> 和 <code>ReadResult</code> API。</p>
+
+<ol>
+<li>工具输出格式已更改：空的 <code>ls</code> / <code>glob</code> 输出现在是字符串 <code>No files found</code> 而不是 <code>[]</code>，且 <code>read_file</code> 不再渲染固定宽度的 <code>cat -n</code> 风格行号侧栏。更新任何解析这些工具输出的代码。</li>
+</ol>
+
+<p>在代码库中搜索被移除符号的使用位置，以及依赖旧输出格式的解析逻辑，应用必要的更改，并标记任何需要手动审查的内容。</p>
+</div>
+</details>
+
+<details class="update"><summary>May 12, 2026</summary>
+<h2 id="deepagents-v060"><code>deepagents</code> v0.6.0</h2>
+
+<ul>
+<li><strong><a href="https://docs.langchain.com/oss/python/deepagents/interpreters"><code>CodeInterpreterMiddleware</code></a></strong>：（实验性）<code>deepagents</code> 现在支持通过作用域隔离的 QuickJS 运行时进行代码执行和编程式工具调用。</li>
+<li>在 <code>stream_events</code> / <code>astream_events</code> 中支持 <code>version="v3"</code>。详情请参阅<a href="https://docs.langchain.com/oss/python/deepagents/event-streaming">事件流式传输</a>指南。</li>
+<li><strong><a href="pregel.html#deltachannel"><code>DeltaChannel</code></a>（测试版）</strong>（<a href="https://www.langchain.com/blog/delta-channels-evolving-agent-runtime">博客</a>）：Deep Agents 现在使用 <code>DeltaChannel</code> 存储消息历史和代理文件。不再将完整累积值重新序列化到每个检查点中，而是只存储每一步写入的增量（delta）——在线程变长时保持检查点体积较小。</li>
+</ul>
+<div class="callout warning" markdown="block">
+
+<p><strong>一旦线程已持久化，就不支持从 v0.6.0 回滚。</strong> Deep Agents v0.6.0 将持久化的消息历史和代理文件更改为 <code>DeltaChannel</code>，这会以早期版本无法读取的新格式写入检查点。降级到较早的 Deep Agents 版本会将这些通道切换回非 delta 通道，使现有的 delta 检查点无法读取，并导致状态重建不完整或不正确。如果需要回滚，请在降级之前使用 <a href="https://github.com/langchain-ai/langgraph/tree/main/examples/delta-channel-dump">delta-channel-dump 恢复脚本</a>迁移受影响的线程，或将其丢弃。更一般地，避免在 delta 和非 delta 表示之间切换已持久化的通道。请参阅<a href="pregel.html#version-compatibility-and-rollbacks">版本兼容性与通道更改</a>。</p>
+</div>
+<ul>
+<li><strong><a href="https://docs.langchain.com/oss/python/deepagents/profiles">Harness 配置（profiles）</a></strong>：注册按提供商或按模型的配置包（<code>HarnessProfile</code>），当选择某个模型时 <code>create_deep_agent</code> 会自动应用——系统提示词调整、工具覆盖、中间件更改和子代理默认值——而无需修改调用位置。</li>
+<li><strong><a href="https://docs.langchain.com/oss/python/deepagents/backends#contexthubbackend"><code>ContextHubBackend</code></a></strong>（<a href="https://www.langchain.com/blog/introducing-context-hub">博客</a>）：一个由 LangSmith Hub 支撑的新文件系统后端。代理文件——技能、记忆和其他持久化上下文——作为 Hub 提交存储，为你提供每次写入的版本历史以及 LangSmith 原生的持久性，而无需单独配置 LangGraph store。</li>
+</ul>
+</details>
+
+<details class="update"><summary>May 12, 2026</summary>
+<h2 id="langchain-v130"><code>langchain</code> v1.3.0</h2>
+
+<p>此版本为 <code>langchain</code> 代理在 <code>stream_events</code> / <code>astream_events</code> 中增加了对 <code>version="v3"</code> 的支持。详情请参阅<a href="https://docs.langchain.com/oss/python/langchain/event-streaming">事件流式传输</a>指南。</p>
+</details>
+
+<details class="update"><summary>May 12, 2026</summary>
+<h2 id="langgraph-v120"><code>langgraph</code> v1.2.0</h2>
+
+<p>此版本为节点执行增加了更细粒度的控制（超时、错误恢复和优雅关闭），一种可降低长运行线程检查点开销的新通道类型，以及一种以内容块为中心的新流式 API（v3），支持带类型的、按通道的投影。</p>
+<ul>
+<li>
+<p><strong><a href="pregel.html#deltachannel"><code>DeltaChannel</code></a>（测试版）</strong>：一种新的通道类型，只存储每一步的增量（delta），而不是重新序列化完整的累积值。对于随时间增长变大的通道最有用，例如长运行线程中的消息列表。使用 <code>snapshot_frequency=K</code> 每 K 步写入一个完整快照，以约束读取延迟。</p>
+</li>
+<li>
+<p><strong><a href="fault-tolerance.html#timeouts">按节点的超时</a></strong>：向 <a href="https://reference.langchain.com/python/langgraph/graph/state/StateGraph/add_node"><code>add_node</code></a> 传递 <code>timeout=</code>，以限制单次尝试可运行的时间。设置硬性的墙钟时间限制（<code>run_timeout</code>）、在取得进展时重置的空闲限制（<code>idle_timeout</code>），或通过 <a href="https://reference.langchain.com/python/langgraph/types/TimeoutPolicy"><code>TimeoutPolicy</code></a> 同时设置两者。当限制触发时，LangGraph 会抛出 <a href="https://reference.langchain.com/python/langgraph/errors/NodeTimeoutError"><code>NodeTimeoutError</code></a>，清除该尝试的写入，并交给重试策略处理。仅限异步节点。</p>
+</li>
+<li>
+<p><strong><a href="fault-tolerance.html#error-handling">节点级错误处理器</a></strong>：向 <a href="https://reference.langchain.com/python/langgraph/graph/state/StateGraph/add_node"><code>add_node</code></a> 传递 <code>error_handler=</code>，在所有重试用尽后运行恢复函数。处理器接收带类型的 <a href="https://reference.langchain.com/python/langgraph/errors/NodeError"><code>NodeError</code></a>，并可返回一个 <a href="https://reference.langchain.com/python/langgraph/types/Command"><code>Command</code></a> 来更新状态并路由到其他节点，适用于 Saga/补偿模式。</p>
+</li>
+<li>
+<p><strong><a href="fault-tolerance.html#graceful-shutdown">优雅关闭</a></strong>：在当前超步完成后协作地停止进行中的运行，并保存可恢复的检查点。创建 <a href="https://reference.langchain.com/python/langgraph/runtime/RunControl"><code>RunControl</code></a> 并从任何线程调用 <code>request_drain()</code>；运行会抛出 <code>GraphDrained</code>，之后可以使用相同配置恢复。</p>
+</li>
+<li>
+<p><strong>新的事件流式 API（测试版）</strong>：向 <code>stream_events()</code> / <code>astream_events()</code> 传递 <code>version="v3"</code>，获得以内容块为中心的协议，支持带类型的按通道投影（<code>run.values</code>、<code>run.messages</code>、<code>run.lifecycle</code>、<code>run.subgraphs</code>），以及用于更新、自定义事件、检查点、任务和调试的可选转换器。<code>run.messages</code> 为每次 LLM 调用生成一个 <code>ChatModelStream</code>，并提供针对文本、推理、工具调用和用量（usage）的带类型子投影。<code>version="v1"</code> 和 <code>version="v2"</code> 保持不变。</p>
+</li>
+</ul>
+<p>超时和错误处理器仅限 Python；重试策略在 Python 和 TypeScript 中均继续可用。</p>
+</details>
+
+<details class="update"><summary>Apr 7, 2026</summary>
+<h2 id="deepagents-v050"><code>deepagents</code> v0.5.0</h2>
+
+<ul>
+<li>
+<p><strong><a href="https://docs.langchain.com/oss/python/deepagents/async-subagents">异步子代理</a></strong>：Deep Agents 可以启动非阻塞的后台任务，因此用户可以继续与代理交互，而子代理并发地工作。子代理需要 <a href="https://docs.langchain.com/langsmith/deployment">LangSmith Deployment</a>。</p>
+</li>
+<li>
+<p><strong>多模态支持</strong>：<code>read_file</code> 工具现在除图像外还支持 PDF、音频和视频文件。</p>
+</li>
+<li>
+<p><strong>后端更改</strong>：我们对 Deep Agents <a href="https://github.com/langchain-ai/deepagents/blob/main/libs/deepagents/deepagents/backends/protocol.py">后端协议</a>做了向后兼容的更改：</p>
+<ul>
+<li>更新了 <a href="https://docs.langchain.com/oss/python/deepagents/backends">State 和 Store 后端</a>中存储的文件格式以支持二进制文件。</li>
+<li>改善了从后端到工具的错误传播。</li>
+<li>现在可以直接实例化 <code>StateBackend()</code> 和 <code>StoreBackend()</code>。使用工厂指定（例如 <code>backend=(lambda rt: StateBackend(rt))</code>）已被弃用。</li>
+</ul>
+</li>
+<li>
+<p><strong>Anthropic 提示缓存改进</strong>：我们做了一些改进以提升 Anthropic 模型的提示缓存性能。</p>
+</li>
+</ul>
+</details>
+
+<details class="update"><summary>Mar 10, 2026</summary>
+<h2 id="langgraph-v110"><code>langgraph</code> v1.1.0</h2>
+
+<ul>
+<li>
+<p><strong>类型安全的流式传输（<code>version="v2"</code>）</strong>：向 <code>stream()</code> / <code>astream()</code> 传递 <code>version="v2"</code>，获得统一的 <code>StreamPart</code> 输出，每个块都带有 <code>type</code>、<code>ns</code> 和 <code>data</code> 键。每种模式都有自己的 <code>TypedDict</code>，均可从 <code>langgraph.types</code> 导入。请参阅<a href="streaming.html#stream-output-format-v2">流式传输文档</a>。</p>
+</li>
+<li>
+<p><strong>类型安全的 invoke（<code>version="v2"</code>）</strong>：向 <code>invoke()</code> / <code>ainvoke()</code> 传递 <code>version="v2"</code>，获得带有 <code>.value</code> 和 <code>.interrupts</code> 属性的 <code>GraphOutput</code> 对象。请参阅 <a href="streaming.html#v2-invoke-format">invoke 文档</a>。</p>
+</li>
+<li>
+<p><strong>Pydantic 和 dataclass 强制转换</strong>：使用 <code>version="v2"</code> 时，<code>invoke()</code> 和 <code>values</code> 模式的流式输出会自动强制转换为你声明的 Pydantic 模型或 dataclass 类型。</p>
+</li>
+<li>
+<p><strong>修复了带 interrupt 和子图的时间旅行</strong>：重放不再复用过期的 <code>RESUME</code> 值，子图会正确恢复父图历史状态的检查点。</p>
+</li>
+<li>
+<p><strong>完全向后兼容</strong>：<code>version="v2"</code> 是可选启用的。<code>GraphOutput</code> 支持已弃用的字典式访问，便于渐进迁移。</p>
+</li>
+</ul>
+</details>
+
+<details class="update"><summary>Feb 10, 2026</summary>
+<h2 id="deepagents-v040"><code>deepagents</code> v0.4.0</h2>
+
+<ul>
+<li>用于可插拔沙箱的新集成包：<a href="https://pypi.org/project/langchain-modal/"><code>langchain-modal</code></a>、<a href="https://pypi.org/project/langchain-daytona/"><code>langchain-daytona</code></a> 和 <a href="https://pypi.org/project/langchain-runloop/"><code>langchain-runloop</code></a>。请参阅<a href="https://docs.langchain.com/oss/python/deepagents/sandboxes">沙箱指南</a>和示例<a href="https://docs.langchain.com/oss/python/deepagents/data-analysis">数据分析教程</a>。</li>
+<li><a href="https://docs.langchain.com/oss/python/deepagents/context-engineering#summarization">对话历史摘要</a>的更改：<ul>
+<li>摘要现在通过 <code>wrap_model_call</code> 事件在模型节点中进行。因此我们在图状态中保留完整的消息历史。</li>
+<li>更准确的令牌计数。</li>
+<li>如果聊天模型抛出 <a href="https://reference.langchain.com/python/langchain-core/exceptions/ContextOverflowError"><code>ContextOverflowError</code></a>（在 <code>langchain-core</code> 中定义），摘要现在会自动触发。目前 <code>langchain-anthropic</code> 和 <code>langchain-openai</code> 支持此功能。</li>
+</ul>
+</li>
+<li>我们现在对以 <code>"openai:"</code> 前缀开头的模型字符串默认使用 Responses API。
+      <details class="accordion" id="使用-responses-api-禁用数据保留"><summary>使用 Responses API 禁用数据保留</summary></li>
+</ul>
+<pre class="code"><code class="language-python">from langchain.chat_models import init_chat_model
+
+agent = create_deep_agent(
+    model=init_chat_model(
+        "openai:...",
+        use_responses_api=True,
+        store=False,
+        include=["reasoning.encrypted_content"],
+    )
+)</code></pre>
+</details>
+</details>
+<details class="update"><summary>Dec 15, 2025</summary>
+<h2 id="langchain-v120"><code>langchain</code> v1.2.0</h2>
+
+<ul>
+<li><a href="https://docs.langchain.com/oss/python/langchain/agents"><code>create_agent</code></a>：通过 <a href="https://docs.langchain.com/oss/python/langchain/tools">工具</a> 上新的 <a href="https://reference.langchain.com/python/langchain/tools/#langchain.tools.BaseTool.extras"><code>extras</code></a> 属性，简化了对提供商特定工具参数和定义的支持。示例：<ul>
+<li>提供商特定配置，例如 Anthropic 的<a href="https://docs.langchain.com/oss/python/integrations/chat/anthropic#programmatic-tool-calling">编程式工具调用</a>和<a href="https://docs.langchain.com/oss/python/integrations/chat/anthropic#tool-search">工具搜索</a>。</li>
+<li>在客户端执行的内置工具，如 <a href="https://docs.langchain.com/oss/python/integrations/chat/anthropic#built-in-tools">Anthropic</a>、<a href="https://docs.langchain.com/oss/python/integrations/chat/openai#responses-api">OpenAI</a> 和其他提供商所支持的那样。</li>
+</ul>
+</li>
+<li>支持代理 <code>response_format</code> 中严格的模式遵循（请参阅 <a href="https://docs.langchain.com/oss/python/langchain/structured-output#provider-strategy"><code>ProviderStrategy</code></a> 文档）。</li>
+</ul>
+</details>
+
+<details class="update"><summary>Dec 8, 2025</summary>
+<h2 id="langchain-google-genai-v400"><code>langchain-google-genai</code> v4.0.0</h2>
+
+<p>我们重写了 Google GenAI 集成，改用 Google 统一的 Generative AI SDK，它通过同一接口提供对 Gemini API 和 Vertex AI Platform 的访问。这包括极少的破坏性变更，以及 <code>langchain-google-vertexai</code> 中的已弃用包。</p>
+<p>详情请参阅完整的<a href="https://github.com/langchain-ai/langchain-google/discussions/1422">发布说明和迁移指南</a>。</p>
+</details>
+
+<details class="update"><summary>Nov 25, 2025</summary>
+<h2 id="langchain-v110"><code>langchain</code> v1.1.0</h2>
+
+<ul>
+<li><a href="https://docs.langchain.com/oss/python/langchain/models#model-profiles">模型配置（Model profiles）</a>：聊天模型现在通过 <code>.profile</code> 属性公开支持的特性和能力。这些数据来自 <a href="https://models.dev">models.dev</a>，一个提供模型能力数据的开源项目。</li>
+<li><a href="https://docs.langchain.com/oss/python/langchain/middleware/built-in#summarization">摘要中间件</a>：已更新为使用模型配置支持灵活的触发点，以实现上下文感知的摘要。</li>
+<li><a href="https://docs.langchain.com/oss/python/langchain/structured-output">结构化输出</a>：<code>ProviderStrategy</code> 支持（原生结构化输出）现在可以从模型配置中推断。</li>
+<li><a href="https://docs.langchain.com/oss/python/langchain/middleware/custom#dynamic-prompt"><code>create_agent</code> 的 <code>SystemMessage</code></a>：支持将 <code>SystemMessage</code> 实例直接传递给 <code>create_agent</code> 的 <code>system_prompt</code> 参数，从而启用缓存控制和结构化内容块等高级功能。</li>
+<li><a href="https://docs.langchain.com/oss/python/langchain/middleware/built-in#model-retry">模型重试中间件</a>：新的中间件，用于以可配置的指数退避自动重试失败的模型调用。</li>
+<li><a href="https://docs.langchain.com/oss/python/integrations/middleware/openai#content-moderation">内容审核中间件</a>：用于检测和处理代理交互中不安全内容的 OpenAI 内容审核中间件。支持检查用户输入、模型输出和工具结果。</li>
+</ul>
+</details>
+
+<details class="update"><summary>Oct 20, 2025</summary>
+<h2 id="v1.0.0">v1.0.0</h2>
+
+<h3 id="langchain"><code>langchain</code></h3>
+
+<ul>
+<li><a href="https://docs.langchain.com/oss/python/releases/langchain-v1">发布说明</a></li>
+<li><a href="https://docs.langchain.com/oss/python/migrate/langchain-v1">迁移指南</a></li>
+</ul>
+<h3 id="langgraph"><code>langgraph</code></h3>
+
+<ul>
+<li><a href="https://docs.langchain.com/oss/python/releases/langgraph-v1">发布说明</a></li>
+<li><a href="https://docs.langchain.com/oss/python/migrate/langgraph-v1">迁移指南</a></li>
+</ul>
+<div class="callout note" markdown="block">
+
+<p>如果你遇到任何问题或有反馈，请<a href="https://github.com/langchain-ai/docs/issues/new?template=01-langchain.yml">提交 issue</a>以便我们改进。要查看 v0.x 文档，请<a href="https://github.com/langchain-ai/langchain/tree/v0.3/docs/docs">访问存档内容</a>和 <a href="https://reference.langchain.com/v0.3/python/">API 参考</a>。</p>
+</div>
+</details>
+
+<hr />
+<div classname="source-links">
+<div class="callout note">
+<p><a href="https://docs.langchain.com/use-these-docs">连接这些文档</a> 到 Claude、VSCode 等，通过 MCP 获得实时答案。</p>
+</div>
+<div class="callout note">
+<p><a href="https://github.com/langchain-ai/docs/edit/main/src/oss/python/releases/changelog.mdx">在 GitHub 上编辑此页面</a>或<a href="https://github.com/langchain-ai/docs/issues/new/choose">提交 issue</a>。</p>
+</div>
+</div></main>
+    <nav class="pager"><a class="pager-btn prev" href="oss/python/langgraph/changelog-js.html">← 变更日志</a></nav>
+    <footer class="footer">
+      <span>LangGraph 中文文档镜像——按 <a href="https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture" target="_blank" rel="noopener">官方站点（docs.langchain.com）</a></span>
+      <span class="pages">全部页面： <a href="../../../index.html">首页</a> · <a href="../../../all-in-one.html">单页版</a></span>
+    </footer>
+  </div>
+</div>
+<script src="../../../assets/site.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/common.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
+</body>
+</html>
