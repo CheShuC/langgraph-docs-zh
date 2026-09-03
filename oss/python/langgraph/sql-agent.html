@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>构建自定义 SQL 智能体 · LangGraph 中文文档镜像</title>
+<meta name="description" content="构建自定义 SQL 智能体">
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    <a class="brand" href="../../../index.html">LangGraph 文档 <span class="chip">中文翻译</span></a>
+    <input class="search" id="searchInput" type="search" placeholder="搜索文档…" autocomplete="off">
+    <a class="original" href="https://docs.langchain.com/oss/python/langgraph/sql-agent" target="_blank" rel="noopener">查看原文 ↗</a>
+  </header>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner"><div class="nav-section"><h2 class="nav-section-title">文档</h2><nav class="nav-items"><details class="nav-group" open><summary>LangGraph 文档</summary><nav class="nav-items"><a class="nav-link" href="add-memory.html" data-title="记忆">记忆</a><a class="nav-link" href="agentic-rag.html" data-title="使用 LangGraph 构建自定义 RAG 智能体">使用 LangGraph 构建自定义 RAG 智能体</a><a class="nav-link" href="application-structure.html" data-title="应用结构">应用结构</a><a class="nav-link" href="backward-compatibility.html" data-title="向后兼容性">向后兼容性</a><a class="nav-link" href="case-studies.html" data-title="案例研究">案例研究</a><a class="nav-link" href="checkpointers.html" data-title="检查点存储">检查点存储</a><a class="nav-link" href="choosing-apis.html" data-title="选择 Graph API 还是 Functional API">选择 Graph API 还是 Functional API</a><a class="nav-link" href="deploy.html" data-title="部署">部署</a><a class="nav-link" href="errors/GRAPH_RECURSION_LIMIT.html" data-title="GRAPH_RECURSION_LIMIT">GRAPH_RECURSION_LIMIT</a><a class="nav-link" href="errors/INVALID_CHAT_HISTORY.html" data-title="INVALID_CHAT_HISTORY">INVALID_CHAT_HISTORY</a><a class="nav-link" href="errors/INVALID_CONCURRENT_GRAPH_UPDATE.html" data-title="INVALID_CONCURRENT_GRAPH_UPDATE">INVALID_CONCURRENT_GRAPH_UPDATE</a><a class="nav-link" href="errors/INVALID_GRAPH_NODE_RETURN_VALUE.html" data-title="INVALID_GRAPH_NODE_RETURN_VALUE">INVALID_GRAPH_NODE_RETURN_VALUE</a><a class="nav-link" href="errors/MISSING_CHECKPOINTER.html" data-title="MISSING_CHECKPOINTER">MISSING_CHECKPOINTER</a><a class="nav-link" href="errors/MULTIPLE_SUBGRAPHS.html" data-title="MULTIPLE_SUBGRAPHS">MULTIPLE_SUBGRAPHS</a><a class="nav-link" href="event-streaming.html" data-title="事件流式处理">事件流式处理</a><a class="nav-link" href="fault-tolerance.html" data-title="容错">容错</a><a class="nav-link" href="frontend/custom-stream-channels.html" data-title="自定义流通道">自定义流通道</a><a class="nav-link" href="frontend/graph-execution.html" data-title="图执行">图执行</a><a class="nav-link" href="frontend/overview.html" data-title="概述">概述</a><a class="nav-link" href="functional-api.html" data-title="Functional API 概览">Functional API 概览</a><a class="nav-link" href="graph-api.html" data-title="Graph API 概览">Graph API 概览</a><a class="nav-link" href="install.html" data-title="安装 LangGraph">安装 LangGraph</a><a class="nav-link" href="interrupts.html" data-title="中断">中断</a><a class="nav-link" href="local-server.html" data-title="运行本地服务器">运行本地服务器</a><a class="nav-link" href="observability.html" data-title="LangSmith 可观测性">LangSmith 可观测性</a><a class="nav-link" href="overview.html" data-title="LangGraph 概述">LangGraph 概述</a><a class="nav-link" href="persistence.html" data-title="持久化">持久化</a><a class="nav-link" href="pregel.html" data-title="LangGraph 运行时">LangGraph 运行时</a><a class="nav-link" href="quickstart.html" data-title="快速入门">快速入门</a><a class="nav-link active" href="sql-agent.html" data-title="构建自定义 SQL 智能体">构建自定义 SQL 智能体</a><a class="nav-link" href="stores.html" data-title="存储">存储</a><a class="nav-link" href="streaming.html" data-title="流式处理">流式处理</a><a class="nav-link" href="studio.html" data-title="LangSmith Studio">LangSmith Studio</a><a class="nav-link" href="test.html" data-title="测试">测试</a><a class="nav-link" href="thinking-in-langgraph.html" data-title="LangGraph 思维方式">LangGraph 思维方式</a><a class="nav-link" href="ui.html" data-title="Agent Chat UI">Agent Chat UI</a><a class="nav-link" href="use-functional-api.html" data-title="使用函数式 API">使用函数式 API</a><a class="nav-link" href="use-graph-api.html" data-title="使用图 API">使用图 API</a><a class="nav-link" href="use-subgraphs.html" data-title="子图">子图</a><a class="nav-link" href="use-time-travel.html" data-title="使用时间旅行">使用时间旅行</a><a class="nav-link" href="workflows-agents.html" data-title="工作流和智能体">工作流和智能体</a></nav></details></nav></div><div class="nav-section"><h2 class="nav-section-title">发布日志</h2><nav class="nav-items"><details class="nav-group"><summary>发布日志</summary><nav class="nav-items"><a class="nav-link" href="changelog-js.html" data-title="变更日志">变更日志</a><a class="nav-link" href="changelog-py.html" data-title="变更日志">变更日志</a></nav></details></nav></div></div>
+  </aside>
+  <div class="content">
+    <main class="doc"><h1 id="构建自定义-sql-智能体">构建自定义 SQL 智能体</h1>
+
+<p>在本教程中，我们将使用 LangGraph 构建一个可以回答有关 SQL 数据库问题的自定义智能体。</p>
+<p>LangChain 提供了内置的<a href="https://docs.langchain.com/oss/python/langchain/agents">智能体</a>实现，使用 <a href="overview.html">LangGraph</a> 原语实现。如果需要更深入的定制，可以直接在 LangGraph 中实现智能体。本指南演示了 SQL 智能体的示例实现。如需实际入门，请参阅<a href="https://docs.langchain.com/oss/python/langchain/sql-agent">使用更高级别的 LangChain 抽象构建 SQL 智能体</a>。</p>
+<div class="callout warning">
+<p>为 SQL 数据库构建问答系统需要执行模型生成的 SQL 查询。这样做存在固有风险。请确保您的数据库连接权限始终针对智能体的需求尽可能窄地限定范围。这将减轻（但不会消除）构建模型驱动系统的风险。</p>
+</div>
+<p><a href="https://docs.langchain.com/oss/python/langchain/sql-agent">预构建智能体</a>让我们能够快速入门，但我们依赖系统提示词来约束其行为——例如，我们指示智能体始终以"列出表"（list tables）工具开头，并且始终在执行查询之前运行查询检查器工具。</p>
+<p>我们可以通过在 LangGraph 中定制智能体来实施更高程度的控制。在这里，我们实现一个简单的 React 智能体设置，为特定的工具调用提供专用节点。我们将使用与预构建智能体相同的[状态]。</p>
+<h3 id="概念">概念</h3>
+
+<p>我们将涵盖以下概念：</p>
+<ul>
+<li>用于从 SQL 数据库读取的<a href="https://docs.langchain.com/oss/python/langchain/tools">工具</a></li>
+<li>LangGraph <a href="graph-api.html">Graph API</a>，包括状态、节点、边和条件边。</li>
+<li><a href="interrupts.html">人机协同</a>流程</li>
+</ul>
+<h2 id="设置">设置</h2>
+
+<h3 id="安装">安装</h3>
+
+<p class="code-caption">pip</p><pre class="code"><code class="language-bash">pip install langchain langgraph</code></pre>
+<h3 id="langsmith">LangSmith</h3>
+
+<p>设置 <a href="https://smith.langchain.com?utm_source=docs\&amp;utm_medium=cta\&amp;utm_campaign=langsmith-signup\&amp;utm_content=oss-langgraph-sql-agent">LangSmith</a> 以检查您的链或智能体内部发生的情况。然后设置以下环境变量：</p>
+<pre class="code"><code class="language-shell">export LANGSMITH_TRACING="true"
+export LANGSMITH_API_KEY="..."</code></pre>
+<h2 id="1-选择-llm">1. 选择 LLM</h2>
+
+<p>选择一个支持<a href="https://docs.langchain.com/oss/python/integrations/providers/overview">工具调用</a>的模型：</p>
+<div class="tabs">
+<section class="tab-item"><h3 class="tab-title">OpenAI</h3><p>👉 阅读 <a href="https://docs.langchain.com/oss/python/integrations/chat/openai/">OpenAI 聊天模型集成文档</a></p>
+<p class="code-caption">pip</p><pre class="code"><code class="language-bash">pip install -U "langchain[openai]"</code></pre>
+<p class="code-caption">uv</p><pre class="code"><code class="language-bash">uv add "langchain[openai]"</code></pre>
+<p class="code-caption">init_chat_model</p><pre class="code"><code class="language-python">import os
+from langchain.chat_models import init_chat_model
+
+os.environ["OPENAI_API_KEY"] = "sk-..."
+
+model = init_chat_model("gpt-5.5")</code></pre>
+<p class="code-caption">Model Class</p><pre class="code"><code class="language-python">import os
+from langchain_openai import ChatOpenAI
+
+os.environ["OPENAI_API_KEY"] = "sk-..."
+
+model = ChatOpenAI(model="gpt-5.5")</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">Anthropic</h3><p>👉 阅读 <a href="https://docs.langchain.com/oss/python/integrations/chat/anthropic/">Anthropic 聊天模型集成文档</a></p>
+<p class="code-caption">pip</p><pre class="code"><code class="language-bash">pip install -U "langchain[anthropic]"</code></pre>
+<p class="code-caption">uv</p><pre class="code"><code class="language-bash">uv add "langchain[anthropic]"</code></pre>
+<p class="code-caption">init_chat_model</p><pre class="code"><code class="language-python">import os
+from langchain.chat_models import init_chat_model
+
+os.environ["ANTHROPIC_API_KEY"] = "sk-..."
+
+model = init_chat_model("claude-sonnet-4-6")</code></pre>
+<p class="code-caption">Model Class</p><pre class="code"><code class="language-python">import os
+from langchain_anthropic import ChatAnthropic
+
+os.environ["ANTHROPIC_API_KEY"] = "sk-..."
+
+model = ChatAnthropic(model="claude-sonnet-4-6")</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">Azure</h3><p>👉 阅读 <a href="https://docs.langchain.com/oss/python/integrations/chat/azure_chat_openai/">Azure 聊天模型集成文档</a></p>
+<p class="code-caption">pip</p><pre class="code"><code class="language-bash">pip install -U "langchain[openai]"</code></pre>
+<p class="code-caption">uv</p><pre class="code"><code class="language-bash">uv add "langchain[openai]"</code></pre>
+<p class="code-caption">init_chat_model</p><pre class="code"><code class="language-python">import os
+from langchain.chat_models import init_chat_model
+
+os.environ["AZURE_OPENAI_API_KEY"] = "..."
+os.environ["AZURE_OPENAI_ENDPOINT"] = "..."
+os.environ["OPENAI_API_VERSION"] = "2025-03-01-preview"
+
+model = init_chat_model(
+    "azure_openai:gpt-5.5",
+    azure_deployment=os.environ["AZURE_OPENAI_DEPLOYMENT_NAME"],
+)</code></pre>
+<p class="code-caption">Model Class</p><pre class="code"><code class="language-python">import os
+from langchain_openai import AzureChatOpenAI
+
+os.environ["AZURE_OPENAI_API_KEY"] = "..."
+os.environ["AZURE_OPENAI_ENDPOINT"] = "..."
+os.environ["OPENAI_API_VERSION"] = "2025-03-01-preview"
+
+model = AzureChatOpenAI(
+    model="gpt-5.5",
+    azure_deployment=os.environ["AZURE_OPENAI_DEPLOYMENT_NAME"]
+)</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">Google Gemini</h3><p>👉 阅读 <a href="https://docs.langchain.com/oss/python/integrations/chat/google_generative_ai/">Google GenAI 聊天模型集成文档</a></p>
+<p class="code-caption">pip</p><pre class="code"><code class="language-bash">pip install -U "langchain[google-genai]"</code></pre>
+<p class="code-caption">uv</p><pre class="code"><code class="language-bash">uv add "langchain[google-genai]"</code></pre>
+<p class="code-caption">init_chat_model</p><pre class="code"><code class="language-python">import os
+from langchain.chat_models import init_chat_model
+
+os.environ["GOOGLE_API_KEY"] = "..."
+
+model = init_chat_model("google_genai:gemini-3.7-flash")</code></pre>
+<p class="code-caption">Model Class</p><pre class="code"><code class="language-python">import os
+from langchain_google_genai import ChatGoogleGenerativeAI
+
+os.environ["GOOGLE_API_KEY"] = "..."
+
+model = ChatGoogleGenerativeAI(model="gemini-3.7-flash")</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">AWS Bedrock</h3><p>👉 阅读 <a href="https://docs.langchain.com/oss/python/integrations/chat/bedrock/">AWS Bedrock 聊天模型集成文档</a></p>
+<p class="code-caption">pip</p><pre class="code"><code class="language-bash">pip install -U "langchain[aws]"</code></pre>
+<p class="code-caption">uv</p><pre class="code"><code class="language-bash">uv add "langchain[aws]"</code></pre>
+<p class="code-caption">init_chat_model</p><pre class="code"><code class="language-python">from langchain.chat_models import init_chat_model
+
+# Follow the steps here to configure your credentials:
+# https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html
+
+model = init_chat_model(
+    "us.anthropic.claude-sonnet-4-6",
+    model_provider="bedrock_converse",
+)</code></pre>
+<p class="code-caption">Model Class</p><pre class="code"><code class="language-python">from langchain_aws import ChatBedrock
+
+model = ChatBedrock(model="us.anthropic.claude-sonnet-4-6")</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">HuggingFace</h3><p>👉 阅读 <a href="https://docs.langchain.com/oss/python/integrations/chat/huggingface/">HuggingFace 聊天模型集成文档</a></p>
+<p class="code-caption">pip</p><pre class="code"><code class="language-bash">pip install -U "langchain[huggingface]"</code></pre>
+<p class="code-caption">uv</p><pre class="code"><code class="language-bash">uv add "langchain[huggingface]"</code></pre>
+<p class="code-caption">init_chat_model</p><pre class="code"><code class="language-python">import os
+from langchain.chat_models import init_chat_model
+
+os.environ["HUGGINGFACEHUB_API_TOKEN"] = "hf_..."
+
+model = init_chat_model(
+    "microsoft/Phi-3-mini-4k-instruct",
+    model_provider="huggingface",
+    temperature=0.7,
+    max_tokens=1024,
+)</code></pre>
+<p class="code-caption">Model Class</p><pre class="code"><code class="language-python">import os
+from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
+
+os.environ["HUGGINGFACEHUB_API_TOKEN"] = "hf_..."
+
+llm = HuggingFaceEndpoint(
+    repo_id="microsoft/Phi-3-mini-4k-instruct",
+    temperature=0.7,
+    max_length=1024,
+)
+model = ChatHuggingFace(llm=llm)</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">OpenRouter</h3><p>👉 阅读 <a href="https://docs.langchain.com/oss/python/integrations/chat/openrouter/">OpenRouter 聊天模型集成文档</a></p>
+<p class="code-caption">pip</p><pre class="code"><code class="language-bash">pip install -U "langchain-openrouter"</code></pre>
+<p class="code-caption">uv</p><pre class="code"><code class="language-bash">uv add "langchain-openrouter"</code></pre>
+<p class="code-caption">init_chat_model</p><pre class="code"><code class="language-python">import os
+from langchain.chat_models import init_chat_model
+
+os.environ["OPENROUTER_API_KEY"] = "sk-..."
+
+model = init_chat_model(
+    "auto",
+    model_provider="openrouter",
+)</code></pre>
+<p class="code-caption">Model Class</p><pre class="code"><code class="language-python">import os
+from langchain_openrouter import ChatOpenRouter
+
+os.environ["OPENROUTER_API_KEY"] = "sk-..."
+
+model = ChatOpenRouter(model="auto")</code></pre></section>
+</div>
+
+<p>以下示例中显示的输出使用了 OpenAI。</p>
+<h2 id="2-配置数据库">2. 配置数据库</h2>
+
+<p>您将为本教程创建一个 <a href="https://www.sqlitetutorial.net/sqlite-sample-database/">SQLite 数据库</a>。SQLite 是一种轻量级数据库，易于设置和使用。我们将加载 <code>chinook</code> 数据库，这是一个代表数字媒体商店的示例数据库。</p>
+<p>为了方便，我们已将数据库（<code>Chinook.db</code>）托管在一个公共 GCS 存储桶上。</p>
+<pre class="code"><code class="language-python">import pathlib
+import requests
+
+url = "https://storage.googleapis.com/benchmarks-artifacts/chinook/Chinook.db"
+local_path = pathlib.Path("Chinook.db")
+
+if local_path.exists():
+    print(f"{local_path} already exists, skipping download.")
+else:
+    response = requests.get(url, timeout=60)
+    if response.status_code == 200:
+        local_path.write_bytes(response.content)
+        print(f"File downloaded and saved as {local_path}")
+    else:
+        print(f"Failed to download the file. Status code: {response.status_code}")</code></pre>
+<p>我们将使用 Python 内置的 <code>sqlite3</code> 模块与数据库交互：</p>
+<pre class="code"><code class="language-python">import sqlite3
+
+con = sqlite3.connect("Chinook.db")
+cursor = con.cursor()
+
+cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+tables = [row[0] for row in cursor.fetchall() if not row[0].startswith("sqlite_")]
+
+print("Dialect: sqlite")
+print(f"Available tables: {tables}")
+
+cursor.execute("SELECT * FROM Artist LIMIT 5;")
+print(f"Sample output: {cursor.fetchall()}")
+con.close()</code></pre>
+<pre class="code"><code class="language-plaintext">Dialect: sqlite
+Available tables: ['Album', 'Artist', 'Customer', 'Employee', 'Genre', 'Invoice', 'InvoiceLine', 'MediaType', 'Playlist', 'PlaylistTrack', 'Track']
+Sample output: [(1, 'AC/DC'), (2, 'Accept'), (3, 'Aerosmith'), (4, 'Alanis Morissette'), (5, 'Alice In Chains')]</code></pre>
+<h2 id="3-添加用于数据库交互的工具">3. 添加用于数据库交互的工具</h2>
+
+<div class="callout warning">
+<p>以下数据库工具仅为演示目的的最小封装，并非为了安全或生产使用而设计。请在执行模型生成的 SQL 之前使用窄范围的数据库权限，并添加特定于应用的验证。</p>
+</div>
+<p>我们可以使用 <code>langchain.tools</code> 中的 <code>@tool</code> 装饰器将数据库<a href="https://docs.langchain.com/oss/python/langchain/tools">工具</a>实现为轻量封装：</p>
+<pre class="code"><code class="language-python">import sqlite3
+from langchain.tools import tool
+
+# Below are minimal tools for demonstration purposes.
+
+
+@tool
+def sql_db_list_tables() -&gt; str:
+    """Input is an empty string, output is a comma-separated list of tables in the database."""
+    con = sqlite3.connect("Chinook.db")
+    try:
+        cursor = con.cursor()
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+        tables = [
+            row[0]
+            for row in cursor.fetchall()
+            if not row[0].startswith("sqlite_")
+        ]
+        return ", ".join(tables)
+    finally:
+        con.close()
+
+
+@tool
+def sql_db_schema(table_names: str) -&gt; str:
+    """Input to this tool is a comma-separated list of tables, output is the schema and sample rows for those tables.
+    Be sure that the tables actually exist by calling sql_db_list_tables first!
+    Example Input: table1, table2, table3"""
+    con = sqlite3.connect("Chinook.db")
+    try:
+        cursor = con.cursor()
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+        valid_tables = {
+            row[0] for row in cursor.fetchall() if not row[0].startswith("sqlite_")
+        }
+        results = []
+        for table in table_names.split(","):
+            table = table.strip()
+            if table not in valid_tables:
+                results.append(
+                    f"Error: table_names {{{table!r}}} not found in database"
+                )
+                continue
+            cursor.execute(
+                "SELECT sql FROM sqlite_master WHERE type='table' AND name=?;",
+                (table,),
+            )
+            schema_row = cursor.fetchone()
+            if schema_row:
+                results.append(schema_row[0])
+                try:
+                    quoted_table = '"' + table.replace('"', '""') + '"'
+                    cursor.execute(f"SELECT * FROM {quoted_table} LIMIT 3;")
+                    rows = cursor.fetchall()
+                    if rows:
+                        col_names = [description[0] for description in cursor.description]
+                        results.append(
+                            f"/*\n3 rows from {table} table:\n"
+                            + "\t".join(col_names)
+                            + "\n"
+                            + "\n".join(
+                                "\t".join(str(x) for x in row) for row in rows
+                            )
+                            + "\n*/"
+                        )
+                except Exception as e:
+                    results.append(f"Error fetching sample rows: {e}")
+        return "\n\n".join(results)
+    finally:
+        con.close()
+
+
+@tool
+def sql_db_query(query: str) -&gt; str:
+    """Input to this tool is a detailed and correct SQL query, output is a result from the database.
+    If the query is not correct, an error message will be returned.
+    If an error is returned, rewrite the query, check the query, and try again.
+    If you encounter an issue with Unknown column 'xxxx' in 'field list', use sql_db_schema to query the correct table fields."""
+    con = sqlite3.connect("Chinook.db")
+    try:
+        cursor = con.cursor()
+        cursor.execute(query)
+        res = cursor.fetchall()
+        return str(res)
+    except Exception as e:
+        return f"Error: {e}"
+    finally:
+        con.close()
+
+
+tools = [sql_db_list_tables, sql_db_schema, sql_db_query]
+
+# Use a distinct loop variable so it does not shadow the `tool` decorator,
+# which is reused later to wrap the query tool for human review.
+for t in tools:
+    print(f"{t.name}: {t.description}\n")</code></pre>
+<pre class="code"><code class="language-plaintext">sql_db_list_tables: Input is an empty string, output is a comma-separated list of tables in the database.
+
+sql_db_schema: Input to this tool is a comma-separated list of tables, output is the schema and sample rows for those tables.
+    Be sure that the tables actually exist by calling sql_db_list_tables first!
+    Example Input: table1, table2, table3
+
+sql_db_query: Input to this tool is a detailed and correct SQL query, output is a result from the database.
+    If the query is not correct, an error message will be returned.
+    If an error is returned, rewrite the query, check the query, and try again.
+    If you encounter an issue with Unknown column 'xxxx' in 'field list', use sql_db_schema to query the correct table fields.</code></pre>
+<h2 id="4-定义应用步骤">4. 定义应用步骤</h2>
+
+<p>我们为以下步骤构建专用节点：</p>
+<ul>
+<li>列出数据库表</li>
+<li>调用"获取模式"（get schema）工具</li>
+<li>生成查询</li>
+<li>检查查询</li>
+</ul>
+<p>将这些步骤放入专用节点使我们能够（1）在需要时强制进行工具调用，以及（2）自定义与每个步骤相关的提示词。</p>
+<pre class="code"><code class="language-python">from typing import Literal
+
+from langchain.messages import AIMessage
+from langchain_core.runnables import RunnableConfig
+from langgraph.graph import END, START, MessagesState, StateGraph
+from langgraph.prebuilt import ToolNode
+
+get_schema_tool = next(tool for tool in tools if tool.name == "sql_db_schema")
+get_schema_node = ToolNode([get_schema_tool], name="get_schema")
+
+run_query_tool = next(tool for tool in tools if tool.name == "sql_db_query")
+run_query_node = ToolNode([run_query_tool], name="run_query")
+
+
+# Example: create a predetermined tool call
+def list_tables(state: MessagesState):
+    tool_call = {
+        "name": "sql_db_list_tables",
+        "args": {},
+        "id": "abc123",
+        "type": "tool_call",
+    }
+    tool_call_message = AIMessage(content="", tool_calls=[tool_call])
+
+    list_tables_tool = next(tool for tool in tools if tool.name == "sql_db_list_tables")
+    tool_message = list_tables_tool.invoke(tool_call)
+    response = AIMessage(f"Available tables: {tool_message.content}")
+
+    return {"messages": [tool_call_message, tool_message, response]}
+
+
+# Example: force a model to create a tool call
+def call_get_schema(state: MessagesState):
+    # Note that LangChain enforces that all models accept `tool_choice="any"`
+    # as well as `tool_choice=&lt;string name of tool&gt;`.
+    llm_with_tools = model.bind_tools([get_schema_tool], tool_choice="any")
+    response = llm_with_tools.invoke(state["messages"])
+
+    return {"messages": [response]}
+
+
+generate_query_system_prompt = """
+You are an agent designed to interact with a SQL database.
+Given an input question, create a syntactically correct {dialect} query to run,
+then look at the results of the query and return the answer. Unless the user
+specifies a specific number of examples they wish to obtain, always limit your
+query to at most {top_k} results.
+
+You can order the results by a relevant column to return the most interesting
+examples in the database. Never query for all the columns from a specific table,
+only ask for the relevant columns given the question.
+
+DO NOT make any DML statements (INSERT, UPDATE, DELETE, DROP etc.) to the database.
+""".format(
+    dialect="sqlite",
+    top_k=5,
+)
+
+
+def generate_query(state: MessagesState):
+    system_message = {
+        "role": "system",
+        "content": generate_query_system_prompt,
+    }
+    # We do not force a tool call here, to allow the model to
+    # respond naturally when it obtains the solution.
+    llm_with_tools = model.bind_tools([run_query_tool])
+    response = llm_with_tools.invoke([system_message] + state["messages"])
+
+    return {"messages": [response]}
+
+
+check_query_system_prompt = """
+You are a SQL expert with a strong attention to detail.
+Double check the {dialect} query for common mistakes, including:
+- Using NOT IN with NULL values
+- Using UNION when UNION ALL should have been used
+- Using BETWEEN for exclusive ranges
+- Data type mismatch in predicates
+- Properly quoting identifiers
+- Using the correct number of arguments for functions
+- Casting to the correct data type
+- Using the proper columns for joins
+
+If there are any of the above mistakes, rewrite the query. If there are no mistakes,
+just reproduce the original query.
+
+You will call the appropriate tool to execute the query after running this check.
+""".format(dialect="sqlite")
+
+
+def check_query(state: MessagesState):
+    system_message = {
+        "role": "system",
+        "content": check_query_system_prompt,
+    }
+
+    # Generate an artificial user message to check
+    tool_call = state["messages"][-1].tool_calls[0]
+    user_message = {"role": "user", "content": tool_call["args"]["query"]}
+    llm_with_tools = model.bind_tools([run_query_tool], tool_choice="any")
+    response = llm_with_tools.invoke([system_message, user_message])
+    response.id = state["messages"][-1].id
+
+    return {"messages": [response]}</code></pre>
+<h2 id="5-实现智能体">5. 实现智能体</h2>
+
+<p>我们现在可以使用 <a href="graph-api.html">Graph API</a> 将这些步骤组装成工作流。我们在查询生成步骤定义一条<a href="graph-api.html#conditional-edges">条件边</a>，如果生成了查询则路由到查询检查器，如果没有工具调用则结束（此时 LLM 已就查询给出了回复）。</p>
+<pre class="code"><code class="language-python">def should_continue(state: MessagesState) -&gt; Literal[END, "check_query"]:
+    messages = state["messages"]
+    last_message = messages[-1]
+    if not last_message.tool_calls:
+        return END
+    else:
+        return "check_query"
+
+
+builder = StateGraph(MessagesState)
+builder.add_node(list_tables)
+builder.add_node(call_get_schema)
+builder.add_node(get_schema_node, "get_schema")
+builder.add_node(generate_query)
+builder.add_node(check_query)
+builder.add_node(run_query_node, "run_query")
+
+builder.add_edge(START, "list_tables")
+builder.add_edge("list_tables", "call_get_schema")
+builder.add_edge("call_get_schema", "get_schema")
+builder.add_edge("get_schema", "generate_query")
+builder.add_conditional_edges(
+    "generate_query",
+    should_continue,
+)
+builder.add_edge("check_query", "run_query")
+builder.add_edge("run_query", "generate_query")
+
+agent = builder.compile()</code></pre>
+<p>我们在下面可视化应用：</p>
+<pre class="code"><code class="language-python">import pathlib
+
+pathlib.Path("graph.png").write_bytes(agent.get_graph().draw_mermaid_png())</code></pre>
+<p><img src="https://mintcdn.com/langchain-5e9cc07a/aAi4RLdXQAh8fThS/oss/images/sql-agent-langgraph.png?fit=max&auto=format&n=aAi4RLdXQAh8fThS&q=85&s=1ddd4aae369fb8c143edaccb0a09c81f" alt="SQL agent graph" style={{ height: "800px" }} width="308" height="645" data-path="oss/images/sql-agent-langgraph.png" /></p>
+<p>我们现在可以调用图：</p>
+<pre class="code"><code class="language-python">question = "Which genre on average has the longest tracks?"
+
+stream = agent.stream_events(
+    {"messages": [{"role": "user", "content": question}]},
+    version="v3",
+)
+for message in stream.messages:
+    for token in message.text:
+        print(token, end="", flush=True)
+
+final_state = stream.output</code></pre>
+<pre class="code"><code class="language-plaintext">================================ Human Message =================================
+
+Which genre on average has the longest tracks?
+================================== Ai Message ==================================
+
+Available tables: Album, Artist, Customer, Employee, Genre, Invoice, InvoiceLine, MediaType, Playlist, PlaylistTrack, Track
+================================== Ai Message ==================================
+Tool Calls:
+  sql_db_schema (call_yzje0tj7JK3TEzDx4QnRR3lL)
+ Call ID: call_yzje0tj7JK3TEzDx4QnRR3lL
+  Args:
+    table_names: Genre, Track
+================================= Tool Message =================================
+Name: sql_db_schema
+
+
+CREATE TABLE "Genre" (
+	"GenreId" INTEGER NOT NULL,
+	"Name" NVARCHAR(120),
+	PRIMARY KEY ("GenreId")
+)
+
+/*
+3 rows from Genre table:
+GenreId	Name
+1	Rock
+2	Jazz
+3	Metal
+*/
+
+
+CREATE TABLE "Track" (
+	"TrackId" INTEGER NOT NULL,
+	"Name" NVARCHAR(200) NOT NULL,
+	"AlbumId" INTEGER,
+	"MediaTypeId" INTEGER NOT NULL,
+	"GenreId" INTEGER,
+	"Composer" NVARCHAR(220),
+	"Milliseconds" INTEGER NOT NULL,
+	"Bytes" INTEGER,
+	"UnitPrice" NUMERIC(10, 2) NOT NULL,
+	PRIMARY KEY ("TrackId"),
+	FOREIGN KEY("MediaTypeId") REFERENCES "MediaType" ("MediaTypeId"),
+	FOREIGN KEY("GenreId") REFERENCES "Genre" ("GenreId"),
+	FOREIGN KEY("AlbumId") REFERENCES "Album" ("AlbumId")
+)
+
+/*
+3 rows from Track table:
+TrackId	Name	AlbumId	MediaTypeId	GenreId	Composer	Milliseconds	Bytes	UnitPrice
+1	For Those About To Rock (We Salute You)	1	1	1	Angus Young, Malcolm Young, Brian Johnson	343719	11170334	0.99
+2	Balls to the Wall	2	2	1	U. Dirkschneider, W. Hoffmann, H. Frank, P. Baltes, S. Kaufmann, G. Hoffmann	342562	5510424	0.99
+3	Fast As a Shark	3	2	1	F. Baltes, S. Kaufman, U. Dirkscneider &amp; W. Hoffman	230619	3990994	0.99
+*/
+================================== Ai Message ==================================
+Tool Calls:
+  sql_db_query (call_cb9ApLfZLSq7CWg6jd0im90b)
+ Call ID: call_cb9ApLfZLSq7CWg6jd0im90b
+  Args:
+    query: SELECT Genre.Name, AVG(Track.Milliseconds) AS AvgMilliseconds FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId GROUP BY Genre.GenreId ORDER BY AvgMilliseconds DESC LIMIT 5;
+================================== Ai Message ==================================
+Tool Calls:
+  sql_db_query (call_DMVALfnQ4kJsuF3Yl6jxbeAU)
+ Call ID: call_DMVALfnQ4kJsuF3Yl6jxbeAU
+  Args:
+    query: SELECT Genre.Name, AVG(Track.Milliseconds) AS AvgMilliseconds FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId GROUP BY Genre.GenreId ORDER BY AvgMilliseconds DESC LIMIT 5;
+================================= Tool Message =================================
+Name: sql_db_query
+
+[('Sci Fi &amp; Fantasy', 2911783.0384615385), ('Science Fiction', 2625549.076923077), ('Drama', 2575283.78125), ('TV Shows', 2145041.0215053763), ('Comedy', 1585263.705882353)]
+================================== Ai Message ==================================
+
+The genre with the longest tracks on average is "Sci Fi &amp; Fantasy," with an average track length of approximately 2,911,783 milliseconds. Other genres with relatively long tracks include "Science Fiction," "Drama," "TV Shows," and "Comedy."</code></pre>
+<div class="callout tip">
+<p>查看上述运行的 <a href="https://smith.langchain.com/public/94b8c9ac-12f7-4692-8706-836a1f30f1ea/r">LangSmith trace</a>。</p>
+</div>
+<h2 id="6-实现人机协同审查">6. 实现人机协同审查</h2>
+
+<p>在执行智能体的 SQL 查询之前检查它们是否包含任何意外操作或低效之处是明智的做法。</p>
+<p>这里我们利用 LangGraph 的<a href="interrupts.html">人机协同</a>功能，在执行 SQL 查询之前暂停运行并等待人工审查。使用 LangGraph 的<a href="persistence.html">持久化层</a>，我们可以无限期地暂停运行（或至少在持久化层存活期间）。</p>
+<p>让我们将 <code>sql_db_query</code> 工具包装在一个接收人工输入的节点中。我们可以使用 <a href="interrupts.html">interrupt</a> 函数来实现这一点。下面，我们允许通过输入来批准工具调用、编辑其参数或提供用户反馈。</p>
+<pre class="code"><code class="language-python">from langchain.tools import tool
+from langgraph.types import interrupt
+from langchain_core.runnables import RunnableConfig
+
+
+@tool(
+    run_query_tool.name,
+    description=run_query_tool.description,
+    args_schema=run_query_tool.args_schema,
+)
+def run_query_tool_with_interrupt(config: RunnableConfig, **tool_input):
+    request = {
+        "action": run_query_tool.name,
+        "args": tool_input,
+        "description": "Please review the tool call",
+    }
+    response = interrupt([request])  # [!code highlight]
+    # approve the tool call
+    if response["type"] == "accept":
+        tool_response = run_query_tool.invoke(tool_input, config)
+    # update tool call args
+    elif response["type"] == "edit":
+        tool_input = response["args"]["args"]
+        tool_response = run_query_tool.invoke(tool_input, config)
+    # respond to the LLM with user feedback
+    elif response["type"] == "response":
+        user_feedback = response["args"]
+        tool_response = user_feedback
+    else:
+        raise ValueError(f"Unsupported interrupt response type: {response['type']}")
+
+    return tool_response
+
+
+# Redefine the tool node to use the interrupt version
+run_query_node = ToolNode([run_query_tool_with_interrupt], name="run_query")  # [!code highlight]</code></pre>
+<div class="callout note">
+<p>上述实现遵循更广泛的<a href="interrupts.html">人机协同</a>指南中的<a href="interrupts.html#interrupts-in-tools">工具中断示例</a>。有关详细信息和替代方案，请参阅该指南。</p>
+</div>
+<p>现在让我们重新组装图。我们将程序化检查替换为人工审查。请注意，我们现在包含了一个<a href="persistence.html">检查点器</a>；这是暂停和恢复运行所必需的。</p>
+<pre class="code"><code class="language-python">from langgraph.checkpoint.memory import InMemorySaver
+
+def should_continue(state: MessagesState) -&gt; Literal[END, "run_query"]:
+    messages = state["messages"]
+    last_message = messages[-1]
+    if not last_message.tool_calls:
+        return END
+    else:
+        return "run_query"
+
+builder = StateGraph(MessagesState)
+builder.add_node(list_tables)
+builder.add_node(call_get_schema)
+builder.add_node(get_schema_node, "get_schema")
+builder.add_node(generate_query)
+builder.add_node(run_query_node, "run_query")
+
+builder.add_edge(START, "list_tables")
+builder.add_edge("list_tables", "call_get_schema")
+builder.add_edge("call_get_schema", "get_schema")
+builder.add_edge("get_schema", "generate_query")
+builder.add_conditional_edges(
+    "generate_query",
+    should_continue,
+)
+builder.add_edge("run_query", "generate_query")
+
+checkpointer = InMemorySaver()  # [!code highlight]
+agent = builder.compile(checkpointer=checkpointer)  # [!code highlight]</code></pre>
+<p>我们可以像之前一样调用图。这一次，执行会被中断：</p>
+<pre class="code"><code class="language-python">question = "Which genre on average has the longest tracks?"
+
+stream = agent.stream_events(
+    {"messages": [{"role": "user", "content": question}]},
+    config,
+    version="v3",
+)
+for message in stream.messages:
+    for token in message.text:
+        print(token, end="", flush=True)
+if stream.interrupted:
+    action = stream.interrupts[0]
+    print("INTERRUPTED:")
+    for request in action.value:
+        print(json.dumps(request, indent=2))</code></pre>
+<pre class="code"><code class="language-plaintext">...
+
+INTERRUPTED:
+{
+  "action": "sql_db_query",
+  "args": {
+    "query": "SELECT Genre.Name, AVG(Track.Milliseconds) AS AvgLength FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId GROUP BY Genre.Name ORDER BY AvgLength DESC LIMIT 5;"
+  },
+  "description": "Please review the tool call"
+}</code></pre>
+<p>我们可以使用 <a href="use-graph-api.html#combine-control-flow-and-state-updates-with-command">Command</a> 接受或编辑工具调用：</p>
+<pre class="code"><code class="language-python">from langgraph.types import Command
+
+stream = agent.stream_events(
+    Command(resume={"type": "accept"}),
+    # Command(resume={"type": "edit", "args": {"query": "..."}}),
+    config,
+    version="v3",
+)
+for message in stream.messages:
+    for token in message.text:
+        print(token, end="", flush=True)
+if stream.interrupted:
+    action = stream.interrupts[0]
+    print("INTERRUPTED:")
+    for request in action.value:
+        print(json.dumps(request, indent=2))</code></pre>
+<pre class="code"><code class="language-plaintext">================================== Ai Message ==================================
+Tool Calls:
+  sql_db_query (call_t4yXkD6shwdTPuelXEmY3sAY)
+ Call ID: call_t4yXkD6shwdTPuelXEmY3sAY
+  Args:
+    query: SELECT Genre.Name, AVG(Track.Milliseconds) AS AvgLength FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId GROUP BY Genre.Name ORDER BY AvgLength DESC LIMIT 5;
+================================= Tool Message =================================
+Name: sql_db_query
+
+[('Sci Fi &amp; Fantasy', 2911783.0384615385), ('Science Fiction', 2625549.076923077), ('Drama', 2575283.78125), ('TV Shows', 2145041.0215053763), ('Comedy', 1585263.705882353)]
+================================== Ai Message ==================================
+
+The genre with the longest average track length is "Sci Fi &amp; Fantasy" with an average length of about 2,911,783 milliseconds. Other genres with long average track lengths include "Science Fiction," "Drama," "TV Shows," and "Comedy."</code></pre>
+<p>有关详细信息，请参阅<a href="interrupts.html">人机协同指南</a>。</p>
+<h2 id="后续步骤">后续步骤</h2>
+
+<p>查看<a href="https://docs.langchain.com/langsmith/evaluate-graph">评估图</a>指南，了解如何使用 LangSmith 评估 LangGraph 应用（包括像这样的 SQL 智能体）。</p>
+<hr />
+<div classname="source-links">
+<div class="callout note">
+<p><a href="https://docs.langchain.com/use-these-docs">Connect these docs</a> to Claude, VSCode, and more via MCP for real-time answers.</p>
+</div>
+<div class="callout note">
+<p><a href="https://github.com/langchain-ai/docs/edit/main/src/oss/langgraph/sql-agent.mdx">Edit this page on GitHub</a> or <a href="https://github.com/langchain-ai/docs/issues/new/choose">file an issue</a>.</p>
+</div>
+</div></main>
+    <nav class="pager"><a class="pager-btn prev" href="oss/python/langgraph/quickstart.html">← 快速入门</a><a class="pager-btn next" href="oss/python/langgraph/stores.html">存储 →</a></nav>
+    <footer class="footer">
+      <span>LangGraph 中文文档镜像——按 <a href="https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture" target="_blank" rel="noopener">官方站点（docs.langchain.com）</a></span>
+      <span class="pages">全部页面： <a href="../../../index.html">首页</a> · <a href="../../../all-in-one.html">单页版</a></span>
+    </footer>
+  </div>
+</div>
+<script src="../../../assets/site.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/common.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
+</body>
+</html>
