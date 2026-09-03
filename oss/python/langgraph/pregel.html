@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LangGraph 运行时 · LangGraph 中文文档镜像</title>
+<meta name="description" content="LangGraph 运行时">
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    <a class="brand" href="../../../index.html">LangGraph 文档 <span class="chip">中文翻译</span></a>
+    <input class="search" id="searchInput" type="search" placeholder="搜索文档…" autocomplete="off">
+    <a class="original" href="https://docs.langchain.com/oss/python/langgraph/pregel" target="_blank" rel="noopener">查看原文 ↗</a>
+  </header>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner"><div class="nav-section"><h2 class="nav-section-title">文档</h2><nav class="nav-items"><details class="nav-group" open><summary>LangGraph 文档</summary><nav class="nav-items"><a class="nav-link" href="add-memory.html" data-title="记忆">记忆</a><a class="nav-link" href="agentic-rag.html" data-title="使用 LangGraph 构建自定义 RAG 智能体">使用 LangGraph 构建自定义 RAG 智能体</a><a class="nav-link" href="application-structure.html" data-title="应用结构">应用结构</a><a class="nav-link" href="backward-compatibility.html" data-title="向后兼容性">向后兼容性</a><a class="nav-link" href="case-studies.html" data-title="案例研究">案例研究</a><a class="nav-link" href="checkpointers.html" data-title="检查点存储">检查点存储</a><a class="nav-link" href="choosing-apis.html" data-title="选择 Graph API 还是 Functional API">选择 Graph API 还是 Functional API</a><a class="nav-link" href="deploy.html" data-title="部署">部署</a><a class="nav-link" href="errors/GRAPH_RECURSION_LIMIT.html" data-title="GRAPH_RECURSION_LIMIT">GRAPH_RECURSION_LIMIT</a><a class="nav-link" href="errors/INVALID_CHAT_HISTORY.html" data-title="INVALID_CHAT_HISTORY">INVALID_CHAT_HISTORY</a><a class="nav-link" href="errors/INVALID_CONCURRENT_GRAPH_UPDATE.html" data-title="INVALID_CONCURRENT_GRAPH_UPDATE">INVALID_CONCURRENT_GRAPH_UPDATE</a><a class="nav-link" href="errors/INVALID_GRAPH_NODE_RETURN_VALUE.html" data-title="INVALID_GRAPH_NODE_RETURN_VALUE">INVALID_GRAPH_NODE_RETURN_VALUE</a><a class="nav-link" href="errors/MISSING_CHECKPOINTER.html" data-title="MISSING_CHECKPOINTER">MISSING_CHECKPOINTER</a><a class="nav-link" href="errors/MULTIPLE_SUBGRAPHS.html" data-title="MULTIPLE_SUBGRAPHS">MULTIPLE_SUBGRAPHS</a><a class="nav-link" href="event-streaming.html" data-title="事件流式处理">事件流式处理</a><a class="nav-link" href="fault-tolerance.html" data-title="容错">容错</a><a class="nav-link" href="frontend/custom-stream-channels.html" data-title="自定义流通道">自定义流通道</a><a class="nav-link" href="frontend/graph-execution.html" data-title="图执行">图执行</a><a class="nav-link" href="frontend/overview.html" data-title="概述">概述</a><a class="nav-link" href="functional-api.html" data-title="Functional API 概览">Functional API 概览</a><a class="nav-link" href="graph-api.html" data-title="Graph API 概览">Graph API 概览</a><a class="nav-link" href="install.html" data-title="安装 LangGraph">安装 LangGraph</a><a class="nav-link" href="interrupts.html" data-title="中断">中断</a><a class="nav-link" href="local-server.html" data-title="运行本地服务器">运行本地服务器</a><a class="nav-link" href="observability.html" data-title="LangSmith 可观测性">LangSmith 可观测性</a><a class="nav-link" href="overview.html" data-title="LangGraph 概述">LangGraph 概述</a><a class="nav-link" href="persistence.html" data-title="持久化">持久化</a><a class="nav-link active" href="pregel.html" data-title="LangGraph 运行时">LangGraph 运行时</a><a class="nav-link" href="quickstart.html" data-title="快速入门">快速入门</a><a class="nav-link" href="sql-agent.html" data-title="构建自定义 SQL 智能体">构建自定义 SQL 智能体</a><a class="nav-link" href="stores.html" data-title="存储">存储</a><a class="nav-link" href="streaming.html" data-title="流式处理">流式处理</a><a class="nav-link" href="studio.html" data-title="LangSmith Studio">LangSmith Studio</a><a class="nav-link" href="test.html" data-title="测试">测试</a><a class="nav-link" href="thinking-in-langgraph.html" data-title="LangGraph 思维方式">LangGraph 思维方式</a><a class="nav-link" href="ui.html" data-title="Agent Chat UI">Agent Chat UI</a><a class="nav-link" href="use-functional-api.html" data-title="使用函数式 API">使用函数式 API</a><a class="nav-link" href="use-graph-api.html" data-title="使用图 API">使用图 API</a><a class="nav-link" href="use-subgraphs.html" data-title="子图">子图</a><a class="nav-link" href="use-time-travel.html" data-title="使用时间旅行">使用时间旅行</a><a class="nav-link" href="workflows-agents.html" data-title="工作流和智能体">工作流和智能体</a></nav></details></nav></div><div class="nav-section"><h2 class="nav-section-title">发布日志</h2><nav class="nav-items"><details class="nav-group"><summary>发布日志</summary><nav class="nav-items"><a class="nav-link" href="changelog-js.html" data-title="变更日志">变更日志</a><a class="nav-link" href="changelog-py.html" data-title="变更日志">变更日志</a></nav></details></nav></div></div>
+  </aside>
+  <div class="content">
+    <main class="doc"><h1 id="langgraph-运行时">LangGraph 运行时</h1>
+
+<p><a href="https://reference.langchain.com/python/langgraph/pregel/main/Pregel"><code>Pregel</code></a> 实现了 LangGraph 的运行时，负责管理 LangGraph 应用程序的执行。</p>
+<p>编译 <a href="https://reference.langchain.com/python/langgraph/graph/state/StateGraph">StateGraph</a> 或创建 <a href="https://reference.langchain.com/python/langgraph/func/entrypoint"><code>@entrypoint</code></a> 都会产生一个 <a href="https://reference.langchain.com/python/langgraph/pregel/main/Pregel"><code>Pregel</code></a> 实例，该实例可以通过输入来调用。</p>
+<p>本指南从较高层面解释运行时，并提供直接使用 Pregel 实现应用程序的说明。</p>
+<blockquote>
+<p><strong>注意：</strong> <a href="https://reference.langchain.com/python/langgraph/pregel/main/Pregel"><code>Pregel</code></a> 运行时得名于 <a href="https://research.google/pubs/pub37252/">Google 的 Pregel 算法</a>，该算法描述了一种利用图进行大规模并行计算的高效方法。</p>
+</blockquote>
+<h2 id="概述">概述</h2>
+
+<p>在 LangGraph 中，Pregel 将 <a href="https://en.wikipedia.org/wiki/Actor_model"><strong>actor</strong></a> 和 <strong>通道</strong> 组合到一个应用程序中。<strong>actor</strong> 从通道读取数据并向通道写入数据。Pregel 遵循 <strong>Pregel 算法</strong>/<strong>批量同步并行（Bulk Synchronous Parallel）</strong> 模型，将应用程序的执行组织为多个步骤。</p>
+<p>每个步骤包含三个阶段：</p>
+<ul>
+<li><strong>规划（Plan）</strong>：确定本步骤要执行哪些 <strong>actor</strong>。例如，在第一步中，选择订阅特殊 <strong>输入</strong> 通道的 <strong>actor</strong>；在后续步骤中，选择订阅上一步中被更新通道的 <strong>actor</strong>。</li>
+<li><strong>执行（Execution）</strong>：并行执行所有选中的 <strong>actor</strong>，直到全部完成、其中一个失败或达到超时。在此阶段，通道更新对 actor 不可见，直到进入下一步骤。</li>
+<li><strong>更新（Update）</strong>：使用本步骤中 <strong>actor</strong> 写入的值更新通道。</li>
+</ul>
+<p>重复执行，直到没有 <strong>actor</strong> 被选中执行，或达到最大步骤数。</p>
+<h2 id="actor">Actor</h2>
+
+<p><strong>actor</strong> 是一个 <code>PregelNode</code>。它订阅通道，从通道读取数据并向通道写入数据。可以将其视为 Pregel 算法中的 <strong>actor</strong>。<code>PregelNode</code> 实现了 LangChain 的 Runnable 接口。</p>
+<h2 id="通道">通道</h2>
+
+<p>通道用于在 actor（PregelNode）之间通信。每个通道都有一个值类型、一个更新类型和一个更新函数——更新函数接收一系列更新并修改存储的值。通道可用于将数据从一条链发送到另一条链，或将数据发送到链自身以供未来步骤使用。</p>
+<h3 id="lastvalue">LastValue</h3>
+
+<p><a href="https://reference.langchain.com/python/langgraph/channels/last_value/LastValue"><code>LastValue</code></a> 是默认的通道类型。它存储最后一次写入的值，并覆盖之前的任何值。可将它用于输入和输出值，或用于将数据从一个步骤传递到下一个步骤。</p>
+<pre class="code"><code class="language-python">from langgraph.channels import LastValue
+
+channel: LastValue[int] = LastValue(int)</code></pre>
+<h3 id="topic">Topic</h3>
+
+<p><a href="https://reference.langchain.com/python/langgraph/channels/topic/Topic"><code>Topic</code></a> 是一种可配置的 PubSub 通道，可用于在 actor 之间发送多个值，或在多个步骤之间累积输出。它可以配置为对值去重，或累积一次运行期间写入的所有值。</p>
+<pre class="code"><code class="language-python">from langgraph.channels import Topic
+
+# Accumulate all values written across steps
+channel: Topic[str] = Topic(str, accumulate=True)</code></pre>
+<h3 id="binaryoperatoraggregate">BinaryOperatorAggregate</h3>
+
+<p><a href="https://reference.langchain.com/python/langgraph/channels/binop/BinaryOperatorAggregate"><code>BinaryOperatorAggregate</code></a> 存储一个持久值，通过将二元运算符应用于当前值和每个新更新来更新该值。可使用它跨步骤计算累计聚合值。</p>
+<pre class="code"><code class="language-python">import operator
+from langgraph.channels import BinaryOperatorAggregate
+
+# Running total: each write adds to the current value
+total = BinaryOperatorAggregate(int, operator.add)</code></pre>
+<h3 id="deltachannel">DeltaChannel</h3>
+
+<div class="callout warning">
+<p><code>DeltaChannel</code> 需要 <code>langgraph&gt;=1.2</code>，目前处于 <strong>beta</strong> 阶段。API 在未来的版本中可能会发生变化。</p>
+</div>
+<p><a href="https://reference.langchain.com/python/langgraph/channels/delta/DeltaChannel"><code>DeltaChannel</code></a> 只存储每个步骤的增量变化，而不是完整的累积值。这对于频繁写入并随时间累积大量值的通道最为有用——例如，长时间运行的线程中的对话消息列表。如果没有增量存储，完整列表会被重新序列化到每一个检查点中；而使用 <code>DeltaChannel</code>，则只存储每个步骤中写入的新消息。</p>
+<div class="callout tip">
+<p>当某个通道既被频繁写入、又随时间不断增大时，可以考虑使用 <code>DeltaChannel</code>。一个很好的信号：如果你注意到某个通道的检查点大小随线程长度线性增长，那么 <code>DeltaChannel</code> 很可能是合适的选择。</p>
+</div>
+<p>像使用普通 reducer 一样，在 <code>Annotated</code> 类型注解中使用 <code>DeltaChannel</code>：</p>
+<pre class="code"><code class="language-python">from typing import Annotated, Sequence
+from typing_extensions import TypedDict
+from langgraph.channels import DeltaChannel
+
+
+def my_reducer(state: list[str], writes: Sequence[list[str]]) -&gt; list[str]:
+    result = list(state)
+    for write in writes:
+        result.extend(write)
+    return result
+
+
+class State(TypedDict):
+    messages: Annotated[list[str], DeltaChannel(my_reducer)]</code></pre>
+<h4 id="批量-reducer-的要求">批量 reducer 的要求</h4>
+
+<p>传递给 <code>DeltaChannel</code> 的 <code>reducer</code> 是一种<strong>批量 reducer</strong>：它在一次调用中接收当前状态以及当前步骤所有写入的<em>序列</em>——而不是像标准 reducer 那样成对处理。这与 <code>StateGraph</code> 中与 <code>Annotated</code> 一起使用的按键 reducer 不同，后者的 reducer 每次更新都会调用一次。</p>
+<div class="callout warning">
+<p>批量 reducer <strong>必须是可结合的</strong>（与批处理方式无关）：</p>
+<pre class="code"><code class="language-plaintext">reducer(reducer(state, [xs]), [ys]) == reducer(state, [xs, ys])</code></pre>
+<p>如果你的 reducer 不可结合，重建后的状态可能会因 LangGraph 跨步骤批处理写入的方式不同而有所差异，从而产生不一致的行为。</p>
+</div>
+<div class="callout warning">
+<p><strong>reducer 在重建时运行，而非写入时运行。</strong>与 <a href="https://reference.langchain.com/python/langgraph/channels/binop/BinaryOperatorAggregate"><code>BinaryOperatorAggregate</code></a>（其 reducer 在写入时调用，因此合并后的值会被序列化到检查点中）不同，<code>DeltaChannel</code> 的 reducer 是在通道值从持久化的写入记录中<em>重建</em>时被调用的。被序列化的是每个步骤的原始写入；reducer 只在值被具体化时才会被调用——即在下次读取时、供下一步骤的 actor 使用时，或回放历史时。</p>
+<p>设计 reducer 时需要注意的实际影响：</p>
+<ul>
+<li><strong>使它成为 <code>(state, writes)</code> 的纯函数。</strong>任何副作用、随机性或读取墙上时钟的操作（例如 <code>uuid.uuid4()</code>、<code>datetime.now()</code>）都会在每次重建值时执行，并在每次回放时产生不同的结果。它们<em>不会</em>被固化到持久化的写入中。</li>
+<li><strong>不要依赖对传入写入的修改会被持久化。</strong>如果你的 reducer 修改了某个写入对象（例如，为原本没有稳定 ID 的项目分配一个），该修改只存在于重建后的值中。存储的写入仍保持原始形状，因此下次重建时又会看到未修改的输入。</li>
+<li><strong>在上游附加身份标识和其他稳定的元数据。</strong>如果下游代码需要跨轮次按 ID 引用某个项目（例如，之后还要更新或删除它），请在值写入通道之前分配该 ID——而不是在 reducer 内部。</li>
+</ul>
+</div>
+<p>以下是两种最常见场景的批量 reducer：</p>
+<pre class="code"><code class="language-python">from typing import Any, Sequence
+
+
+# List: append all writes in order
+def list_reducer(state: list[Any], writes: Sequence[list[Any]]) -&gt; list[Any]:
+    result = list(state)
+    for write in writes:
+        result.extend(write)
+    return result
+
+
+# Dict: merge all writes, last write wins on key conflicts
+def dict_reducer(
+    state: dict[str, Any], writes: Sequence[dict[str, Any]]
+) -&gt; dict[str, Any]:
+    result = dict(state)
+    for write in writes:
+        result.update(write)
+    return result</code></pre>
+<p>两者都是可结合的：逐个应用批次与一次性全部应用会产生相同的结果。</p>
+<h4 id="使用-snapshot_frequency-限制读取延迟">使用 snapshot\_frequency 限制读取延迟</h4>
+
+<p>如果没有快照，读取 <code>DeltaChannel</code> 的值就需要回放完整的写入历史——对于具有 N 个步骤的线程，复杂度为 O(N)。设置 <code>snapshot_frequency=K</code> 会在每 K 个 Pregel 步骤后写入完整快照，将读取深度限制在至多 K 个步骤：</p>
+<pre class="code"><code class="language-python">class State(TypedDict):
+    messages: Annotated[
+        list[str],
+        DeltaChannel(my_reducer, snapshot_frequency=5),
+    ]</code></pre>
+<p><code>snapshot_frequency</code> 的值越大，存储开销越低，但读取延迟越高。值越小，延迟上限越严格，但代价是检查点更大。<code>None</code>（默认值）会完全跳过快照——适合读取次数很少或线程较短的情况。</p>
+<h4 id="版本兼容性与回滚">版本兼容性与回滚</h4>
+
+<div class="callout warning">
+<p>不建议将已持久化的通道从 <code>DeltaChannel</code> 更改为非 delta 通道。检查点对这些通道类型的编码方式不同，因此更改现有线程的通道类型可能导致状态重建不完整或不正确。请在线程的整个生命周期内保持通道定义稳定。在更改通道类型之前，请将受影响的线程迁移到新的表示形式，或丢弃它们并启动新线程。</p>
+<p><strong>不支持回滚到不支持 <code>DeltaChannel</code> 的版本。</strong><code>langgraph&gt;=1.2</code> 会以早期版本无法读取的新格式写入 delta 通道检查点。一旦线程使用了 <code>DeltaChannel</code>，降级 LangGraph 会使这些检查点无法读取，因为旧版运行时不理解 delta 格式，无法重建通道状态。如果需要回滚，请先在降级前使用 <a href="https://github.com/langchain-ai/langgraph/tree/main/examples/delta-channel-dump">delta-channel-dump 恢复脚本</a> 迁移受影响的线程，或将其丢弃。</p>
+</div>
+<h2 id="示例">示例</h2>
+
+<p>虽然大多数用户会通过 <a href="https://reference.langchain.com/python/langgraph/graph/state/StateGraph">StateGraph</a> API 或 <a href="https://reference.langchain.com/python/langgraph/func/entrypoint"><code>@entrypoint</code></a> 装饰器与 Pregel 交互，但也可以直接与 Pregel 交互。</p>
+<p>下面是一些不同的示例，帮助你了解 Pregel API。</p>
+<div class="tabs">
+<section class="tab-item"><h3 class="tab-title">单节点</h3><pre class="code"><code class="language-python">from langgraph.channels import EphemeralValue
+from langgraph.pregel import Pregel, NodeBuilder
+
+node1 = (
+    NodeBuilder().subscribe_only("a")
+    .do(lambda x: x + x)
+    .write_to("b")
+)
+
+app = Pregel(
+    nodes={"node1": node1},
+    channels={
+        "a": EphemeralValue(str),
+        "b": EphemeralValue(str),
+    },
+    input_channels=["a"],
+    output_channels=["b"],
+)
+
+app.invoke({"a": "foo"})</code></pre>
+<pre class="code"><code class="language-con">{'b': 'foofoo'}</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">多节点</h3><pre class="code"><code class="language-python">from langgraph.channels import LastValue, EphemeralValue
+from langgraph.pregel import Pregel, NodeBuilder
+
+node1 = (
+    NodeBuilder().subscribe_only("a")
+    .do(lambda x: x + x)
+    .write_to("b")
+)
+
+node2 = (
+    NodeBuilder().subscribe_only("b")
+    .do(lambda x: x + x)
+    .write_to("c")
+)
+
+
+app = Pregel(
+    nodes={"node1": node1, "node2": node2},
+    channels={
+        "a": EphemeralValue(str),
+        "b": LastValue(str),
+        "c": EphemeralValue(str),
+    },
+    input_channels=["a"],
+    output_channels=["b", "c"],
+)
+
+app.invoke({"a": "foo"})</code></pre>
+<pre class="code"><code class="language-con">{'b': 'foofoo', 'c': 'foofoofoofoo'}</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">Topic</h3><pre class="code"><code class="language-python">from langgraph.channels import EphemeralValue, Topic
+from langgraph.pregel import Pregel, NodeBuilder
+
+node1 = (
+    NodeBuilder().subscribe_only("a")
+    .do(lambda x: x + x)
+    .write_to("b", "c")
+)
+
+node2 = (
+    NodeBuilder().subscribe_to("b")
+    .do(lambda x: x["b"] + x["b"])
+    .write_to("c")
+)
+
+app = Pregel(
+    nodes={"node1": node1, "node2": node2},
+    channels={
+        "a": EphemeralValue(str),
+        "b": EphemeralValue(str),
+        "c": Topic(str, accumulate=True),
+    },
+    input_channels=["a"],
+    output_channels=["c"],
+)
+
+app.invoke({"a": "foo"})</code></pre>
+<pre class="code"><code class="language-pycon">{'c': ['foofoo', 'foofoofoofoo']}</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">BinaryOperatorAggregate</h3><p>此示例演示如何使用 <a href="https://reference.langchain.com/python/langgraph/channels/binop/BinaryOperatorAggregate"><code>BinaryOperatorAggregate</code></a> 通道来实现 reducer。</p>
+<pre class="code"><code class="language-python">from langgraph.channels import EphemeralValue, BinaryOperatorAggregate
+from langgraph.pregel import Pregel, NodeBuilder
+
+
+node1 = (
+    NodeBuilder().subscribe_only("a")
+    .do(lambda x: x + x)
+    .write_to("b", "c")
+)
+
+node2 = (
+    NodeBuilder().subscribe_only("b")
+    .do(lambda x: x + x)
+    .write_to("c")
+)
+
+def reducer(current, update):
+    if current:
+        return current + " | " + update
+    else:
+        return update
+
+app = Pregel(
+    nodes={"node1": node1, "node2": node2},
+    channels={
+        "a": EphemeralValue(str),
+        "b": EphemeralValue(str),
+        "c": BinaryOperatorAggregate(str, operator=reducer),
+    },
+    input_channels=["a"],
+    output_channels=["c"],
+)
+
+app.invoke({"a": "foo"})</code></pre>
+<pre class="code"><code class="language-console">{ 'c': 'foofoo | foofoofoofoo' }</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">循环</h3><p>此示例演示如何在图中引入循环：让一条链写入它所订阅的通道。执行将持续进行，直到向该通道写入 <code>None</code> 值。</p>
+<pre class="code"><code class="language-python">from langgraph.channels import EphemeralValue
+from langgraph.pregel import Pregel, NodeBuilder, ChannelWriteEntry
+
+example_node = (
+    NodeBuilder().subscribe_only("value")
+    .do(lambda x: x + x if len(x) &lt; 10 else None)
+    .write_to(ChannelWriteEntry("value", skip_none=True))
+)
+
+app = Pregel(
+    nodes={"example_node": example_node},
+    channels={
+        "value": EphemeralValue(str),
+    },
+    input_channels=["value"],
+    output_channels=["value"],
+)
+
+app.invoke({"value": "a"})</code></pre>
+<pre class="code"><code class="language-pycon">{'value': 'aaaaaaaaaaaaaaaa'}</code></pre></section>
+</div>
+
+<h2 id="高层-api">高层 API</h2>
+
+<p>LangGraph 提供了两种用于创建 Pregel 应用程序的高层 API：<a href="graph-api.html">StateGraph（Graph API）</a> 和 <a href="functional-api.html">Functional API</a>。</p>
+<div class="tabs">
+<section class="tab-item"><h3 class="tab-title">StateGraph（Graph API）</h3><p><a href="https://reference.langchain.com/python/langgraph/graph/state/StateGraph">StateGraph（Graph API）</a> 是一种更高级的抽象，它简化了 Pregel 应用程序的创建。它允许你定义由节点和边组成的图。当你编译图时，StateGraph API 会自动为你创建 Pregel 应用程序。</p>
+<pre class="code"><code class="language-python">from typing import TypedDict
+
+from langgraph.constants import START
+from langgraph.graph import StateGraph
+
+class Essay(TypedDict):
+    topic: str
+    content: str | None
+    score: float | None
+
+def write_essay(essay: Essay):
+    return {
+        "content": f"Essay about {essay['topic']}",
+    }
+
+def score_essay(essay: Essay):
+    return {
+        "score": 10
+    }
+
+builder = StateGraph(Essay)
+builder.add_node(write_essay)
+builder.add_node(score_essay)
+builder.add_edge(START, "write_essay")
+builder.add_edge("write_essay", "score_essay")
+
+# Compile the graph.
+# This will return a Pregel instance.
+graph = builder.compile()</code></pre>
+<p>编译后的 Pregel 实例将与一组节点和通道关联。你可以通过打印它们来检查节点和通道。</p>
+<pre class="code"><code class="language-python">print(graph.nodes)</code></pre>
+<p>你会看到类似下面的内容：</p>
+<pre class="code"><code class="language-pycon">{'__start__': &lt;langgraph.pregel.read.PregelNode at 0x7d05e3ba1810&gt;,
+ 'write_essay': &lt;langgraph.pregel.read.PregelNode at 0x7d05e3ba14d0&gt;,
+ 'score_essay': &lt;langgraph.pregel.read.PregelNode at 0x7d05e3ba1710&gt;}</code></pre>
+<pre class="code"><code class="language-python">print(graph.channels)</code></pre>
+<p>你应该会看到类似下面的内容：</p>
+<pre class="code"><code class="language-pycon">{'topic': &lt;langgraph.channels.last_value.LastValue at 0x7d05e3294d80&gt;,
+ 'content': &lt;langgraph.channels.last_value.LastValue at 0x7d05e3295040&gt;,
+ 'score': &lt;langgraph.channels.last_value.LastValue at 0x7d05e3295980&gt;,
+ '__start__': &lt;langgraph.channels.ephemeral_value.EphemeralValue at 0x7d05e3297e00&gt;,
+ 'write_essay': &lt;langgraph.channels.ephemeral_value.EphemeralValue at 0x7d05e32960c0&gt;,
+ 'score_essay': &lt;langgraph.channels.ephemeral_value.EphemeralValue at 0x7d05e2d8ab80&gt;,
+ 'branch:__start__:__self__:write_essay': &lt;langgraph.channels.ephemeral_value.EphemeralValue at 0x7d05e32941c0&gt;,
+ 'branch:__start__:__self__:score_essay': &lt;langgraph.channels.ephemeral_value.EphemeralValue at 0x7d05e2d88800&gt;,
+ 'branch:write_essay:__self__:write_essay': &lt;langgraph.channels.ephemeral_value.EphemeralValue at 0x7d05e3295ec0&gt;,
+ 'branch:write_essay:__self__:score_essay': &lt;langgraph.channels.ephemeral_value.EphemeralValue at 0x7d05e2d8ac00&gt;,
+ 'branch:score_essay:__self__:write_essay': &lt;langgraph.channels.ephemeral_value.EphemeralValue at 0x7d05e2d89700&gt;,
+ 'branch:score_essay:__self__:score_essay': &lt;langgraph.channels.ephemeral_value.EphemeralValue at 0x7d05e2d8b400&gt;,
+ 'start:write_essay': &lt;langgraph.channels.ephemeral_value.EphemeralValue at 0x7d05e2d8b280&gt;}</code></pre></section>
+<section class="tab-item"><h3 class="tab-title">Functional API</h3><p>在 <a href="functional-api.html">Functional API</a> 中，你可以使用 <a href="https://reference.langchain.com/python/langgraph/func/entrypoint"><code>@entrypoint</code></a> 创建 Pregel 应用程序。<code>entrypoint</code> 装饰器允许你定义一个接收输入并返回输出的函数。</p>
+<pre class="code"><code class="language-python">from typing import TypedDict
+
+from langgraph.checkpoint.memory import InMemorySaver
+from langgraph.func import entrypoint
+
+class Essay(TypedDict):
+    topic: str
+    content: str | None
+    score: float | None
+
+
+checkpointer = InMemorySaver()
+
+@entrypoint(checkpointer=checkpointer)
+def write_essay(essay: Essay):
+    return {
+        "content": f"Essay about {essay['topic']}",
+    }
+
+print("Nodes: ")
+print(write_essay.nodes)
+print("Channels: ")
+print(write_essay.channels)</code></pre>
+<pre class="code"><code class="language-pycon">Nodes:
+{'write_essay': &lt;langgraph.pregel.read.PregelNode object at 0x7d05e2f9aad0&gt;}
+Channels:
+{'__start__': &lt;langgraph.channels.ephemeral_value.EphemeralValue object at 0x7d05e2c906c0&gt;, '__end__': &lt;langgraph.channels.last_value.LastValue object at 0x7d05e2c90c40&gt;, '__previous__': &lt;langgraph.channels.last_value.LastValue object at 0x7d05e1007280&gt;}</code></pre></section>
+</div>
+
+<hr />
+<div classname="source-links">
+<div class="callout note">
+<p>通过 MCP 将<a href="https://docs.langchain.com/use-these-docs">这些文档</a>连接到 Claude、VSCode 等工具，获取实时解答。</p>
+</div>
+<div class="callout note">
+<p>在 GitHub 上<a href="https://github.com/langchain-ai/docs/edit/main/src/oss/langgraph/pregel.mdx">编辑此页面</a>或<a href="https://github.com/langchain-ai/docs/issues/new/choose">提交问题</a>。</p>
+</div>
+</div></main>
+    <nav class="pager"><a class="pager-btn prev" href="oss/python/langgraph/persistence.html">← 持久化</a><a class="pager-btn next" href="oss/python/langgraph/quickstart.html">快速入门 →</a></nav>
+    <footer class="footer">
+      <span>LangGraph 中文文档镜像——按 <a href="https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture" target="_blank" rel="noopener">官方站点（docs.langchain.com）</a></span>
+      <span class="pages">全部页面： <a href="../../../index.html">首页</a> · <a href="../../../all-in-one.html">单页版</a></span>
+    </footer>
+  </div>
+</div>
+<script src="../../../assets/site.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/common.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
+</body>
+</html>
